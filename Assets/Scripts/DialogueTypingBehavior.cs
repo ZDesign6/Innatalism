@@ -31,13 +31,26 @@ public class DialogueTypingBehavior : MonoBehaviour
     public AudioClip positiveVoiceClip;
     public AudioClip negativeVoiceClip;
     [SerializeField] [Range(-2, 2)] private float pitchMin, pitchMax;
+    
+    //---OTHER---//
+    // option for a line to be displayed when the scene loads
+    public bool hasEntryLine;
+    public string entryLine;
 
-
-    private void Start()
+    void Awake()
     {
         characterVoice = GameObject.Find("PlayerVoice").GetComponent<AudioSource>();
         dialogueBox = GameObject.Find("DialogueBox");
         dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
+        CloseDialogueBox();
+    }
+
+    private void Start()
+    {
+        if (hasEntryLine)
+        {
+            DisplayLine(entryLine);
+        }
     }
 
     private void Update()
