@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -41,6 +42,7 @@ public class DialogueTypingBehavior : MonoBehaviour
         //if we are in dialogue we want to be listening for texttttt
         if (inDialogue)
         {
+            
             //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
             dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + cursor + "<color=" + untypedColorHex + ">"+ untypedLine;
             
@@ -50,25 +52,58 @@ public class DialogueTypingBehavior : MonoBehaviour
                 //store the keypress in a temp variable
                 string keyPressed = Input.inputString;
                 
-                //add the key to the typed line
-                typedLine += keyPressed;
-                
-                //remove the key that was intended to be typed from the untyped line
-                untypedLine = untypedLine.Remove(0, 1);
-
-                //if there is nothing left to be typed
-                if (untypedLine.Length == 0)
+                //recognized characters... this avoids keys like ctrl or shift from counting as an input
+                List<string> recognizedCharacters = new List<string>()
                 {
-                    //we are done typin. eventually we'll probably have a pause and then close the dialogue box
-                    Debug.Log("finished typing line!");
-                    inDialogue = false;
+                    " ", ".", ",", "!", "?", "'", ";", ":", "&", "/", "-", ")", "(", 
+                    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+                    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+                };
+
+                //if this character is one accepted by the system
+                if (recognizedCharacters.Contains(keyPressed) && keyPressed.Length == 1)
+                {
+                    //if this character is the correct character
+                    if (untypedLine.IndexOf(keyPressed) == 0)
+                    {
+                        //BABY GROWTH CALCULATION SHIT!!!
+                        //CORRECT VOICE MUMBLE SOUND HERE YAY
+                    }
+                    else
+                    {
+                        //BABY GROWTH CALCULATION SHIT!!!!
+                        //INCORRECT VOICE MUMBLE SOUND HERE YAY
+                    }
+                    
+                    //regardless of whether the key is right, 
+                    //add the key to the typed line
+                    typedLine += keyPressed;
+                
+                    //remove the key that was intended to be typed from the untyped line
+                    untypedLine = untypedLine.Remove(0, 1);
+                    
+                    //if there is nothing left to be typed
+                    if (untypedLine.Length == 0)
+                    {
+                        //we are done typin.
+                        Debug.Log("finished typing line!");
+                        inDialogue = false;
+                        
+                        //close box for now. later i'll allow multiple lines to run at a time without the box closing
+                        CloseDialogueBox();
+                    }
+                    
+                    //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
+                    dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + cursor + "<color=" + untypedColorHex + ">"+ untypedLine;
                 }
+                
             }
         }
     }
 
     void DisplayLine(string line)
     {
+        OpenDialogueBox();
         //we are now in dialogue
         inDialogue = true;
         //the entire line we want to display has not been typed yet
