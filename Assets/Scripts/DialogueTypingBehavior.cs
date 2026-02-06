@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DialogueTypingBehavior : MonoBehaviour
 {
@@ -24,17 +26,18 @@ public class DialogueTypingBehavior : MonoBehaviour
     //The character that appears between the typed and untyped line strings
     char cursor = '|';
     
-    //---BABY GROWTH CALCULATION---//
-    //percentage of characters typed in the dialogue that are correct
-    float correctnessPercentage;
-    //percentage of correct characters that need to be typed correctly in order to progress the baby's extremism "positively" (more clone-like)
-    public float minimumCorrectValue;
+    //---MAN VOICE---//
+    AudioSource characterVoice;
+    public AudioClip positiveVoiceClip;
+    public AudioClip negativeVoiceClip;
+    [SerializeField] [Range(-2, 2)] private float pitchMin, pitchMax;
+
 
     private void Start()
     {
+        characterVoice = GameObject.Find("PlayerVoice").GetComponent<AudioSource>();
         dialogueBox = GameObject.Find("DialogueBox");
         dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
-        DisplayLine("This is a temporary line to test stuff i looooooveee unity!!! ayay");
     }
 
     private void Update()
@@ -63,16 +66,23 @@ public class DialogueTypingBehavior : MonoBehaviour
                 //if this character is one accepted by the system
                 if (recognizedCharacters.Contains(keyPressed) && keyPressed.Length == 1)
                 {
-                    //if this character is the correct character
+                    //stop previous voice clips to prevent overlap
+                    characterVoice.Stop();
+                    //randomize the pitch within given constraints
+                    characterVoice.pitch = Random.Range(pitchMin, pitchMax);
+                    
+                    //if this character is the correct character 
                     if (untypedLine.IndexOf(keyPressed) == 0)
                     {
                         //BABY GROWTH CALCULATION SHIT!!!
-                        //CORRECT VOICE MUMBLE SOUND HERE YAY
+                        //PLAY CORRECT VOICE MUMBLE SOUND HERE YAY
+                        characterVoice.PlayOneShot(positiveVoiceClip);
                     }
                     else
                     {
                         //BABY GROWTH CALCULATION SHIT!!!!
-                        //INCORRECT VOICE MUMBLE SOUND HERE YAY
+                        //PLAY INCORRECT VOICE MUMBLE SOUND HERE AW :(
+                        characterVoice.PlayOneShot(negativeVoiceClip);
                     }
                     
                     //regardless of whether the key is right, 
