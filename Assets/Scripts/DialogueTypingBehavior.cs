@@ -25,6 +25,8 @@ public class DialogueTypingBehavior : MonoBehaviour
     string untypedLine;
     //The character that appears between the typed and untyped line strings
     char cursor = '|';
+    //the last character that was parsed
+    string keyPressed;
     
     //---AUDIO CLIPS---//
     AudioSource characterVoice;
@@ -67,7 +69,7 @@ public class DialogueTypingBehavior : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 //store the keypress in a temp variable
-                string keyPressed = Input.inputString;
+                keyPressed = Input.inputString;
 
                 //recognized characters... this avoids keys like ctrl or shift from counting as an input
                 List<string> recognizedCharacters = new List<string>()
@@ -146,6 +148,15 @@ public class DialogueTypingBehavior : MonoBehaviour
         //enable dialogue box. might change this to be an animation later.
         dialogueBox.SetActive(true);
     }
-    
+    //this fct plays a "positive" sound clip. The exact clip it plays is determined by the last parsed character.
+    void PlayPositiveSound()
+    {
+
+    }
+    //this fct plays a "negative" sound clip THe exact clip it palhys is determined by the last parsed character.
+    void PlayNegativeSound()
+    {
+
+    }
     
 }

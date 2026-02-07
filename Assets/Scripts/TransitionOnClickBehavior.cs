@@ -4,6 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class TransitionOnClickBehavior : MonoBehaviour
 {
+    // -- LOGIC GATING --
+
+    //track if this is a bed. If it is, then the scene will not transition until the gameManager confirms that the listening segment has been completed
+    public bool isBed = false;
+
     // -- REFERERENCES --
 
     //variable which holds the Collider with which we will check collision
@@ -32,12 +37,34 @@ public class TransitionOnClickBehavior : MonoBehaviour
         {
             //toggle holdingLMouse on to prevent spam
             holdingLMouse = true;
-            //if the collider contained the mouseInWorldPos
-            if (colliderToCheck.bounds.Contains(gameManager.mouseInWorldSpace))
+            //first, check if this object is a bed. If it is, require confirmation of listening being complete
+            if (isBed == true)
             {
-                //load the specified scene
-                SceneManager.LoadScene(sceneName);
+                //and the game manager confirms that listening has been completed
+                if (gameManager.listeningComplete == true)
+                {
+                    //if the collider contained the mouseInWorldPos
+                    if (colliderToCheck.bounds.Contains(gameManager.mouseInWorldSpace))
+                    {
+                        //load the specified scene
+                        SceneManager.LoadScene(sceneName);
+                        //and flip listeningComplete to false
+                        gameManager.listeningComplete = false;
+                    }
+                }
+                //HOOK IN POINT FOR A DENIAL MESSAGE
+                Debug.Log("Listening has not been completed, transition denied");
             }
+            //else, if we are not a bed, simply transition without checking if the listening stage has been completed 
+            else
+            {
+                //if the collider contained the mouseInWorldPos
+                if (colliderToCheck.bounds.Contains(gameManager.mouseInWorldSpace))
+                {
+                    //load the specified scene
+                    SceneManager.LoadScene(sceneName);
+                }
+            } 
         }
         else
         {

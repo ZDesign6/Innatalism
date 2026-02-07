@@ -10,6 +10,12 @@ public class GameManagerBehavior : MonoBehaviour
 
     //stores the computed location of the mouse in world space
     public Vector2 mouseInWorldSpace;
+
+    // -- GAME STATE --
+
+    //tracks if the player has completed the Listening stage
+    public bool listeningComplete = false;
+
     //awake runs as soon as the object the script is on is instantiated
     private void Awake()
     {
