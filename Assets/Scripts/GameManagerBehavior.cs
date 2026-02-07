@@ -26,7 +26,7 @@ public class GameManagerBehavior : MonoBehaviour
             if (singleton != this)
             {
                 //destroy this entire gameManger gameObject
-                Destroy(singleton);
+                Destroy(this.gameObject);
             }
         }
         //If we made it this far without being destroyed, then this object is carries the singleton. Mark it as Don'tDestroy
