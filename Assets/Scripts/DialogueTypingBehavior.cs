@@ -26,10 +26,11 @@ public class DialogueTypingBehavior : MonoBehaviour
     //The character that appears between the typed and untyped line strings
     char cursor = '|';
     
-    //---MAN VOICE---//
+    //---AUDIO CLIPS---//
     AudioSource characterVoice;
     public AudioClip positiveVoiceClip;
     public AudioClip negativeVoiceClip;
+    //adjustable range for min and max pitch of the voice clips
     [SerializeField] [Range(-2, 2)] private float pitchMin, pitchMax;
     
     //---OTHER---//
@@ -67,11 +68,11 @@ public class DialogueTypingBehavior : MonoBehaviour
             {
                 //store the keypress in a temp variable
                 string keyPressed = Input.inputString;
-                
+
                 //recognized characters... this avoids keys like ctrl or shift from counting as an input
                 List<string> recognizedCharacters = new List<string>()
                 {
-                    " ", ".", ",", "!", "?", "'", ";", ":", "&", "/", "-", ")", "(", 
+                    " ", ".", ",", "!", "?", "'", ";", ":", "&", "/", "-", ")", "(",
                     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
                     "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
                 };
