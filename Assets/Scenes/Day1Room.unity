@@ -989,8 +989,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
-  hasEntryLine: 0
-  entryLine: 
+  dialogues:
+  - i am in the room
+  dialoguesIndex: 0
   isBaby: 0
 --- !u!4 &1599761903
 Transform:

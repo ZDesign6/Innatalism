@@ -24,6 +24,10 @@ public class DialogueTypingBehavior : MonoBehaviour
     
     //---TYPING STUFFS---//
     bool inDialogue = false;
+    //meoowww the lines meeoooowwww
+    public List<String> dialogues;
+    //,ewwwpep meeow the index of the dialogues yaassss meooow slAY pussy queen
+    public int dialoguesIndex = 0;
     //Text that the user has already typed
     string typedLine;
     //Text that the user has not typed
@@ -42,12 +46,9 @@ public class DialogueTypingBehavior : MonoBehaviour
 
     
     //---OTHER---//
-    // option for a line to be displayed when the scene loads
-    public bool hasEntryLine;
-    //the line to be dislayed on scene load
-    public string entryLine;
     //tracks if this Dialogue was for the baby or not. Determines if we should trigger a Listening Event after completing Speaking.
     public bool isBaby = false;
+   
 
     void Awake()
     {
@@ -58,11 +59,7 @@ public class DialogueTypingBehavior : MonoBehaviour
 
     private void Start()
     {
-        //if this instance has an entry line, display it
-        if (hasEntryLine)
-        {
-            DisplayLine(entryLine);
-        }
+        LoadLine();
         //assign ref to the VoiceBehavior Script in the scene
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
         //and assign self to the voiceScript's typingScript ref
@@ -116,11 +113,23 @@ public class DialogueTypingBehavior : MonoBehaviour
                     //if there is nothing left to be typed
                     if (untypedLine.Length == 0)
                     {
+                        //inc index meow
+                        dialoguesIndex++;
+                        
                         //we are done typin.
                         Debug.Log("finished typing line!");
-                        inDialogue = false;
-                        //close box for now. later i'll allow multiple lines to run at a time without the box closing
-                        CloseDialogueBox();
+                        
+                        if (dialoguesIndex != dialogues.Count)
+                        {
+                            LoadLine();
+                        }
+                        else
+                        {
+                            //i finished reading woahahshhs
+                            inDialogue = false;
+                            CloseDialogueBox();
+                        }
+                        
                         //finally, if this Dialogue was for a Baby, start Listening
                         if (isBaby == true)
                         {
@@ -137,14 +146,16 @@ public class DialogueTypingBehavior : MonoBehaviour
         }
     }
 
-    void DisplayLine(string line)
+ 
+    void LoadLine()
     {
         OpenDialogueBox();
         //we are now in dialogue
         inDialogue = true;
         //the entire line we want to display has not been typed yet
-        untypedLine = line;
-        
+        untypedLine = dialogues[dialoguesIndex];
+        typedLine = "";
+
     }
     
     void CloseDialogueBox()

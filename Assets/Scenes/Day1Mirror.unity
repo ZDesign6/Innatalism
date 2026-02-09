@@ -956,9 +956,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
-  hasEntryLine: 1
-  entryLine: I can do this. I can do this. I can do this.
-  isBaby: 1
+  dialogues:
+  - i am gonna be suchh a good mom
+  - mom mom mom mom
+  - i am gonna be suchh a good mom
+  dialoguesIndex: 0
+  isBaby: 0
 --- !u!4 &1599761903
 Transform:
   m_ObjectHideFlags: 0
@@ -986,6 +989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b6da5136b75294b9b20fe8e2916ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ListeningBehavior
+  basePlaybackDelay: 30
+  maxPercentVariation: 0.25
 --- !u!1 &1674529269
 GameObject:
   m_ObjectHideFlags: 0
