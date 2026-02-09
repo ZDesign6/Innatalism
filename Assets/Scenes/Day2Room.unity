@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d95da7b4e62de040bd91c3b926116b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  isBed: 0
   sceneName: Day1Mirror
 --- !u!61 &88834800
 BoxCollider2D:
@@ -874,7 +873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d95da7b4e62de040bd91c3b926116b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  isBed: 0
   sceneName: Day1Mirror
 --- !u!1 &1170492909
 GameObject:
@@ -906,7 +904,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerBehavior
   mouseInWorldSpace: {x: 0, y: 0}
+  currentlyListening: 0
   listeningComplete: 0
+  babyExtremism: 0
+  playerResponse: 
+  playerResponseAccuracy: 
 --- !u!4 &1170492911
 Transform:
   m_ObjectHideFlags: 0
@@ -998,6 +1000,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274764451}
   m_CullTransparentMesh: 1
+--- !u!1001 &1330668538
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7645784903885491106, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_Name
+      value: Voices
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.61082
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.28454
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8511223007188106343, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 397ba7457724252488ff6b37e2fd4b29, type: 3}
 --- !u!1 &1541120735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,12 +1224,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
-  positiveVoiceClip: {fileID: 8300000, guid: e09c07dc2ccaabe428317b1f43e1ecee, type: 3}
-  negativeVoiceClip: {fileID: 8300000, guid: 1b8860b4c21d6804794d0931ede4e5fb, type: 3}
-  pitchMin: 1
-  pitchMax: 1.25
   hasEntryLine: 0
   entryLine: 
+  isBaby: 0
 --- !u!4 &1599761903
 Transform:
   m_ObjectHideFlags: 0
@@ -1198,7 +1254,7 @@ GameObject:
   - component: {fileID: 1674529272}
   - component: {fileID: 1674529271}
   m_Layer: 5
-  m_Name: DialogueText (1)
+  m_Name: RoomLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1243,7 +1299,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: room
+  m_text: 'Day 2 Room
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1414,3 +1472,4 @@ SceneRoots:
   - {fileID: 736354845}
   - {fileID: 1170492911}
   - {fileID: 88834802}
+  - {fileID: 1330668538}

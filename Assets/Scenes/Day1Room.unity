@@ -745,6 +745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BedBehavior
   nextDaySceneName: Day2Room
+  correctnessPrecentageThreshold: 0.35
 --- !u!1 &1274764451
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,10 +989,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
-  playerResponse: 
-  playerResponseAccuracy: 
   hasEntryLine: 0
   entryLine: 
+  isBaby: 0
 --- !u!4 &1599761903
 Transform:
   m_ObjectHideFlags: 0
@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 1674529272}
   - component: {fileID: 1674529271}
   m_Layer: 5
-  m_Name: DialogueText (1)
+  m_Name: RoomLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1064,7 +1064,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: room
+  m_text: 'Day 1 Room
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

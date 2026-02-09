@@ -14,9 +14,9 @@ public class ListeningBehavior : MonoBehaviour
     //this tracks what index we are parsing when going through playerResponses during a Listening segment.
     int parsingIndex = 0;
     //the base delay in frames between audio playback.
-    int basePlaybackDelay = 30;
+    public int basePlaybackDelay = 30;
     //the max percentage variation in playback delay
-    float maxPercentVariation = .25f;
+    [SerializeField][Range(.15f,.75f)] private float maxPercentVariation = .25f;
     //tracks how many frames are left until the next playback. Starts at 0, set after a playback.
     int currentDelay = 0;
 

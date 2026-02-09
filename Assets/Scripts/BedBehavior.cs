@@ -24,7 +24,10 @@ public class BedBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //fetch the first component that falls unyder the collider2D parent class
+        colliderToCheck = this.gameObject.GetComponent<Collider2D>();
+        //assign ref to singleton
+        gameManager = GameManagerBehavior.singleton;
     }
 
     // Update is called once per frame
@@ -58,7 +61,7 @@ public class BedBehavior : MonoBehaviour
                     /*next, calculate the overall accuracy percentage by dividing the correctChars by the total number of Chars recorded*/
                     float responseAccuracy = correctChars / gameManager.playerResponseAccuracy.Count;
                     /*finally, if the responseAccuracy exceeded the accuracyThreshold, then move extremism UP*/
-                    if (responseAccuracy < correctnessPrecentageThreshold)
+                    if (responseAccuracy > correctnessPrecentageThreshold)
                     {
                         gameManager.babyExtremism = gameManager.babyExtremism + 1;
                     }

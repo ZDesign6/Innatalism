@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day1Mirror.unity
     guid: 84420b2ea17e7284697dc53ef7451b50
+  - enabled: 1
+    path: Assets/Scenes/Day2Room.unity
+    guid: 946e597f316e40d4bb25cb3c94d4d9bb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
