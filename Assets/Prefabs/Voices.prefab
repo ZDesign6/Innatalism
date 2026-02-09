@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VoicesBehavior
   typingScript: {fileID: 0}
-  manMinPitch: 0.5
-  manMaxPitch: 1.5
+  manMinPitch: 0.8
+  manMaxPitch: 1.2
   babyMinPitch: 0.5
   babyMaxPitch: 1.5
   manPositiveNoises:

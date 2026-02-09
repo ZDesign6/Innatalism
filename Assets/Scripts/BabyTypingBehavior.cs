@@ -1,10 +1,9 @@
+using UnityEngine;
 using System;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class DialogueTypingBehavior : MonoBehaviour
+public class BabyTypingBehavior : MonoBehaviour
 {
     // -- REFS --
     //ref to the VoiceBehavior Script from the Voices object in the Scene. Assigned during Start()
@@ -55,21 +54,13 @@ public class DialogueTypingBehavior : MonoBehaviour
 
     private void Start()
     {
+        LoadLine();
         //assign ref to the VoiceBehavior Script in the scene
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
         //and assign self to the voiceScript's typingScript ref
-        voiceScript.dialogueTypingScript = this;
+        voiceScript.babyTypingScript = this;
         //assign ref to singleton
         gameManager = GameManagerBehavior.singleton;
-        
-        //if the room dialogue has not been completed 
-        if (!gameManager.roomDialogueCompleted)
-        {
-            //kickstart first line
-            LoadLine();
-        }
-        
-        
     }
 
     private void Update()
@@ -131,9 +122,12 @@ public class DialogueTypingBehavior : MonoBehaviour
                         {
                             //i finished reading woahahshhs
                             inDialogue = false;
-                            gameManager.roomDialogueCompleted = true;
                             CloseDialogueBox();
+                           
                         }
+                        
+                        //flip currentlyListening on in the gameManager to begin the Listening sequence.
+                        gameManager.currentlyListening = true;
                         
                     }
                     
@@ -144,11 +138,8 @@ public class DialogueTypingBehavior : MonoBehaviour
             }
         }
     }
-
- 
     void LoadLine()
     {
-      
         OpenDialogueBox();
         //we are now in dialogue
         inDialogue = true;
@@ -169,5 +160,6 @@ public class DialogueTypingBehavior : MonoBehaviour
         //enable dialogue box. might change this to be an animation later.
         dialogueBox.SetActive(true);
     }
-    
+
+
 }

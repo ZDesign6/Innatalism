@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using Random = UnityEngine.Random;
-
-public class DialogueTypingBehavior : MonoBehaviour
+public class MantraTypingBehavior : MonoBehaviour
 {
     // -- REFS --
     //ref to the VoiceBehavior Script from the Voices object in the Scene. Assigned during Start()
@@ -45,9 +43,9 @@ public class DialogueTypingBehavior : MonoBehaviour
         "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
     };
     
-
     void Awake()
     {
+        sceneTransitionBehavior = GameObject.Find("SceneTransitioner").GetComponent<SceneTransitionBehavior>();
         dialogueBox = GameObject.Find("DialogueBox");
         dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
         CloseDialogueBox();
@@ -55,21 +53,13 @@ public class DialogueTypingBehavior : MonoBehaviour
 
     private void Start()
     {
+        LoadLine();
         //assign ref to the VoiceBehavior Script in the scene
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
         //and assign self to the voiceScript's typingScript ref
-        voiceScript.dialogueTypingScript = this;
+        voiceScript.mantraTypingScript = this;
         //assign ref to singleton
         gameManager = GameManagerBehavior.singleton;
-        
-        //if the room dialogue has not been completed 
-        if (!gameManager.roomDialogueCompleted)
-        {
-            //kickstart first line
-            LoadLine();
-        }
-        
-        
     }
 
     private void Update()
@@ -131,10 +121,10 @@ public class DialogueTypingBehavior : MonoBehaviour
                         {
                             //i finished reading woahahshhs
                             inDialogue = false;
-                            gameManager.roomDialogueCompleted = true;
                             CloseDialogueBox();
+                            sceneTransitionBehavior.TransitionTo();
+                            
                         }
-                        
                     }
                     
                     //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
@@ -148,7 +138,6 @@ public class DialogueTypingBehavior : MonoBehaviour
  
     void LoadLine()
     {
-      
         OpenDialogueBox();
         //we are now in dialogue
         inDialogue = true;

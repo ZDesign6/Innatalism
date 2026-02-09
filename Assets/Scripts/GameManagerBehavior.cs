@@ -20,7 +20,10 @@ public class GameManagerBehavior : MonoBehaviour
     public bool listeningComplete = false;
     //tracks the current Extremism of the baby. Increased / decreased during TransitionOnClick behavior in response to the accuracy of the playerResponse.
     public int babyExtremism = 0;
-
+    //tracks if we have gone through the initial room text. reset by bed behavior before transitioning to a new day
+    public bool roomDialogueCompleted = false;
+    
+    
     //-- RESPONSE PARSING -- (this should only be relevant once every day, during Listening sections. These variables start empty and are emptied again at the end of a Day during BedBehavior.)
     //an empty string, filled with chars as the player types them. Used by Voices object to determine what phonemes to play.
     public string playerResponse;

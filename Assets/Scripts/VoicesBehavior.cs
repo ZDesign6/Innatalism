@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class VoicesBehavior : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class VoicesBehavior : MonoBehaviour
 
     // -- REFS --
     //this is a ref to the active DialogueTypingBehavior. Since there is only one in a scene, it will assign itself to this var when it finds this script.
-    public DialogueTypingBehavior typingScript;
+    public DialogueTypingBehavior dialogueTypingScript;
+    public MantraTypingBehavior mantraTypingScript;
+    public BabyTypingBehavior babyTypingScript;
     //ref to the singleton
     GameManagerBehavior gameManager;
 
@@ -193,7 +196,7 @@ public class VoicesBehavior : MonoBehaviour
         //convert the parsed char into a phoneme index
         int phonemeIndex = charToPhonemeIndex(charToParse);
         //then, play the phoneme from the Soundbank
-        audioSource.PlayOneShot(manPositiveNoises[phonemeIndex]);
+        audioSource.PlayOneShot(manNegativeNoises[phonemeIndex]);
         Debug.Log("Played a Negative Man Sound");
     }
     //this fct plays a "positive" baby sound clip. The exact clip it plays is determined by the character currently being parsed from the player's response, and by the baby's current Extremism level.

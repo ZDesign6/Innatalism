@@ -78,6 +78,8 @@ public class BedBehavior : MonoBehaviour
                     gameManager.playerResponseAccuracy = null;
                     //and flip listeningComplete to false
                     gameManager.listeningComplete = false;
+                    //reset room dialogue completed to prep for next day!!!
+                    gameManager.roomDialogueCompleted = false;
                     //load the next day
                     SceneManager.LoadScene(nextDaySceneName);
                 }
