@@ -1,12 +1,17 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class DialogueTypingBehavior : MonoBehaviour
 {
+    // -- REFS --
+    //ref to the VoiceBehavior Script from the Voices object in the Scene. Assigned during Start()
+    VoicesBehavior voiceScript;
+    //ref to the singleton. Assigned during Start
+    GameManagerBehavior gameManager;
+
     //---UI STUFFS---//
     
     //The parent gameobject holding every piece of the dialogue box
@@ -27,13 +32,14 @@ public class DialogueTypingBehavior : MonoBehaviour
     char cursor = '|';
     //the last character that was parsed
     string keyPressed;
-    
-    //---AUDIO CLIPS---//
-    AudioSource characterVoice;
-    public AudioClip positiveVoiceClip;
-    public AudioClip negativeVoiceClip;
-    //adjustable range for min and max pitch of the voice clips
-    [SerializeField] [Range(-2, 2)] private float pitchMin, pitchMax;
+    //List of characters to accept when parsing input
+    List<string> recognizedCharacters = new List<string>()
+    {
+        " ", ".", ",", "!", "?", "\"", "'", ";", ":", "&", "/","\\", "-", ")", "(",
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+    };
+
     
     //---OTHER---//
     // option for a line to be displayed when the scene loads
@@ -42,7 +48,6 @@ public class DialogueTypingBehavior : MonoBehaviour
 
     void Awake()
     {
-        characterVoice = GameObject.Find("PlayerVoice").GetComponent<AudioSource>();
         dialogueBox = GameObject.Find("DialogueBox");
         dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
         CloseDialogueBox();
@@ -50,10 +55,17 @@ public class DialogueTypingBehavior : MonoBehaviour
 
     private void Start()
     {
+        //if this instance has an entry line, display it
         if (hasEntryLine)
         {
             DisplayLine(entryLine);
         }
+        //assign ref to the VoiceBehavior Script in the scene
+        voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
+        //and assign self to the voiceScript's typingScript ref
+        voiceScript.typingScript = this;
+        //assign ref to singleton
+        gameManager = GameManagerBehavior.singleton;
     }
 
     private void Update()
@@ -71,34 +83,30 @@ public class DialogueTypingBehavior : MonoBehaviour
                 //store the keypress in a temp variable
                 keyPressed = Input.inputString;
 
-                //recognized characters... this avoids keys like ctrl or shift from counting as an input
-                List<string> recognizedCharacters = new List<string>()
-                {
-                    " ", ".", ",", "!", "?", "'", ";", ":", "&", "/", "-", ")", "(",
-                    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-                    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-                };
-
                 //if this character is one accepted by the system
                 if (recognizedCharacters.Contains(keyPressed) && keyPressed.Length == 1)
                 {
-                    //stop previous voice clips to prevent overlap
-                    characterVoice.Stop();
-                    //randomize the pitch within given constraints
-                    characterVoice.pitch = Random.Range(pitchMin, pitchMax);
-                    
+                    //write it into the playerResponse string, to be parsed later during Listening
+                    gameManager.playerResponse = gameManager.playerResponse + keyPressed;
                     //if this character is the correct character 
                     if (untypedLine.IndexOf(keyPressed) == 0)
                     {
+                        //write a true boolean into the playerResponseAccuracy List, to be parsed later during Listening
+                        gameManager.playerResponseAccuracy.Add(true);
+                        //play a positive man sound from the Voices Script
+                        voiceScript.PlayPositiveManSound(keyPressed[0]);
                         //BABY GROWTH CALCULATION SHIT!!!
-                        //PLAY CORRECT VOICE MUMBLE SOUND HERE YAY
-                        characterVoice.PlayOneShot(positiveVoiceClip);
+                        
                     }
+                    //if the character was incorrect
                     else
                     {
+                        //write a false boolean into the playerResponseAccuracy List, to be parsed later during Listening
+                        gameManager.playerResponseAccuracy.Add(false);
+                        //play a negative man sound from the Voices Script
+                        voiceScript.PlayNegativeManSound(keyPressed[0]);
                         //BABY GROWTH CALCULATION SHIT!!!!
-                        //PLAY INCORRECT VOICE MUMBLE SOUND HERE AW :(
-                        characterVoice.PlayOneShot(negativeVoiceClip);
+
                     }
                     
                     //regardless of whether the key is right, 
@@ -114,9 +122,10 @@ public class DialogueTypingBehavior : MonoBehaviour
                         //we are done typin.
                         Debug.Log("finished typing line!");
                         inDialogue = false;
-                        
                         //close box for now. later i'll allow multiple lines to run at a time without the box closing
                         CloseDialogueBox();
+                        //flip currentlyListening on in the gameManager to begin the Listening sequence.
+                        gameManager.currentlyListening = true;
                     }
                     
                     //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
@@ -147,16 +156,6 @@ public class DialogueTypingBehavior : MonoBehaviour
     {
         //enable dialogue box. might change this to be an animation later.
         dialogueBox.SetActive(true);
-    }
-    //this fct plays a "positive" sound clip. The exact clip it plays is determined by the last parsed character.
-    void PlayPositiveSound()
-    {
-
-    }
-    //this fct plays a "negative" sound clip THe exact clip it palhys is determined by the last parsed character.
-    void PlayNegativeSound()
-    {
-
     }
     
 }
