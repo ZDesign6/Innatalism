@@ -25,15 +25,15 @@ public class TransitionOnClickBehavior : MonoBehaviour
         //feftch the first component that falls unyder the collider2D parent class
         colliderToCheck = this.gameObject.GetComponent<Collider2D>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         //if mouse button is being pressed, and not being held down
         if (Mouse.current.leftButton.isPressed == true && holdingLMouse == false)
         {
             //toggle holdingLMouse on to prevent spam
             holdingLMouse = true;
-            //if the collider contained the mouseInWorldPos
-            if (colliderToCheck.bounds.Contains(gameManager.mouseInWorldSpace))
+            //if the collider contained the mouseInWorldPos AND we are not currently Listening
+            if (colliderToCheck.bounds.Contains(gameManager.mouseInWorldSpace) && gameManager.currentlyListening == false)
             {
               
                 //load the specified scene

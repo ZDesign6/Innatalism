@@ -44,7 +44,10 @@ public class DialogueTypingBehavior : MonoBehaviour
     //---OTHER---//
     // option for a line to be displayed when the scene loads
     public bool hasEntryLine;
+    //the line to be dislayed on scene load
     public string entryLine;
+    //tracks if this Dialogue was for the baby or not. Determines if we should trigger a Listening Event after completing Speaking.
+    public bool isBaby = false;
 
     void Awake()
     {
@@ -95,8 +98,6 @@ public class DialogueTypingBehavior : MonoBehaviour
                         gameManager.playerResponseAccuracy.Add(true);
                         //play a positive man sound from the Voices Script
                         voiceScript.PlayPositiveManSound(keyPressed[0]);
-                        //BABY GROWTH CALCULATION SHIT!!!
-                        
                     }
                     //if the character was incorrect
                     else
@@ -105,14 +106,10 @@ public class DialogueTypingBehavior : MonoBehaviour
                         gameManager.playerResponseAccuracy.Add(false);
                         //play a negative man sound from the Voices Script
                         voiceScript.PlayNegativeManSound(keyPressed[0]);
-                        //BABY GROWTH CALCULATION SHIT!!!!
-
                     }
                     
-                    //regardless of whether the key is right, 
-                    //add the key to the typed line
-                    typedLine += keyPressed;
-                
+                    //add the key to the typed line regardless of accuracy
+                    typedLine += keyPressed;              
                     //remove the key that was intended to be typed from the untyped line
                     untypedLine = untypedLine.Remove(0, 1);
                     
@@ -124,8 +121,12 @@ public class DialogueTypingBehavior : MonoBehaviour
                         inDialogue = false;
                         //close box for now. later i'll allow multiple lines to run at a time without the box closing
                         CloseDialogueBox();
-                        //flip currentlyListening on in the gameManager to begin the Listening sequence.
-                        gameManager.currentlyListening = true;
+                        //finally, if this Dialogue was for a Baby, start Listening
+                        if (isBaby == true)
+                        {
+                            //flip currentlyListening on in the gameManager to begin the Listening sequence.
+                            gameManager.currentlyListening = true;
+                        }
                     }
                     
                     //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8511223007188106343}
   - component: {fileID: 4321705637700577831}
   - component: {fileID: 6338702033925373559}
-  - component: {fileID: 605043052449966922}
   m_Layer: 0
   m_Name: Voices
   m_TagString: Untagged
@@ -171,64 +170,26 @@ MonoBehaviour:
   babyNeg2PosNoises: []
   babyNeg2NegNoises: []
   babyNeg1PosNoises: []
-  babyNeg1NegNoises: []
-  baby0PosNoises: []
-  baby0NegNoises: []
-  baby1PosNoises: []
-  baby1NegNoises: []
-  baby2PosNoises: []
-  baby2NegNoises: []
-  baby3PosNoises: []
-  baby3NegNoises: []
-  baby4PosNoises: []
-  baby4NegNoises: []
-  baby5PosNoises: []
-  baby5NegNoises: []
-  baby6PosNoises: []
-  baby6NegNoises: []
-  baby7PosNoises: []
-  baby7NegNoises: []
-  baby8PosNoises: []
-  baby8NegNoises: []
---- !u!114 &605043052449966922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7645784903885491106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e8b41a0a0adbd4d97133d327cefa6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VoicesBehavior
-  typingScript: {fileID: 0}
-  manMinPitch: 0.5
-  manMaxPitch: 0.5
-  babyMinPitch: 0.5
-  babyMaxPitch: 0.5
-  manPositiveNoises: []
-  manNegativeNoises: []
-  babyNeg8PosNoises: []
-  babyNeg8NegNoises: []
-  babyNeg7PosNoises: []
-  babyNeg7NegNoises: []
-  babyNeg6PosNoises: []
-  babyNeg6NegNoises: []
-  babyNeg5PosNoises: []
-  babyNeg5NegNoises: []
-  babyNeg4PosNoises: []
-  babyNeg4NegNoises: []
-  babyNeg3PosNoises: []
-  babyNeg3NegNoises: []
-  babyNeg2PosNoises: []
-  babyNeg2NegNoises: []
-  babyNeg1PosNoises: []
-  babyNeg1NegNoises: []
-  baby0PosNoises: []
-  baby0NegNoises: []
-  baby1PosNoises: []
-  baby1NegNoises: []
+  babyNeg1NegNoises:
+  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  baby0PosNoises:
+  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
+  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
+  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
+  baby0NegNoises:
+  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  baby1PosNoises:
+  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
+  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
+  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
+  baby1NegNoises:
+  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
   baby2PosNoises: []
   baby2NegNoises: []
   baby3PosNoises: []

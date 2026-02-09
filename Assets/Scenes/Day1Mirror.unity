@@ -383,7 +383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d95da7b4e62de040bd91c3b926116b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionOnClickBehavior
-  isBed: 0
   sceneName: Day1Room
 --- !u!60 &440904201
 PolygonCollider2D:
@@ -935,6 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599761903}
   - component: {fileID: 1599761902}
+  - component: {fileID: 1599761904}
   m_Layer: 0
   m_Name: Dialogue Manager
   m_TagString: Untagged
@@ -956,10 +956,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
-  playerResponse: 
-  playerResponseAccuracy: 
   hasEntryLine: 1
   entryLine: I can do this. I can do this. I can do this.
+  isBaby: 1
 --- !u!4 &1599761903
 Transform:
   m_ObjectHideFlags: 0
@@ -975,6 +974,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1599761904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599761901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87b6da5136b75294b9b20fe8e2916ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ListeningBehavior
 --- !u!1 &1674529269
 GameObject:
   m_ObjectHideFlags: 0

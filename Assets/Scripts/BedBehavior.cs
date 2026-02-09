@@ -28,7 +28,7 @@ public class BedBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //if mouse button is being pressed, and not being held down
         if (Mouse.current.leftButton.isPressed == true && holdingLMouse == false)

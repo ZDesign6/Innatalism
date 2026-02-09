@@ -276,8 +276,6 @@ public class VoicesBehavior : MonoBehaviour
         audioSource.pitch = Random.Range(manMinPitch, manMaxPitch);
         //convert the parsed char into a phoneme index
         int phonemeIndex = charToPhonemeIndex(charToParse);
-        //then, play the phoneme from the Soundbank
-        audioSource.PlayOneShot(manPositiveNoises[phonemeIndex]);
         //then, accordingly with the baby's extremism...
         switch (gameManager.babyExtremism)
         {
