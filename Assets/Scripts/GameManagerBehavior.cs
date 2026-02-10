@@ -18,6 +18,8 @@ public class GameManagerBehavior : MonoBehaviour
     public bool currentlyListening = false;
     //tracks if the player has completed the Listening stage
     public bool listeningComplete = false;
+    //tracks the current day we are at. Used by BabySpriteChanger compute the sprite that should be shown on the baby. Changed by BedBehavior during cleanup.
+    public int currentDay = 1;
     //tracks the current Extremism of the baby. Increased / decreased during TransitionOnClick behavior in response to the accuracy of the playerResponse.
     public int babyExtremism = 0;
     //tracks if we have gone through the initial room text. reset by bed behavior before transitioning to a new day

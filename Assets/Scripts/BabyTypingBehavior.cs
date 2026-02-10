@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Tilemaps;
 
 public class BabyTypingBehavior : MonoBehaviour
 {
@@ -111,23 +112,26 @@ public class BabyTypingBehavior : MonoBehaviour
                         //inc index meow
                         dialoguesIndex++;
                         
-                        //we are done typin.
+                        //we are done typing this line.
                         Debug.Log("finished typing line!");
-                        
+                        //If the current INdex (which has just been incremented) is not equal to the count, we should load the next line
                         if (dialoguesIndex != dialogues.Count)
                         {
+                            //load the next line to continue typing
                             LoadLine();
                         }
+                        //else, if the index is now equal to the count, then we are done loading. Cleanup and exit.
                         else
                         {
-                            //i finished reading woahahshhs
+                            // -- CLEANUP --
+
+                            //flip inDialogue to false
                             inDialogue = false;
+                            //close the dialogue box
                             CloseDialogueBox();
-                           
+                            //flip currentlyListening to start Listening
+                            gameManager.currentlyListening = true;
                         }
-                        
-                        //flip currentlyListening on in the gameManager to begin the Listening sequence.
-                        gameManager.currentlyListening = true;
                         
                     }
                     
