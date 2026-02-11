@@ -561,8 +561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0800c69094937a643b269f0bedcf2e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyTypingBehavior
-  typedColorHex: 
-  untypedColorHex: 
+  typedColorHex: '#FFFFFF'
+  untypedColorHex: '#9E9E9E'
   dialogues:
   - Hello, baby.
   - I see that you are baby.
