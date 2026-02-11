@@ -142,7 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e8b41a0a0adbd4d97133d327cefa6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VoicesBehavior
-  typingScript: {fileID: 0}
+  dialogueTypingScript: {fileID: 0}
+  mantraTypingScript: {fileID: 0}
+  babyTypingScript: {fileID: 0}
   manMinPitch: 0.8
   manMaxPitch: 1.2
   babyMinPitch: 0.5
@@ -169,27 +171,30 @@ MonoBehaviour:
   babyNeg3NegNoises: []
   babyNeg2PosNoises: []
   babyNeg2NegNoises: []
-  babyNeg1PosNoises: []
+  babyNeg1PosNoises:
+  - {fileID: 8300000, guid: 947948f7a0b2d284492e333c336fa3cd, type: 3}
+  - {fileID: 8300000, guid: 95ac8156816da7648bddf6705d0f3547, type: 3}
+  - {fileID: 8300000, guid: cdd2c2cbbf7105a4ca62b1144245d91a, type: 3}
   babyNeg1NegNoises:
-  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
-  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
-  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  - {fileID: 8300000, guid: 8ea62d27d7a12d4449e64649144b4d3d, type: 3}
+  - {fileID: 8300000, guid: 36dd452d5f5dc974e9bd0759737944f2, type: 3}
+  - {fileID: 8300000, guid: c556255a51d448d4eba89ab6be04dc65, type: 3}
   baby0PosNoises:
-  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
-  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
-  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
+  - {fileID: 8300000, guid: d228eb8e9914cfe429bff520189ff984, type: 3}
+  - {fileID: 8300000, guid: 3ad447cacca82a741ac31ffac67a27a8, type: 3}
+  - {fileID: 8300000, guid: 90cbbd58fefbea4439705162140d4afe, type: 3}
   baby0NegNoises:
-  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
-  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
-  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  - {fileID: 8300000, guid: 41785b9a3b4448f4598f35c9eae721be, type: 3}
+  - {fileID: 8300000, guid: 2fe1caf4ed7fdfd42aff37d2f7e2da07, type: 3}
+  - {fileID: 8300000, guid: 162a9ed9f5566ff4686538117532a9da, type: 3}
   baby1PosNoises:
-  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
-  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
-  - {fileID: 8300000, guid: e0dedccb125f3e845910f68a19fda916, type: 3}
+  - {fileID: 8300000, guid: 978d76b89d0d11a41839d1d9475176f6, type: 3}
+  - {fileID: 8300000, guid: 7fe0de22e0dcb75409b4523f5bca7868, type: 3}
+  - {fileID: 8300000, guid: 8df5c093a89a9684c934caae6c411cb9, type: 3}
   baby1NegNoises:
-  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
-  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
-  - {fileID: 8300000, guid: e215c2b74eddf034c86a5a818c572b29, type: 3}
+  - {fileID: 8300000, guid: b2358d6eb1f99cc48a8cf2c0c8d6f908, type: 3}
+  - {fileID: 8300000, guid: 60dc12babb5455a479d0cf85f4a2a9b0, type: 3}
+  - {fileID: 8300000, guid: 875b5364acf11fe4088946282bdab993, type: 3}
   baby2PosNoises: []
   baby2NegNoises: []
   baby3PosNoises: []

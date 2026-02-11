@@ -27,31 +27,14 @@ public class TransitionOnClickBehavior : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //if mouse button is being pressed, and not being held down
-        if (Mouse.current.leftButton.isPressed == true && holdingLMouse == false)
+    }
+    private void OnMouseDown()
+    {
+        //And if we aren't currently listening
+        if (gameManager.currentlyListening == false)
         {
-            //toggle holdingLMouse on to prevent spam
-            holdingLMouse = true;
-            //if the collider contained the mouseInWorldPos AND we are not currently Listening
-            if (colliderToCheck.bounds.Contains(gameManager.mouseInWorldSpace) && gameManager.currentlyListening == false)
-            {
-              
-                //load the specified scene
-                SceneManager.LoadScene(sceneName);
-                
-            }
-            
-        }
-        else if (Mouse.current.leftButton.isPressed == false && holdingLMouse == true)
-        {
-            //toggle off holdingLMouse to enable another click
-            holdingLMouse = false;
+            //load the specified scene
+            SceneManager.LoadScene(sceneName);
         }
     }
-
-    //this fct runs if a mouse clicks while overlapping the collider on this game object(???)
-   /* private void OnMouseDown()
-    {
-        SceneManager.LoadScene(sceneName);
-    }*/
 }

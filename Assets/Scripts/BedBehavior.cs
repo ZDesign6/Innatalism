@@ -33,72 +33,63 @@ public class BedBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //if mouse button is being pressed, and not being held down
-        if (Mouse.current.leftButton.isPressed == true && holdingLMouse == false)
+        
+    }
+    private void OnMouseDown()
+    {
+        //and the game manager confirms that listening has been completed
+        if (gameManager.listeningComplete == true)
         {
-            //toggle holdingLMouse on to prevent spam
-            holdingLMouse = true;
-            //if the collider contained the mouseInWorldPos
-            if (colliderToCheck.bounds.Contains(gameManager.mouseInWorldSpace))
+            //-- MUTATION --
+            /* first, check how many correct chars were recorded */
+
+            //local var to track how many true (correct) bools were stored
+            int correctChars = 0;
+            //iterate over the responseAccuracy to determine how many correct answers there were
+            for (int accuracyIndex = 0; accuracyIndex < gameManager.playerResponseAccuracy.Count; accuracyIndex = accuracyIndex + 1)
             {
-                //and the game manager confirms that listening has been completed
-                if (gameManager.listeningComplete == true)
+                //If a true bool is encountered, tally it
+                if (gameManager.playerResponseAccuracy[accuracyIndex] == true)
                 {
-                    //-- MUTATION --
-                    /* first, check how many correct chars were recorded */
-
-                    //local var to track how many true (correct) bools were stored
-                    int correctChars = 0;
-                    //iterate over the responseAccuracy to determine how many correct answers there were
-                    for (int accuracyIndex = 0; accuracyIndex < gameManager.playerResponseAccuracy.Count; accuracyIndex = accuracyIndex + 1)
-                    {
-                        //If a true bool is encountered, tally it
-                        if (gameManager.playerResponseAccuracy[accuracyIndex] == true)
-                        {
-                            correctChars = correctChars + 1;
-                        }
-                    }
-                    /*next, calculate the overall accuracy percentage by dividing the correctChars by the total number of Chars recorded*/
-                    float responseAccuracy = correctChars / gameManager.playerResponseAccuracy.Count;
-                    /*finally, if the responseAccuracy exceeded the accuracyThreshold, then move extremism UP*/
-                    if (responseAccuracy > correctnessPrecentageThreshold)
-                    {
-                        gameManager.babyExtremism = gameManager.babyExtremism + 1;
-                    }
-                    /*else, move extremism DOWN*/
-                    else
-                    {
-                        gameManager.babyExtremism = gameManager.babyExtremism - 1;
-                    }
-
-                    // -- CLEANUP --
-
-                    //empty Listening variables 
-                    gameManager.playerResponse = null;
-                    gameManager.playerResponseAccuracy = null;
-                    //and flip listeningComplete to false
-                    gameManager.listeningComplete = false;
-                    //increase currentDay to ensure the baby's sprite changes accurately
-                    gameManager.currentDay = gameManager.currentDay + 1;
-                    //reset room dialogue completed to prep for next day!!!
-                    gameManager.roomDialogueCompleted = false;
-                    //load the next day
-                    SceneManager.LoadScene(nextDaySceneName);
+                    correctChars = correctChars + 1;
                 }
-                else
-                {
-                    //HOOK IN POINT FOR DENIAL BEHAVIOR
-                    Debug.Log("Listening has not been completed, transition denied");
-                }
-
+            }
+            /*next, calculate the overall accuracy percentage by dividing the correctChars by the total number of Chars recorded*/
+            float responseAccuracy = correctChars / gameManager.playerResponseAccuracy.Count;
+            /*finally, if the responseAccuracy exceeded the accuracyThreshold, then move extremism UP*/
+            if (responseAccuracy > correctnessPrecentageThreshold)
+            {
+                gameManager.babyExtremism = gameManager.babyExtremism + 1;
+            }
+            /*else, move extremism DOWN*/
+            else
+            {
+                gameManager.babyExtremism = gameManager.babyExtremism - 1;
             }
 
+            // -- CLEANUP --
+
+            //empty Listening variables 
+            gameManager.playerResponse = null;
+            gameManager.playerResponseAccuracy = null;
+            //and flip listeningComplete to false
+            gameManager.listeningComplete = false;
+            //increase currentDay to ensure the baby's sprite changes accurately
+            gameManager.currentDay = gameManager.currentDay + 1;
+            //reset room dialogue completed to prep for next day!!!
+            gameManager.roomDialogueCompleted = false;
+            //reset talkedToBaby to prep for next day
+            gameManager.talkedToBaby = false;
+
+            //load the next day
+            SceneManager.LoadScene(nextDaySceneName);
         }
-        else if (Mouse.current.leftButton.isPressed == false && holdingLMouse == true)
+        else
         {
-            //toggle off holdingLMouse to enable another click
-            holdingLMouse = false;
+            //HOOK IN POINT FOR DENIAL BEHAVIOR
+            Debug.Log("Listening has not been completed, transition denied");
         }
+
         
     }
 }

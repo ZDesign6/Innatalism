@@ -90,13 +90,9 @@ public class DialogueTypingBehavior : MonoBehaviour
                 //if this character is one accepted by the system
                 if (recognizedCharacters.Contains(keyPressed) && keyPressed.Length == 1)
                 {
-                    //write it into the playerResponse string, to be parsed later during Listening
-                    gameManager.playerResponse = gameManager.playerResponse + keyPressed;
                     //if this character is the correct character 
                     if (untypedLine.IndexOf(keyPressed) == 0)
                     {
-                        //write a true boolean into the playerResponseAccuracy List, to be parsed later during Listening
-                        gameManager.playerResponseAccuracy.Add(true);
                         //play a positive man sound from the Voices Script
                         voiceScript.PlayPositiveManSound(keyPressed[0]);
                     }

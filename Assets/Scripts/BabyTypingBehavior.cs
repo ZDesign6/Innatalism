@@ -2,7 +2,6 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Tilemaps;
 
 public class BabyTypingBehavior : MonoBehaviour
 {
@@ -11,7 +10,6 @@ public class BabyTypingBehavior : MonoBehaviour
     VoicesBehavior voiceScript;
     //ref to the singleton. Assigned during Start
     GameManagerBehavior gameManager;
-    SceneTransitionBehavior sceneTransitionBehavior;
 
     //---UI STUFFS---//
     
@@ -55,7 +53,6 @@ public class BabyTypingBehavior : MonoBehaviour
 
     private void Start()
     {
-        LoadLine();
         //assign ref to the VoiceBehavior Script in the scene
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
         //and assign self to the voiceScript's typingScript ref
@@ -142,8 +139,10 @@ public class BabyTypingBehavior : MonoBehaviour
             }
         }
     }
-    void LoadLine()
+    public void LoadLine()
     {
+        //flip talkedToBaby on in case it hasn't been yet
+        gameManager.talkedToBaby = true;
         OpenDialogueBox();
         //we are now in dialogue
         inDialogue = true;
