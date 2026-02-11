@@ -124,7 +124,7 @@ TextureImporter:
         width: 846
         height: 1310
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,15 +138,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: D1E0_1
+      name: D1E0_colored
       rect:
         serializedVersion: 2
-        x: 1048
+        x: 1053
         y: 355
         width: 852
         height: 1310
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fad3bef6f36d7044ba37e83c407c6c07
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +174,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       D1E0_0: 7642624067682897178
-      D1E0_1: -74166062167372242
+      D1E0_colored: -74166062167372242
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
