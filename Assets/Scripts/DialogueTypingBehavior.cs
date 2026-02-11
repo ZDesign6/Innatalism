@@ -144,14 +144,17 @@ public class DialogueTypingBehavior : MonoBehaviour
  
     void LoadLine()
     {
-      
-        OpenDialogueBox();
-        //we are now in dialogue
-        inDialogue = true;
-        //the entire line we want to display has not been typed yet
-        untypedLine = dialogues[dialoguesIndex];
-        typedLine = "";
-
+       //if currently typing is false
+       if (gameManager.currentlyTyping == false)
+       {
+           OpenDialogueBox();
+           //we are now in dialogue
+           inDialogue = true;
+           //the entire line we want to display has not been typed yet
+           untypedLine = dialogues[dialoguesIndex];
+           typedLine = "";
+       }
+       
     }
     
     void CloseDialogueBox()

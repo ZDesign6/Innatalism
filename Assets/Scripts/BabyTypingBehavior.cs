@@ -126,6 +126,8 @@ public class BabyTypingBehavior : MonoBehaviour
 
                             //flip inDialogue to false
                             inDialogue = false;
+                            //flip currentlyTyping to false
+                            gameManager.currentlyTyping = false;
                             //close the dialogue box
                             CloseDialogueBox();
                             //flip currentlyListening to start Listening
@@ -145,6 +147,8 @@ public class BabyTypingBehavior : MonoBehaviour
     {
         //flip talkedToBaby on in case it hasn't been yet
         gameManager.talkedToBaby = true;
+        //flip currentlyTyping on
+        gameManager.currentlyTyping = true;
         OpenDialogueBox();
         //we are now in dialogue
         inDialogue = true;

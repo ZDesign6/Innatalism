@@ -30,8 +30,8 @@ public class TransitionOnClickBehavior : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        //And if we aren't currently listening
-        if (gameManager.currentlyListening == false)
+        //And if we aren't currently listening or talking
+        if (gameManager.currentlyListening == false && gameManager.currentlyTyping == false)
         {
             //load the specified scene
             SceneManager.LoadScene(sceneName);

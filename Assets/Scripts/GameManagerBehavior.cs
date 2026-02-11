@@ -21,6 +21,8 @@ public class GameManagerBehavior : MonoBehaviour
     public bool listeningComplete = false;
     //tracks if the player has talked to the baby for the day
     public bool talkedToBaby = false;
+    //tracks if we are currently typing 
+    public bool currentlyTyping = false;
     //tracks the current day we are at. Used by BabySpriteChanger compute the sprite that should be shown on the baby. Changed by BedBehavior during cleanup.
     public int currentDay = 1;
     //tracks the current Extremism of the baby. Increased / decreased during TransitionOnClick behavior in response to the accuracy of the playerResponse.
