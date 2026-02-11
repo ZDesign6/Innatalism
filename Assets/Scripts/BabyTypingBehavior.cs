@@ -79,6 +79,8 @@ public class BabyTypingBehavior : MonoBehaviour
                 //if this character is one accepted by the system
                 if (recognizedCharacters.Contains(keyPressed) && keyPressed.Length == 1)
                 {
+                    Debug.Log("gameManager is currently " + gameManager.gameObject.name);
+                    Debug.Log("Player response accuracy from the game manager is currently " + gameManager.playerResponseAccuracy);
                     //write it into the playerResponse string, to be parsed later during Listening
                     gameManager.playerResponse = gameManager.playerResponse + keyPressed;
                     //if this character is the correct character 

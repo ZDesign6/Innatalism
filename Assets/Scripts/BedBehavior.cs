@@ -69,9 +69,10 @@ public class BedBehavior : MonoBehaviour
 
             // -- CLEANUP --
 
-            //empty Listening variables 
-            gameManager.playerResponse = null;
-            gameManager.playerResponseAccuracy = null;
+            //assign player response equal to an empty string
+            gameManager.playerResponse = "";
+            //empty our the playerresponse accuracy list
+            gameManager.playerResponseAccuracy.Clear();
             //and flip listeningComplete to false
             gameManager.listeningComplete = false;
             //increase currentDay to ensure the baby's sprite changes accurately
