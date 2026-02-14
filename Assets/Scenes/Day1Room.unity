@@ -1242,7 +1242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d95da7b4e62de040bd91c3b926116b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  sceneName: Day1Mirror
+  sceneName: Day2Mirror
 --- !u!61 &1989632273
 BoxCollider2D:
   m_ObjectHideFlags: 0
