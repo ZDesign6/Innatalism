@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ListeningBehavior : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ListeningBehavior : MonoBehaviour
     GameManagerBehavior gameManager;
     //ref to the VoicesBehavior script in the Scene. Assigned during Start()
     VoicesBehavior voiceScript;
+    //string which holds the scene name for the scene which will be transitioned to after Listening IF the baby is a tub baby
+    public string sceneToTransitionTo;
 
     // -- PARSING-RELATED --
 
@@ -19,6 +22,11 @@ public class ListeningBehavior : MonoBehaviour
     [SerializeField][Range(.15f,.75f)] private float maxPercentVariation = .25f;
     //tracks how many frames are left until the next playback. Starts at 0, set after a playback.
     int currentDelay = 0;
+
+    // -- STATE INFO --
+
+    //represents if this is a tub interior baby. Used to determine if we should do a scene transition after Listening.
+    public bool isTubBaby = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,15 +72,26 @@ public class ListeningBehavior : MonoBehaviour
                 //else (we have parsed the last char)
                 else
                 {
-                    //mark currentlyListening in the gameManager as false
-                    gameManager.currentlyListening = false;
-                    //and mark listeningComplete in the gameManager as true
-                    gameManager.listeningComplete = true;
+                    //carry out cleanup
+                    Cleanup();
                 }
             }
             //finally, as long as we are meant to be listening, subtract a frame from currentDelay to move us towards the next playback event
             currentDelay = currentDelay - 1;
         }
                     
+    }
+    //this fct handles all activities that should be carried out ONCE before listening ends.
+    void Cleanup()
+    {
+        //mark currentlyListening in the gameManager as false
+        gameManager.currentlyListening = false;
+        //and mark listeningComplete in the gameManager as true
+        gameManager.listeningComplete = true;
+        //if we are a tub baby, transition to the sceneToTransitionTo
+        if (isTubBaby == true)
+        {
+            SceneManager.LoadScene(sceneToTransitionTo);
+        }
     }
 }

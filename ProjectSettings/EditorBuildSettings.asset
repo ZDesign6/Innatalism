@@ -14,6 +14,48 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day2Room.unity
     guid: 946e597f316e40d4bb25cb3c94d4d9bb
+  - enabled: 1
+    path: Assets/Scenes/Day1Tub.unity
+    guid: a81d2c85c8583a448be95870dadbbff7
+  - enabled: 1
+    path: Assets/Scenes/Day2Mirror.unity
+    guid: 0939fc51f97c9f644b03689b74f14d54
+  - enabled: 1
+    path: Assets/Scenes/Day2Tub.unity
+    guid: 3421087653e658746ab83dd15da848a1
+  - enabled: 1
+    path: Assets/Scenes/Day3Mirror.unity
+    guid: 9b9dcb3b598fd4442ace910e190eca40
+  - enabled: 1
+    path: Assets/Scenes/Day3Room.unity
+    guid: 6d19b12de0f1e7544af3c17c764e566c
+  - enabled: 1
+    path: Assets/Scenes/Day3Tub.unity
+    guid: db1e3c8dab13488468955ff96468aa04
+  - enabled: 1
+    path: Assets/Scenes/Day4Mirror.unity
+    guid: acec3bd4989ee4245be7337a3990cf88
+  - enabled: 1
+    path: Assets/Scenes/Day4Room.unity
+    guid: 7340a1db325c86e4b9e65f14951010b8
+  - enabled: 1
+    path: Assets/Scenes/Day5Mirror.unity
+    guid: cb47aa3d03047d84cabe508b4e96ef44
+  - enabled: 1
+    path: Assets/Scenes/Day5Room.unity
+    guid: 308d849f70f40ed42bf8087655f5ef2c
+  - enabled: 1
+    path: Assets/Scenes/Day6Mirror.unity
+    guid: cd83f444480528343a3cbaeee640c056
+  - enabled: 1
+    path: Assets/Scenes/Day6Room.unity
+    guid: 13e6298ca3fb55e4c8f3d1ac4599356b
+  - enabled: 1
+    path: Assets/Scenes/Day7Room.unity
+    guid: b55a9e208baf37540be4b6534a5a998b
+  - enabled: 1
+    path: Assets/Scenes/Day8Room.unity
+    guid: 25b614de8499d18418d7b3be8d69d9e5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
