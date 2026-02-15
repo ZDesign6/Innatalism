@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c50b7103b3e69043b723165901208fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  sceneName: Day2Room
+  sceneName: Day5Room
 --- !u!1 &453534237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,8 +1079,8 @@ MonoBehaviour:
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
   dialogues:
-  - i am gonna be suchh a good mom
-  - mom mom mom mom
+  - this is the mirror
+  - on day 5
   - i am gonna be suchh a good mom
   dialoguesIndex: 0
 --- !u!1 &1957513809

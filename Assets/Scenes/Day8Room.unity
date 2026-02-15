@@ -604,12 +604,12 @@ GameObject:
   - component: {fileID: 661041472}
   - component: {fileID: 661041471}
   m_Layer: 0
-  m_Name: Dialogue Manager (1)
+  m_Name: Dialogue Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &661041471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,8 +626,7 @@ MonoBehaviour:
   untypedColorHex: '#9E9E9E'
   dialogues:
   - i am in the room
-  - i am in the room
-  - i am in the room
+  - it is day 8
   dialoguesIndex: 0
 --- !u!4 &661041472
 Transform:
@@ -822,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede68b9baf6bf554f8e2bff9dffe10c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BedBehavior
-  nextDaySceneName: 
+  nextDaySceneName: Day8Room
   correctnessPrecentageThreshold: 0.35
 --- !u!61 &908276347
 BoxCollider2D:

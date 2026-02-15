@@ -24,17 +24,23 @@ public class DialogueTypingBehavior : MonoBehaviour
     public String untypedColorHex;
     
     //---TYPING STUFFS---//
+
+    //tracks if we should be displaying our text. Toggled on by LoadLine, toggled off during cleanup.
     bool inDialogue = false;
-    //meoowww the lines meeoooowwww
+    //List of Strings to be displayed
     public List<String> dialogues;
-    //,ewwwpep meeow the index of the dialogues yaassss meooow slAY pussy queen
+    //Index used to access the dialogues List. 
     public int dialoguesIndex = 0;
     //Text that the user has already typed
     string typedLine;
     //Text that the user has not typed
     string untypedLine;
-    //The character that appears between the typed and untyped line strings
-    char cursor = '|';
+    //The character that is inserted between the typed and untyped line strings every frame. set to empty when renderCursor is false.
+    char currentCursor = '|';
+    //This boolean controls what char the currentCursor holds, and is flipped when cursorBlinkTime elapses.
+    bool cursorEmpty = false;
+    //how frequently, in frames, the cursor should change between rendered and not rendered.
+    int cursorBlinkTime = 30;
     //the last character that was parsed
     string keyPressed;
     //List of characters to accept when parsing input
@@ -68,8 +74,7 @@ public class DialogueTypingBehavior : MonoBehaviour
             //kickstart first line
             LoadLine();
         }
-        
-        
+            
     }
 
     private void Update()
@@ -79,7 +84,7 @@ public class DialogueTypingBehavior : MonoBehaviour
         {
             
             //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-            dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + cursor + "<color=" + untypedColorHex + ">"+ untypedLine;
+            dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
             
             //if a key was pressed
             if (Input.anyKeyDown)
@@ -119,42 +124,66 @@ public class DialogueTypingBehavior : MonoBehaviour
                         //we are done typin.
                         Debug.Log("finished typing line!");
                         
+                        //If there is still a line left to parse...
                         if (dialoguesIndex != dialogues.Count)
                         {
+                            //load the next line and repeat
                             LoadLine();
                         }
+                        //if there is no more lines left to parse...
                         else
                         {
-                            //i finished reading woahahshhs
+                            // -- CLEANUP --
+
+                            //set inDialogue to false
                             inDialogue = false;
+                            //set currentlytyping in gameManager to false so we can once again use Scene Transitioners
+                            gameManager.currentlyTyping = false;
+                            //let the gameManger know that we have completed Room Dialogue so it does not retrigger
                             gameManager.roomDialogueCompleted = true;
+                            //close dialogue box 
                             CloseDialogueBox();
                         }
                         
                     }
                     
                     //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-                    dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + cursor + "<color=" + untypedColorHex + ">"+ untypedLine;
+                    dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
                 }
                 
             }
         }
     }
+    private void FixedUpdate()
+    {
+        //if the frameCounter mod cursorBlinkTime is 0, flip cursorEmpty
+        if (gameManager.frameCounter % cursorBlinkTime == 0)
+        {
+            cursorEmpty = !cursorEmpty;
+        }
+        //then, if cursorEmpty is true, set cursor to empty char
+        if (cursorEmpty == true)
+        {
+            currentCursor = ' ';
+        }
+        //else set cursor to vertical bar
+        else
+        {
+            currentCursor = '|';
+        }
+    }
 
- 
+
     void LoadLine()
     {
-       //if currently typing is false
-       if (gameManager.currentlyTyping == false)
-       {
-           OpenDialogueBox();
-           //we are now in dialogue
-           inDialogue = true;
-           //the entire line we want to display has not been typed yet
-           untypedLine = dialogues[dialoguesIndex];
-           typedLine = "";
-       }
-       
+        //set currentlyTyping to true so we cannot activate SceneTransitioners. set to false during cleanup.
+        gameManager.currentlyTyping = true;
+        OpenDialogueBox();
+        //we are now in dialogue
+        inDialogue = true;
+        //the entire line we want to display has not been typed yet
+        untypedLine = dialogues[dialoguesIndex];
+        typedLine = "";
     }
     
     void CloseDialogueBox()

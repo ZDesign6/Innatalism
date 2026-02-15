@@ -604,12 +604,12 @@ GameObject:
   - component: {fileID: 661041472}
   - component: {fileID: 661041471}
   m_Layer: 0
-  m_Name: Dialogue Manager (1)
+  m_Name: Dialogue Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &661041471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,8 +626,7 @@ MonoBehaviour:
   untypedColorHex: '#9E9E9E'
   dialogues:
   - i am in the room
-  - i am in the room
-  - i am in the room
+  - It is Day 5
   dialoguesIndex: 0
 --- !u!4 &661041472
 Transform:
@@ -1058,7 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d95da7b4e62de040bd91c3b926116b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  sceneName: Day1Mirror
+  sceneName: Day5Mirror
 --- !u!61 &1237468750
 BoxCollider2D:
   m_ObjectHideFlags: 0

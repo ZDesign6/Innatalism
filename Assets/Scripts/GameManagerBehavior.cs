@@ -9,12 +9,15 @@ public class GameManagerBehavior : MonoBehaviour
 
     // -- MOUSE INFORMATION --
 
-    //stores the computed location of the mouse in world space
+    //stores the computed location of the mouse in world space. Calculated by the game manager every frame.
     public Vector2 mouseInWorldSpace;
     //tracks if the mouse is being held. used to prevent spamming of click events.
     public bool holdingLMouse = false;
+
     // -- GAME STATE --
 
+    //counts how many frames have elapsed since game start
+    public int frameCounter = 0;
     //tracks if we are currentlyListening
     public bool currentlyListening = false;
     //tracks if the player has completed the Listening stage
@@ -32,6 +35,7 @@ public class GameManagerBehavior : MonoBehaviour
 
 
     //-- RESPONSE PARSING -- (this should only be relevant once every day, during Listening sections. These variables start empty and are emptied again at the end of a Day during BedBehavior.)
+
     //an empty string, filled with chars as the player types them. Used by Voices object to determine what phonemes to play.
     public string playerResponse;
     //a List of bools, correlating one-to-one with the chars in the playerResponse. Each bool represents whether the corresponding char was a match to the prompt or not. populated as the player types.
@@ -70,6 +74,8 @@ public class GameManagerBehavior : MonoBehaviour
     {
         //every frame, compute the mouse's world pos and store it
         mouseInWorldSpace = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        //every frame, update frameCounter
+        frameCounter = frameCounter + 1;
 
         //-- L MOUSE STATE --
 
