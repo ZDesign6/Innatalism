@@ -59,14 +59,15 @@ public class MantraTypingBehavior : MonoBehaviour
 
     private void Start()
     {
+        //assign ref to singleton
+        gameManager = GameManagerBehavior.singleton;
         //kick start dialogue
         LoadLine();
         //assign ref to the VoiceBehavior Script in the scene
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
         //and assign self to the voiceScript's typingScript ref
         voiceScript.mantraTypingScript = this;
-        //assign ref to singleton
-        gameManager = GameManagerBehavior.singleton;
+        
     }
 
     private void Update()
@@ -148,6 +149,7 @@ public class MantraTypingBehavior : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        Debug.Log("MAntra typing behvior currently has a game manager ref of " + gameManager.name);
         //if the frameCounter mod cursorBlinkTime is 0, flip cursorEmpty
         if (gameManager.frameCounter % cursorBlinkTime == 0)
         {

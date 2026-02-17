@@ -25,6 +25,8 @@ public class VoicesBehavior : MonoBehaviour
         'A','D','G','J','M','P','S','V','Y',
         //symbols
         '.','?',';','/','(',
+        //nummies
+        '0', '1', '2', '3'
     };
     List<char> ehChars = new List<char>()
     {
@@ -33,7 +35,9 @@ public class VoicesBehavior : MonoBehaviour
         //caps
         'B','E','H','K','N','Q','T','W','Z',
         //symbols
-        ',','\'',':','\\',')'
+        ',','\'',':','\\',')',
+        //nummies
+        '4', '5', '6'
     };
     List<char> ohChars = new List<char>()
     {
@@ -43,6 +47,8 @@ public class VoicesBehavior : MonoBehaviour
         'C','F','I','L','O','R','U','X',
         //symbols
         ' ', '!','\"','&','-',
+        //nummies
+        '7', '8', '9'
     };
     // -- SOUNDS --
     //The Audio Source on the Voices obj
