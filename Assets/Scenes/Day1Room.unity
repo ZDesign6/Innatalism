@@ -1185,6 +1185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera & Mouse
       objectReference: {fileID: 0}
+    - target: {fileID: 8723907016379015295, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
+      propertyPath: objectHitList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
