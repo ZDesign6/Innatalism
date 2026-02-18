@@ -1076,6 +1076,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0dc931abc4b0e48806d215aa08f8d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MantraTypingBehavior
+  dialogueBox: {fileID: 1274764451}
+  dialogueText: {fileID: 1541120737}
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
   dialogues:

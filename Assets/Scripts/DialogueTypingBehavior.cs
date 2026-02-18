@@ -16,9 +16,9 @@ public class DialogueTypingBehavior : MonoBehaviour
     //---UI STUFFS---//
     
     //The parent gameobject holding every piece of the dialogue box
-    GameObject dialogueBox;
+    public GameObject dialogueBox;
     //Text that is displayed inside the dialogue box
-    TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI dialogueText;
     //font colorssss
     public String typedColorHex;
     public String untypedColorHex;
@@ -51,14 +51,6 @@ public class DialogueTypingBehavior : MonoBehaviour
         "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
         "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
     };
-    
-
-    void Awake()
-    {
-        dialogueBox = GameObject.Find("DialogueBox");
-        dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
-        CloseDialogueBox();
-    }
 
     private void Start()
     {

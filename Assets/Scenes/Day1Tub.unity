@@ -792,7 +792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1274764452
 RectTransform:
   m_ObjectHideFlags: 0
@@ -851,63 +851,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274764451}
   m_CullTransparentMesh: 1
---- !u!1001 &1429385148
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1930188991756759465, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_Name
-      value: MouseCursor
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.63647
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.20637
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8755342685359882600, guid: 548f39a163c657a43985044589da2279, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 548f39a163c657a43985044589da2279, type: 3}
 --- !u!1 &1541120735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,6 +1131,14 @@ PrefabInstance:
       value: Day1Room
       objectReference: {fileID: 0}
     - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 1274764451}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1541120737}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: typedColorHex
       value: '#FFFFFF'
       objectReference: {fileID: 0}
@@ -1365,4 +1316,3 @@ SceneRoots:
   - {fileID: 453534239}
   - {fileID: 2005810789}
   - {fileID: 501445638}
-  - {fileID: 1429385148}

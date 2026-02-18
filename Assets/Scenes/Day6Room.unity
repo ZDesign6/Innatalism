@@ -176,6 +176,14 @@ PrefabInstance:
       value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 2004943870}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 657849558}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: typedColorHex
       value: '#FFFFFF'
       objectReference: {fileID: 0}
@@ -434,6 +442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7873463c24f7e34cb5c4a268c960ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  dialogueBox: {fileID: 2004943870}
+  dialogueText: {fileID: 657849558}
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
   dialogues:
@@ -1014,7 +1024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2004943871
 RectTransform:
   m_ObjectHideFlags: 0
