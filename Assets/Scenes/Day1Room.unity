@@ -821,7 +821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1954594679}
   - component: {fileID: 1954594678}
-  - component: {fileID: 1954594677}
+  - component: {fileID: 1954594680}
   m_Layer: 0
   m_Name: Tub
   m_TagString: Untagged
@@ -829,19 +829,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1954594677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954594676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d95da7b4e62de040bd91c3b926116b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TransitionOnClickBehavior
-  sceneName: Day1Tub
 --- !u!61 &1954594678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -903,6 +890,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1954594680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954594676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5335785da58ec7e44bd9e46f73d96536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  sceneName: Day1Tub
 --- !u!1 &1957513809
 GameObject:
   m_ObjectHideFlags: 0
