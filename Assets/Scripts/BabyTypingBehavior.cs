@@ -17,8 +17,9 @@ public class BabyTypingBehavior : MonoBehaviour
     public GameObject dialogueBox;
     //Text that is displayed inside the dialogue box
     public TextMeshProUGUI dialogueText;
-    //font colorssss
-    public String typedColorHex;
+    //font colors. When a key is inputted incorrectly, it turns blob colored. otherwise, it's clone.
+    String cloneColorHex = "#F79449";
+    String blobColorHex = "#D64995";
     public String untypedColorHex;
 
     //---TYPING STUFFS---//
@@ -66,7 +67,7 @@ public class BabyTypingBehavior : MonoBehaviour
         {
             
             //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-            dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
+            dialogueText.text =  typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
             
             //if a key was pressed
             if (Input.anyKeyDown)
@@ -88,6 +89,8 @@ public class BabyTypingBehavior : MonoBehaviour
                         gameManager.playerResponseAccuracy.Add(true);
                         //play a positive man sound from the Voices Script
                         voiceScript.PlayPositiveManSound(keyPressed[0]);
+                        //add the key to the typed line in clone color 
+                        typedLine += "<color=" + cloneColorHex + ">"+ keyPressed+"</color>";  
                     }
                     //if the character was incorrect
                     else
@@ -96,10 +99,9 @@ public class BabyTypingBehavior : MonoBehaviour
                         gameManager.playerResponseAccuracy.Add(false);
                         //play a negative man sound from the Voices Script
                         voiceScript.PlayNegativeManSound(keyPressed[0]);
+                        typedLine += "<color=" + blobColorHex + ">"+ keyPressed+"</color>";  
                     }
-                    
-                    //add the key to the typed line regardless of accuracy
-                    typedLine += keyPressed;              
+                                
                     //remove the key that was intended to be typed from the untyped line
                     untypedLine = untypedLine.Remove(0, 1);
                     
@@ -134,8 +136,8 @@ public class BabyTypingBehavior : MonoBehaviour
                         
                     }
                     
-                    //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-                    dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
+                    // //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
+                    // dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
                 }
                 
             }

@@ -562,6 +562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05656449f63e0824e83c7ac3f1416ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyClickToStartTyping
+  colliderToCheck: {fileID: 0}
+  babyTypingScript: {fileID: 0}
 --- !u!114 &7262624554130513513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,7 +576,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0800c69094937a643b269f0bedcf2e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyTypingBehavior
-  typedColorHex: '#FFFFFF'
+  dialogueBox: {fileID: 0}
+  dialogueText: {fileID: 0}
+  cloneColorHex: 
+  blobColorHex: 
   untypedColorHex: '#9E9E9E'
   dialogues:
   - Hello, baby.
@@ -759,5 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b6da5136b75294b9b20fe8e2916ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ListeningBehavior
+  sceneToTransitionTo: 
   basePlaybackDelay: 30
   maxPercentVariation: 0.25
+  isTubBaby: 0
