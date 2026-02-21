@@ -316,7 +316,7 @@ public class VoicesBehavior : MonoBehaviour
 
                 break;
             case 0:
-                audioSource.PlayOneShot(baby0PosNoises[phonemeIndex]);
+                audioSource.PlayOneShot(baby0NegNoises[phonemeIndex]);
                 Debug.Log("Played a Negative Baby Sound for extremism 0");
                 break;
             case 1:
