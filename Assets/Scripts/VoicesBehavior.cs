@@ -347,7 +347,4 @@ public class VoicesBehavior : MonoBehaviour
                 break;
         }
     }
-    /*This fct iterates over all the chars typed by the player in response to a dialogue.
-     * It plays a pos or neg baby sound for each, according to if the char matched the intended char.
-     * The set of clips */
 }

@@ -11,8 +11,6 @@ public class GameManagerBehavior : MonoBehaviour
 
     //stores the computed location of the mouse in world space. Calculated by the game manager every frame.
     public Vector2 mouseInWorldSpace;
-    //tracks if the mouse is being held. used to prevent spamming of click events.
-    public bool holdingLMouse = false;
 
     // -- GAME STATE --
 
@@ -76,13 +74,5 @@ public class GameManagerBehavior : MonoBehaviour
         mouseInWorldSpace = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         //every frame, update frameCounter
         frameCounter = frameCounter + 1;
-
-        //-- L MOUSE STATE --
-
-       //every frame, if left mouse is not being held down, reset holdingLMouse to enable another click
-       if (Mouse.current.leftButton.isPressed == false)
-        {
-            holdingLMouse = false;
-        }
     }
 }

@@ -97,8 +97,6 @@ public class DialogueTypingBehavior : MonoBehaviour
                     //if the character was incorrect
                     else
                     {
-                        //write a false boolean into the playerResponseAccuracy List, to be parsed later during Listening
-                        gameManager.playerResponseAccuracy.Add(false);
                         //play a negative man sound from the Voices Script
                         voiceScript.PlayNegativeManSound(keyPressed[0]);
                     }

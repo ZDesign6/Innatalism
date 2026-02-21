@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +28,8 @@ public class ListeningBehavior : MonoBehaviour
 
     //represents if this is a tub interior baby. Used to determine if we should do a scene transition after Listening.
     public bool isTubBaby = false;
+    //enables skipping the listening segment by clicking on the baby during Listening.
+    public bool enableSkipping = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -93,5 +96,17 @@ public class ListeningBehavior : MonoBehaviour
         {
             SceneManager.LoadScene(sceneToTransitionTo);
         }
+    }
+    private void OnMouseDown()
+    {
+        //DEBUG: On click, set parsingIndex equal to the last index to end listening early
+
+        //as long as we are currently listening
+        if (gameManager.currentlyListening == true)
+        {
+            //set the parsing index equal to the last index to end counting next frame
+            parsingIndex = gameManager.playerResponse.Count() - 1;
+        }
+        
     }
 }

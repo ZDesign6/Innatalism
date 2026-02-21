@@ -3,10 +3,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 public class BedBehavior : MonoBehaviour
 {
-    // -- INPUT --
-
-    //tracks if the mouse is being held. toggled on after the first isPressed, toggled off after isPressed becomes false.
-    bool holdingLMouse = false;
 
     // -- REFERERENCES --
 
@@ -55,16 +51,20 @@ public class BedBehavior : MonoBehaviour
                 }
             }
             /*next, calculate the overall accuracy percentage by dividing the correctChars by the total number of Chars recorded*/
-            float responseAccuracy = correctChars / gameManager.playerResponseAccuracy.Count;
+            float responseAccuracy = (float)correctChars / (float)gameManager.playerResponseAccuracy.Count;
+            Debug.Log("Player had " + correctChars + " out of " + gameManager.playerResponseAccuracy.Count + ", making accuracy " +  responseAccuracy);
             /*finally, if the responseAccuracy exceeded the accuracyThreshold, then move extremism UP*/
             if (responseAccuracy > correctnessPrecentageThreshold)
             {
+
                 gameManager.babyExtremism = gameManager.babyExtremism + 1;
+                Debug.Log("That exceeds the threshold of " + correctnessPrecentageThreshold + ", making the new Extremism " + gameManager.babyExtremism);
             }
             /*else, move extremism DOWN*/
             else
             {
                 gameManager.babyExtremism = gameManager.babyExtremism - 1;
+                Debug.Log("That does NOT exceed the threshold of " + correctnessPrecentageThreshold + ", making the new Extremism " + gameManager.babyExtremism);
             }
 
             // -- CLEANUP --

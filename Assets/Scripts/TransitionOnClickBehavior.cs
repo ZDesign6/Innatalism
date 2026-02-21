@@ -13,11 +13,6 @@ public class TransitionOnClickBehavior : MonoBehaviour
     //ref to singleton
     GameManagerBehavior gameManager;
 
-    // -- INPUT --
-
-    //tracks if the mouse is being held. toggled on after the first isPressed, toggled off after isPressed becomes false.
-    bool holdingLMouse = false;
-
     private void Start()
     {
         //assign ref to the singleton

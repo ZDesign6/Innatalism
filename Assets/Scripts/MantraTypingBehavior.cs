@@ -90,16 +90,12 @@ public class MantraTypingBehavior : MonoBehaviour
                     //if this character is the correct character 
                     if (untypedLine.IndexOf(keyPressed) == 0)
                     {
-                        //write a true boolean into the playerResponseAccuracy List, to be parsed later during Listening
-                        gameManager.playerResponseAccuracy.Add(true);
                         //play a positive man sound from the Voices Script
                         voiceScript.PlayPositiveManSound(keyPressed[0]);
                     }
                     //if the character was incorrect
                     else
                     {
-                        //write a false boolean into the playerResponseAccuracy List, to be parsed later during Listening
-                        gameManager.playerResponseAccuracy.Add(false);
                         //play a negative man sound from the Voices Script
                         voiceScript.PlayNegativeManSound(keyPressed[0]);
                     }
