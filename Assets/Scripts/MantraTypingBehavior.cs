@@ -17,9 +17,6 @@ public class MantraTypingBehavior : MonoBehaviour
     public GameObject dialogueBox;
     //Text that is displayed inside the dialogue box
     public TextMeshProUGUI dialogueText;
-    //font colorssss
-    public String typedColorHex;
-    public String untypedColorHex;
 
     //---TYPING STUFFS---//
 
@@ -41,6 +38,8 @@ public class MantraTypingBehavior : MonoBehaviour
     int cursorBlinkTime = 30;
     //the last character that was parsed
     string keyPressed;
+    //the color to draw Mantra text in. Computed during Start() by lerping between BlobColorRGB and CloneColorRGB according to how extreme we currently are
+    Color currentMantraTextColor;
     //List of characters to accept when parsing input
     List<string> recognizedCharacters = new List<string>()
     {
@@ -64,7 +63,11 @@ public class MantraTypingBehavior : MonoBehaviour
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
         //and assign self to the voiceScript's typingScript ref
         voiceScript.mantraTypingScript = this;
-        
+        //abstract how extreme we currently are by adding an offset to ensure all numbers are positive
+        float extremismProportion = (float)gameManager.babyExtremism + 8f / 16f;
+        Debug.Log("current extremism proportion is " +  extremismProportion);
+        //compute currentMantraTextColor
+        currentMantraTextColor = Color.Lerp(gameManager.blobColorRGB, gameManager.cloneColorRGB, extremismProportion);
     }
 
     private void Update()
@@ -72,9 +75,12 @@ public class MantraTypingBehavior : MonoBehaviour
         //if we are in dialogue we want to be listening for texttttt
         if (inDialogue)
         {
-            
+            Debug.Log("currentMantra color is " + currentMantraTextColor.ToString());
+            Debug.Log("color utility is returning " + ColorUtility.ToHtmlStringRGB(currentMantraTextColor));
+            //assign the vertex color in the TextMeshPro for the dialogue
+            dialogueText.color = currentMantraTextColor;
             //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-            dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
+            dialogueText.text = "<color=#" + ColorUtility.ToHtmlStringRGB(currentMantraTextColor) + ">" + typedLine + currentCursor + "<color=" + gameManager.untypedColorHex + ">"+ untypedLine;
             
             //if a key was pressed
             if (Input.anyKeyDown)
@@ -133,8 +139,6 @@ public class MantraTypingBehavior : MonoBehaviour
                         }
                     }
                     
-                    //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-                    dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
                 }
                 
             }

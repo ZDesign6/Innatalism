@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +7,16 @@ public class GameManagerBehavior : MonoBehaviour
 {
     //this static variable holds a single persistent instance of the GameManagerBehavior script
     public static GameManagerBehavior singleton;
+
+    // -- TYPING-RELATED --
+
+    //font colors. When a key is inputted incorrectly, it turns blob colored. otherwise, it's clone. Used by various scripts to color text.
+    public String cloneColorHex = "#F79449";
+    public String blobColorHex = "#D64995";
+    public String untypedColorHex = "#9E9E9E";
+    public Color cloneColorRGB = new Color(247 / 255, 148 / 255, 73 / 255);
+    public Color blobColorRGB = new Color(214 / 255, 73 / 255, 149 / 255);
+    public Color untypedColorRGB = new Color(158 / 255, 158 / 255, 158 / 255);
 
     // -- MOUSE INFORMATION --
 

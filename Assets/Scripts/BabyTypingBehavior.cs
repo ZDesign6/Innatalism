@@ -6,6 +6,7 @@ using TMPro;
 public class BabyTypingBehavior : MonoBehaviour
 {
     // -- REFS --
+
     //ref to the VoiceBehavior Script from the Voices object in the Scene. Assigned during Start()
     VoicesBehavior voiceScript;
     //ref to the singleton. Assigned during Start
@@ -17,10 +18,6 @@ public class BabyTypingBehavior : MonoBehaviour
     public GameObject dialogueBox;
     //Text that is displayed inside the dialogue box
     public TextMeshProUGUI dialogueText;
-    //font colors. When a key is inputted incorrectly, it turns blob colored. otherwise, it's clone.
-    String cloneColorHex = "#F79449";
-    String blobColorHex = "#D64995";
-    public String untypedColorHex;
 
     //---TYPING STUFFS---//
 
@@ -67,7 +64,7 @@ public class BabyTypingBehavior : MonoBehaviour
         {
             
             //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-            dialogueText.text =  typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
+            dialogueText.text =  typedLine + currentCursor + "<color=" + gameManager.untypedColorHex + ">"+ untypedLine;
             
             //if a key was pressed
             if (Input.anyKeyDown)
@@ -90,7 +87,7 @@ public class BabyTypingBehavior : MonoBehaviour
                         //play a positive man sound from the Voices Script
                         voiceScript.PlayPositiveManSound(keyPressed[0]);
                         //add the key to the typed line in clone color 
-                        typedLine += "<color=" + cloneColorHex + ">"+ keyPressed+"</color>";  
+                        typedLine += "<color=" + gameManager.cloneColorHex + ">"+ keyPressed+"</color>";  
                     }
                     //if the character was incorrect
                     else
@@ -99,7 +96,7 @@ public class BabyTypingBehavior : MonoBehaviour
                         gameManager.playerResponseAccuracy.Add(false);
                         //play a negative man sound from the Voices Script
                         voiceScript.PlayNegativeManSound(keyPressed[0]);
-                        typedLine += "<color=" + blobColorHex + ">"+ keyPressed+"</color>";  
+                        typedLine += "<color=" + gameManager.blobColorHex + ">"+ keyPressed+"</color>";  
                     }
                                 
                     //remove the key that was intended to be typed from the untyped line
