@@ -26,6 +26,8 @@ public class BabySpriteChanger : MonoBehaviour
         int spriteIndex = baseIndex + offsetIndex;
         //assign the Sprite equal to the Sprite at the spriteIndex
         this.gameObject.GetComponent<SpriteRenderer>().sprite = babySprites[spriteIndex];
+        //and then recalculate the PolygonCollider's points to match any new Sprite shapes
+        this.gameObject.GetComponent<PolygonCollider2D>().CreateFromSprite(this.gameObject.GetComponent<SpriteRenderer>().sprite);
 
     }
 
