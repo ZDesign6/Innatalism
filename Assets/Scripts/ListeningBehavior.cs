@@ -43,6 +43,7 @@ public class ListeningBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         //if currently listening
         if (gameManager.currentlyListening == true)
         {
@@ -91,6 +92,8 @@ public class ListeningBehavior : MonoBehaviour
         gameManager.currentlyListening = false;
         //and mark listeningComplete in the gameManager as true
         gameManager.listeningComplete = true;
+        //stop playing the fetal doppler sound
+        this.gameObject.GetComponent<AudioSource>().Stop();
         //if we are a tub baby, transition to the sceneToTransitionTo
         if (isTubBaby == true)
         {

@@ -124,24 +124,26 @@ public class BabyTypingBehavior : MonoBehaviour
                         {
                             // -- CLEANUP --
 
-                            //flip inDialogue to false
-                            inDialogue = false;
-                            //flip currentlyTyping to false
-                            gameManager.currentlyTyping = false;
-                            //close the dialogue box
-                            CloseDialogueBox();
-                            //flip currentlyListening to start Listening
-                            gameManager.currentlyListening = true;
+                            Cleanup();
                         }
-                        
                     }
-                    
-                    // //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-                    // dialogueText.text =  "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">"+ untypedLine;
                 }
-                
             }
         }
+    }
+    //this fct takes care of everything that should happen one time before typing ends
+    void Cleanup()
+    {
+        //flip inDialogue to false
+        inDialogue = false;
+        //flip currentlyTyping to false
+        gameManager.currentlyTyping = false;
+        //close the dialogue box
+        CloseDialogueBox();
+        //flip currentlyListening to start Listening
+        gameManager.currentlyListening = true;
+        //start playing the fetal doppler
+        this.gameObject.GetComponent<AudioSource>().Play();
     }
     private void FixedUpdate()
     {
