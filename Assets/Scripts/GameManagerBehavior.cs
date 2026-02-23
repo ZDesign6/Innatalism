@@ -14,9 +14,9 @@ public class GameManagerBehavior : MonoBehaviour
     public String cloneColorHex = "#F79449";
     public String blobColorHex = "#D64995";
     public String untypedColorHex = "#9E9E9E";
-    public Color cloneColorRGB = new Color(247 / 255, 148 / 255, 73 / 255);
-    public Color blobColorRGB = new Color(214 / 255, 73 / 255, 149 / 255);
-    public Color untypedColorRGB = new Color(158 / 255, 158 / 255, 158 / 255);
+    public Color cloneColorRGB = new Color((float)247 / (float)255, (float)148/ (float)255, (float)73 / (float)255);
+    public Color blobColorRGB = new Color((float)214 / 255, (float)73 / 255, (float)149 / 255);
+    public Color untypedColorRGB = new Color((float)158 / 255, (float)158 / 255, (float)158 / 255);
 
     // -- MOUSE INFORMATION --
 

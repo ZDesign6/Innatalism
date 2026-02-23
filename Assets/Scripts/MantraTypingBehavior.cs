@@ -75,10 +75,6 @@ public class MantraTypingBehavior : MonoBehaviour
         //if we are in dialogue we want to be listening for texttttt
         if (inDialogue)
         {
-            Debug.Log("currentMantra color is " + currentMantraTextColor.ToString());
-            Debug.Log("color utility is returning " + ColorUtility.ToHtmlStringRGB(currentMantraTextColor));
-            //assign the vertex color in the TextMeshPro for the dialogue
-            dialogueText.color = currentMantraTextColor;
             //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
             dialogueText.text = "<color=#" + ColorUtility.ToHtmlStringRGB(currentMantraTextColor) + ">" + typedLine + currentCursor + "<color=" + gameManager.untypedColorHex + ">"+ untypedLine;
             
