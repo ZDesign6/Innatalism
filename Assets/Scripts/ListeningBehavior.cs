@@ -30,6 +30,14 @@ public class ListeningBehavior : MonoBehaviour
     public bool isTubBaby = false;
     //enables skipping the listening segment by clicking on the baby during Listening.
     public bool enableSkipping = true;
+    
+    // -- TRANSITION ANIMATION --
+    //timer to transition
+    private float waitTime = 0.5f;
+    private bool waitingToTransition;
+    
+    //animator on the canvas which plays the transition anim
+    Animator transitionAnimator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +46,8 @@ public class ListeningBehavior : MonoBehaviour
         gameManager = GameManagerBehavior.singleton;
         //assign ref to Voice Script
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
+        //find and assign transition animator
+        transitionAnimator = GameObject.Find("TransitionImage").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -83,6 +93,20 @@ public class ListeningBehavior : MonoBehaviour
             //finally, as long as we are meant to be listening, subtract a frame from currentDelay to move us towards the next playback event
             currentDelay = currentDelay - 1;
         }
+        
+        if (waitingToTransition)
+        {
+            if (waitTime <= 0)
+            {
+                SceneManager.LoadScene(sceneToTransitionTo);
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
+            }
+        }
+        
+        
                     
     }
     //this fct handles all activities that should be carried out ONCE before listening ends.
@@ -97,7 +121,11 @@ public class ListeningBehavior : MonoBehaviour
         //if we are a tub baby, transition to the sceneToTransitionTo
         if (isTubBaby == true)
         {
-            SceneManager.LoadScene(sceneToTransitionTo);
+            //transition out of scene with an animation. 
+            transitionAnimator.Play("TransitionOutOfScene");
+            //kickstart timer to actually move to the next scene 
+            waitingToTransition = true;
+            
         }
     }
     private void OnMouseDown()

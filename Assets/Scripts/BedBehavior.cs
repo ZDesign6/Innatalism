@@ -16,10 +16,21 @@ public class BedBehavior : MonoBehaviour
     // -- MUTATION SYSTEM --
     //percentage threshold that must be met for the playerResponse to be considered overall "correct".
     [SerializeField][Range(.1f, .9f)] private float correctnessPrecentageThreshold;
+    
+    // -- TRANSITION ANIMATION --
+    //timer to transition
+    private float waitTime = 0.5f;
+    private bool waitingToTransition;
+    
+    //animator on the canvas which plays the transition anim
+    Animator transitionAnimator;
 
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //find and assign transition animator
+        transitionAnimator = GameObject.Find("TransitionImage").GetComponent<Animator>();
         //fetch the first component that falls unyder the collider2D parent class
         colliderToCheck = this.gameObject.GetComponent<Collider2D>();
         //assign ref to singleton
@@ -29,7 +40,18 @@ public class BedBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if (waitingToTransition)
+        {
+            if (waitTime <= 0)
+            {
+                SceneManager.LoadScene(nextDaySceneName);
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
+            }
+        }
+       
     }
     private void OnMouseDown()
     {
@@ -83,7 +105,12 @@ public class BedBehavior : MonoBehaviour
             gameManager.talkedToBaby = false;
 
             //load the next day
-            SceneManager.LoadScene(nextDaySceneName);
+            
+            //transition out of scene with an animation. 
+            transitionAnimator.Play("TransitionOutOfScene");
+            //kickstart timer to actually move to the next scene 
+            waitingToTransition = true;
+           
         }
         else
         {
