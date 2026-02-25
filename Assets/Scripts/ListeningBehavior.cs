@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 public class ListeningBehavior : MonoBehaviour
 {
     // -- REFS --
-
     //ref to the singleton. assigned during Start()
     GameManagerBehavior gameManager;
     //ref to the VoicesBehavior script in the Scene. Assigned during Start()
     VoicesBehavior voiceScript;
+    //ref to the typing behavior script in the Scene. Assigned during Start()
+    BabyTypingBehavior typingScript; 
     //string which holds the scene name for the scene which will be transitioned to after Listening IF the baby is a tub baby
     public string sceneToTransitionTo;
 
@@ -48,6 +49,8 @@ public class ListeningBehavior : MonoBehaviour
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
         //find and assign transition animator
         transitionAnimator = GameObject.Find("TransitionImage").GetComponent<Animator>();
+        //assign ref to the VoiceBehavior Script in the scene
+        typingScript = GameObject.Find("Baby").GetComponent<BabyTypingBehavior>();
     }
 
     // Update is called once per frame
@@ -59,7 +62,7 @@ public class ListeningBehavior : MonoBehaviour
         {
             Debug.Log("Listening delay is currently " + currentDelay);
             //and currentDelay is 0
-            if (currentDelay == 0)
+            if (currentDelay <= 0)
             {
                 //parse the char at parsingIndex
                 char currentChar = gameManager.playerResponse[parsingIndex];
@@ -114,19 +117,29 @@ public class ListeningBehavior : MonoBehaviour
     {
         //mark currentlyListening in the gameManager as false
         gameManager.currentlyListening = false;
-        //and mark listeningComplete in the gameManager as true
-        gameManager.listeningComplete = true;
         //stop playing the fetal doppler sound
         this.gameObject.GetComponent<AudioSource>().Stop();
-        //if we are a tub baby, transition to the sceneToTransitionTo
-        if (isTubBaby == true)
+        //if we are not done typing
+        if(typingScript.dialoguesIndex != typingScript.dialogues.Count)
         {
-            //transition out of scene with an animation. 
-            transitionAnimator.Play("TransitionOutOfScene");
-            //kickstart timer to actually move to the next scene 
-            waitingToTransition = true;
-            
+            //load the next line
+            typingScript.LoadLine();
+        } 
+        else 
+        {
+            //if we are done, mark listeningComplete in the gameManager as true
+            gameManager.listeningComplete = true;
+
+             //if we are a tub baby, transition to the sceneToTransitionTo        
+                    if (isTubBaby == true)
+                    {
+                        //transition out of scene with an animation. 
+                        transitionAnimator.Play("TransitionOutOfScene");
+                        //kickstart timer to actually move to the next scene 
+                        waitingToTransition = true;               
+                    }
         }
+       
     }
     private void OnMouseDown()
     {

@@ -110,19 +110,11 @@ public class BabyTypingBehavior : MonoBehaviour
                         
                         //we are done typing this line.
                         Debug.Log("finished typing line!");
-                        //If the current INdex (which has just been incremented) is not equal to the count, we should load the next line
-                        if (dialoguesIndex != dialogues.Count)
-                        {
-                            //load the next line to continue typing
-                            LoadLine();
-                        }
-                        //else, if the index is now equal to the count, then we are done loading. Cleanup and exit.
-                        else
-                        {
-                            // -- CLEANUP --
+                        
+                        // -- CLEANUP --
 
-                            Cleanup();
-                        }
+                        Cleanup();
+                        
                     }
                 }
             }
