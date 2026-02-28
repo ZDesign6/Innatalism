@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class EnterableTubBehavior : MonoBehaviour
+public class MirrorTransitionBehavior : MonoBehaviour
 {
     // -- REFERERENCES --
 
@@ -9,11 +10,9 @@ public class EnterableTubBehavior : MonoBehaviour
     Collider2D colliderToCheck;
     //string representing the name of the scene to load
     public string sceneName;
-    
     //ref to singleton
     GameManagerBehavior gameManager;
-    
-    // -- TRANSITION ANIMATION --
+
     //timer to transition
     private float waitTime = 0.5f;
     private bool waitingToTransition;
@@ -45,18 +44,13 @@ public class EnterableTubBehavior : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        //And if we aren't currently listening, talking, or have already listened
-        if (gameManager.currentlyListening == false && gameManager.currentlyTyping == false && gameManager.listeningComplete == false)
+        //If we are currently interactible, start transitioning
+        if (this.gameManager.GetComponent<InteractibilityManager>().isInteractible == true)
         {
             //transition out of scene with an animation. 
             transitionAnimator.Play("TransitionOutOfScene");
             //kickstart timer to actually move to the next scene 
             waitingToTransition = true;
-        }
-        else
-        {
-            Debug.Log("transition denied.");
-
         }
     }
 }

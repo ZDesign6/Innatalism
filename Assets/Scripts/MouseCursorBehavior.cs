@@ -58,7 +58,7 @@ public class MouseCursorBehavior : MonoBehaviour
 
             // If the object hit has transition on click behavior (interactable object)
             // **For now detects transition on click but can be changed
-            if (objectHitList[0].GetComponent<TransitionOnClickBehavior>() != null)
+            if (objectHitList[0].GetComponent<MirrorTransitionBehavior>() != null)
             {
                 // **Insert getting values in here or something
                 // **If interactable does interact animation, else does no interact animation yay

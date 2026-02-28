@@ -148,8 +148,12 @@ public class ListeningBehavior : MonoBehaviour
         //as long as we are currently listening
         if (gameManager.currentlyListening == true)
         {
-            //set the parsing index equal to the last index to end counting next frame
-            parsingIndex = gameManager.playerResponse.Count() - 1;
+            //and as long as skipping is enabled
+            if(enableSkipping == true)
+            {
+                //set the parsing index equal to the last index to end counting next frame
+                parsingIndex = gameManager.playerResponse.Count() - 1;
+            }
         }
         
     }

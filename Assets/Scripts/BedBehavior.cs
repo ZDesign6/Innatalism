@@ -55,8 +55,8 @@ public class BedBehavior : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        //and the game manager confirms that listening has been completed
-        if (gameManager.listeningComplete == true)
+        //If we are currently interactible
+        if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true)
         {
             //-- MUTATION --
             /* first, check how many correct chars were recorded */
@@ -91,18 +91,7 @@ public class BedBehavior : MonoBehaviour
 
             // -- CLEANUP --
 
-            //assign player response equal to an empty string
-            gameManager.playerResponse = "";
-            //empty our the playerresponse accuracy list
-            gameManager.playerResponseAccuracy.Clear();
-            //and flip listeningComplete to false
-            gameManager.listeningComplete = false;
-            //increase currentDay to ensure the baby's sprite changes accurately
-            gameManager.currentDay = gameManager.currentDay + 1;
-            //reset room dialogue completed to prep for next day!!!
-            gameManager.roomDialogueCompleted = false;
-            //reset talkedToBaby to prep for next day
-            gameManager.talkedToBaby = false;
+            Cleanup();
 
             //load the next day
             
@@ -119,5 +108,21 @@ public class BedBehavior : MonoBehaviour
         }
 
         
+    }
+    //This fct handles resetting and clearing any data to its default state before starting the next day.
+    void Cleanup()
+    {
+        //assign player response equal to an empty string
+        gameManager.playerResponse = "";
+        //empty our the playerresponse accuracy list
+        gameManager.playerResponseAccuracy.Clear();
+        //and flip listeningComplete to false
+        gameManager.listeningComplete = false;
+        //increase currentDay to ensure the baby's sprite changes accurately
+        gameManager.currentDay = gameManager.currentDay + 1;
+        //reset room dialogue completed to prep for next day!!!
+        gameManager.roomDialogueCompleted = false;
+        //reset talkedToBaby to prep for next day
+        gameManager.talkedToBaby = false;
     }
 }
