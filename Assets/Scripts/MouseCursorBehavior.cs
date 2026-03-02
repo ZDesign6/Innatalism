@@ -47,12 +47,18 @@ public class MouseCursorBehavior : MonoBehaviour
             //if the object is interactible
             if (objectHitList[0].GetComponent<InteractibilityManager>().isInteractible == true)
             {
+                //meow
+                var hoverManager = objectHitList[0].GetComponent<HoverManager>();
+                hoverManager.AnimateHover(true);
+                
                 // The mouse cursor plays the interacting animation
                 mouseAnimator.Play("Interact Animation");
             }
             //if the object is not interactible
             else
             {
+                var hoverManager = objectHitList[0].GetComponent<HoverManager>();
+                hoverManager.AnimateHover(false);
                 //mouse cursor plays the not interactible animation
                 mouseAnimator.Play("No Interact Animation");
             }
