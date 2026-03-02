@@ -4,7 +4,7 @@ using UnityEngine.PlayerLoop;
 
 public class HoverManager : MonoBehaviour
 {
-    String Interactable = "Hover";
+    String Interactable = "Interactable";
     String notInteractable = "NotInteractableHover";
     String notHovering = "NotHovering";   
     public Animator hoverAnimator;
