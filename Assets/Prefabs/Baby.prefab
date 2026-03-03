@@ -64,7 +64,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: ad76486f3421c324fb8cabba2362a7b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -580,10 +580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BabyTypingBehavior
   dialogueBox: {fileID: 0}
   dialogueText: {fileID: 0}
-  dialogues:
-  - Hello, baby.
-  - I see that you are baby.
-  - Thank you and enjoy your stay.
+  posDialoguesList: []
+  negDialoguesList: []
+  activeDialoguesList: []
   dialoguesIndex: 0
 --- !u!114 &7941556037448659635
 MonoBehaviour:
