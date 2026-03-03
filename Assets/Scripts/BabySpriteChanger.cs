@@ -15,6 +15,8 @@ public class BabySpriteChanger : MonoBehaviour
     public Material[] babyMats = new Material[153];
     //wobble shader
     public Shader wobbleShader;
+    //current day index of sprite
+    private int spriteIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,11 +29,11 @@ public class BabySpriteChanger : MonoBehaviour
         //convert babyExtremism into an offset that represents which extremism index to check out of the day's-worth of indices
         int offsetIndex = (gameManager.babyExtremism + 8);
         //add the two together into a single day/extremism index to check
-        int spriteIndex = baseIndex + offsetIndex;
+        spriteIndex = baseIndex + offsetIndex;
         //assign the Sprite equal to the Sprite at the spriteIndex
         this.gameObject.GetComponent<SpriteRenderer>().sprite = babySprites[spriteIndex];
-        //assign the texture on the wobble shader to the current sprite
-        this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[spriteIndex];
+        //assign the sprite material to default
+        this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[0];
         //and set this baby's pos equal to the pos of the background, so the two objects are centered on one another
         this.gameObject.GetComponent<Transform>().position = GameObject.Find("Background").GetComponent<Transform>().position;
         //and set this baby's scale equal to the scale of the Background object
@@ -40,10 +42,16 @@ public class BabySpriteChanger : MonoBehaviour
         this.gameObject.GetComponent<PolygonCollider2D>().CreateFromSprite(this.gameObject.GetComponent<SpriteRenderer>().sprite);
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void OnMouseEnter()
     {
-        
+        //assign the wobble shader to the current sprite
+        this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[spriteIndex];
+    }
+
+    private void OnMouseExit()
+    {
+        //assign the wobble shader to not wiggle
+        this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[0];
     }
 }
