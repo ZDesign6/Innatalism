@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using UnityEditor.ShaderGraph.Internal;
 
 public class BabySpriteChanger : MonoBehaviour
 {
@@ -10,7 +11,10 @@ public class BabySpriteChanger : MonoBehaviour
     GameManagerBehavior gameManager;
     //a two dimensional List that contains a List of all days, with each Day containing a List of each possible sprite for that day's possible extremisms.
     public Sprite[] babySprites = new Sprite[153];
-    
+    //a two dimensional List that contains a List of all days, with each Day containing a List of each possible material for that day's possible extremisms.
+    public Material[] babyMats = new Material[153];
+    //wobble shader
+    public Shader wobbleShader;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +22,6 @@ public class BabySpriteChanger : MonoBehaviour
         gameManager = GameManagerBehavior.singleton;
 
         //-- SPRITE ASSIGNMENT --
-
         //convert currentDay into a base Index that represents what day's-worth of indices to check
         int baseIndex = (gameManager.currentDay - 1) * 17;
         //convert babyExtremism into an offset that represents which extremism index to check out of the day's-worth of indices
@@ -28,7 +31,7 @@ public class BabySpriteChanger : MonoBehaviour
         //assign the Sprite equal to the Sprite at the spriteIndex
         this.gameObject.GetComponent<SpriteRenderer>().sprite = babySprites[spriteIndex];
         //assign the texture on the wobble shader to the current sprite
-        this.gameObject.GetComponent<SpriteRenderer>().material.mainTexture =  babySprites[spriteIndex].texture;
+        this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[spriteIndex];
         //and set this baby's pos equal to the pos of the background, so the two objects are centered on one another
         this.gameObject.GetComponent<Transform>().position = GameObject.Find("Background").GetComponent<Transform>().position;
         //and set this baby's scale equal to the scale of the Background object

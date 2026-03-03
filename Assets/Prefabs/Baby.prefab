@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7251148057463581622}
   - component: {fileID: 4476885669570328701}
   - component: {fileID: 4863823953117540944}
+  - component: {fileID: -1754396272910838672}
   m_Layer: 0
   m_Name: Baby
   m_TagString: Untagged
@@ -637,11 +638,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 6176597097618139007, guid: 4e63369e55166a74ab29bebda1bf606a, type: 3}
+  - {fileID: 21300000, guid: 4e63369e55166a74ab29bebda1bf606a, type: 3}
   - {fileID: 0}
-  - {fileID: -8835843633602359729, guid: 59fb40b57c5bdcd4e833ccbdb15c268a, type: 3}
+  - {fileID: 21300000, guid: 59fb40b57c5bdcd4e833ccbdb15c268a, type: 3}
   - {fileID: 0}
   - {fileID: -5076036698515578873, guid: c1ff180c69f4b20408e74e1c8e537863, type: 3}
+  - {fileID: 21300000, guid: c1ff180c69f4b20408e74e1c8e537863, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -652,14 +654,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 21300000, guid: a8f13e403d80fe045bce013353a0f8b3, type: 3}
   - {fileID: 0}
-  - {fileID: -2673451425834024663, guid: a8f13e403d80fe045bce013353a0f8b3, type: 3}
+  - {fileID: 21300000, guid: f151aca6204b16f40a2694f96b1d8886, type: 3}
   - {fileID: 0}
-  - {fileID: -6849776886813920636, guid: f151aca6204b16f40a2694f96b1d8886, type: 3}
+  - {fileID: 21300000, guid: acc61c01789a2274eb127e685b6b34b1, type: 3}
   - {fileID: 0}
-  - {fileID: 5883018165764678802, guid: acc61c01789a2274eb127e685b6b34b1, type: 3}
+  - {fileID: 21300000, guid: 7f976e77b12bd044c97042079b11bd78, type: 3}
   - {fileID: 0}
-  - {fileID: 7455731227630814320, guid: 7f976e77b12bd044c97042079b11bd78, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -749,7 +751,161 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  babyMats:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 9069124a025b66746bc7cca94bd1183e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: aa5d4323d248b2348a56f28fa4855914, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: db2d005f4bc1ee34f9ca2b7d8f891c4b, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 5a9e1560d3bc9b8438e04da7b7af8fae, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: d7546dccac4662040888398639ef6a38, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 474a3cb18f460754aa2cea87732e4f9e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 892eeeaf49e430e43bb2cbaa81f7f780, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 68b9101e782e66f418fbc000450b3d9b, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: db2d005f4bc1ee34f9ca2b7d8f891c4b, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: b420a8e73d5dade4495238356b00d6ac, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  wobbleShader: {fileID: -6465566751694194690, guid: dfcd10ba510543e49b17fc5c3352e37d, type: 3}
 --- !u!114 &7251148057463581622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,3 +1033,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1754396272910838672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9107779676844667329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd779f25d2f46f42ab4f921440625df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractibilityManager
+  isInteractible: 1
