@@ -952,9 +952,9 @@ MonoBehaviour:
   dialogueBox: {fileID: 1274764451}
   dialogueText: {fileID: 1541120737}
   dialogues:
-  - this is the mirror
-  - on day 3
-  - i am gonna be suchh a good mom
+  - I am doing exactly what I need to be doing.
+  - I love spending time with my baby.
+  - I love my baby unconditionally.
   dialoguesIndex: 0
 --- !u!1001 &1720325808
 PrefabInstance:

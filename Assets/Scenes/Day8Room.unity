@@ -544,8 +544,8 @@ MonoBehaviour:
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
   dialogues:
-  - i am in the room
-  - it is day 8
+  - You're not alone.
+  - I was born when you were born.
   dialoguesIndex: 0
 --- !u!4 &661041472
 Transform:

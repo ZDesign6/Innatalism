@@ -915,9 +915,9 @@ MonoBehaviour:
   dialogueBox: {fileID: 1274764451}
   dialogueText: {fileID: 1541120737}
   dialogues:
-  - this is the mirror
-  - on day 2
-  - i am gonna be suchh a good mom
+  - My room was made to hold this baby.
+  - My room is full of love.
+  - My room is safe.
   dialoguesIndex: 0
 --- !u!1 &1957513809
 GameObject:

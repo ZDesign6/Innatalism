@@ -1017,9 +1017,9 @@ MonoBehaviour:
   dialogueBox: {fileID: 1274764451}
   dialogueText: {fileID: 1541120737}
   dialogues:
-  - i am gonna be suchh a good mom
-  - mom mom mom mom
-  - i am gonna be suchh a good mom
+  - Big things are coming to me.
+  - Success is just around the corner.
+  - Everything worth doing is hard.
   dialoguesIndex: 0
 --- !u!1 &1957513809
 GameObject:

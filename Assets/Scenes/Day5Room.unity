@@ -475,8 +475,8 @@ MonoBehaviour:
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
   dialogues:
-  - i am in the room
-  - It is Day 5
+  - Things are happening so fast...
+  - Is it okay to not have a plan?
   dialoguesIndex: 0
 --- !u!4 &661041472
 Transform:

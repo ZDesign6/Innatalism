@@ -483,8 +483,7 @@ MonoBehaviour:
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
   dialogues:
-  - i am in the room
-  - it is day 4
+  - This is an important milestone.
   dialoguesIndex: 0
 --- !u!4 &661041472
 Transform:

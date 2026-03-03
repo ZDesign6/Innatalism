@@ -483,8 +483,8 @@ MonoBehaviour:
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
   dialogues:
-  - i am in the room
-  - it is day 7
+  - I see myself in you.
+  - How do you see me?
   dialoguesIndex: 0
 --- !u!4 &661041472
 Transform:

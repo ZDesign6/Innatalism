@@ -415,8 +415,7 @@ MonoBehaviour:
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
   dialogues:
-  - i am in the room
-  - It is day 3
+  - This is about more than just "me" now.
   dialoguesIndex: 0
 --- !u!4 &661041472
 Transform:

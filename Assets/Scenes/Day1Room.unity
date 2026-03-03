@@ -850,8 +850,7 @@ MonoBehaviour:
   typedColorHex: '#FFFFFF'
   untypedColorHex: '#9E9E9E'
   dialogues:
-  - i am in the room
-  - It is day 1
+  - It's in the tub.
   dialoguesIndex: 0
 --- !u!4 &1599761903
 Transform:

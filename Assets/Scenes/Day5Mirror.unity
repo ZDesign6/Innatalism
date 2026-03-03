@@ -850,9 +850,9 @@ MonoBehaviour:
   dialogueBox: {fileID: 1274764451}
   dialogueText: {fileID: 1541120737}
   dialogues:
-  - this is the mirror
-  - on day 5
-  - i am gonna be suchh a good mom
+  - I grow when my baby grows.
+  - Wisdom means accepting change.
+  - Being a mom is who I am.
   dialoguesIndex: 0
 --- !u!1001 &1687668627
 PrefabInstance:
