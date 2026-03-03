@@ -207,6 +207,42 @@ PrefabInstance:
       propertyPath: 'dialogues.Array.data[2]'
       value: This shows that the system works.
       objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: negDialoguesList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: posDialoguesList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[0]'
+      value: How do my words reach you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[1]'
+      value: In the way that I speak them?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[2]'
+      value: Or the way that you speak them back?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[0]'
+      value: My words are really reaching you, aren't they?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[1]'
+      value: This is such a privilege.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[2]'
+      value: I love to see you speak.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[3]'
+      value: I love to hear my voice.
+      objectReference: {fileID: 0}
     - target: {fileID: 9107779676844667329, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_Name
       value: Baby

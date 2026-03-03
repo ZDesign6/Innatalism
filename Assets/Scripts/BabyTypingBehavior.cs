@@ -23,8 +23,12 @@ public class BabyTypingBehavior : MonoBehaviour
 
     //tracks if we should be displaying our text. Toggled on by LoadLine, toggled off during cleanup.
     bool inDialogue = false;
-    //List of Strings to be displayed
-    public List<String> dialogues;
+    //List of Strings to be displayed containing positive dialogues
+    public List<String> posDialoguesList;
+    //List of Strings to be displayed, containing negative dialogue
+    public List<String> negDialoguesList;
+    //an abstraction of the dialogues to actually use. Chosen during Start() according to posChange in game manager.
+    public List<String> activeDialoguesList;
     //Index used to access the dialogues List. 
     public int dialoguesIndex = 0;
     //Text that the user has already typed
@@ -55,6 +59,21 @@ public class BabyTypingBehavior : MonoBehaviour
         voiceScript.babyTypingScript = this;
         //assign ref to singleton
         gameManager = GameManagerBehavior.singleton;
+        
+        // -- SET ACTIVE DIALOGUE --
+
+        //if last day's change was pos (or this is the first day, which defaults to pos)
+        if (gameManager.posChange == true)
+        {
+            //then load the posDialogues into the activeDialogues List
+            activeDialoguesList = posDialoguesList;
+        }
+        //if the last day's change was neg
+        else
+        {
+            //then load the negDialogues into the activeDialogues list
+            activeDialoguesList = negDialoguesList;
+        }
     }
 
     private void Update()
@@ -162,7 +181,7 @@ public class BabyTypingBehavior : MonoBehaviour
         //we are now in dialogue
         inDialogue = true;
         //the entire line we want to display has not been typed yet
-        untypedLine = dialogues[dialoguesIndex];
+        untypedLine = activeDialoguesList[dialoguesIndex];
         typedLine = "";
 
     }

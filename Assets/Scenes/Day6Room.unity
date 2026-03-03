@@ -207,6 +207,42 @@ PrefabInstance:
       propertyPath: 'dialogues.Array.data[2]'
       value: This shows that the system works.
       objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: negDialoguesList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: posDialoguesList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[0]'
+      value: This won't be my room much longer.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[1]'
+      value: I'll have to make some space.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[2]'
+      value: I can't stop now.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[0]'
+      value: You'll be ready soon.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[1]'
+      value: I will be, too.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[2]'
+      value: It's going to be beautiful.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[3]'
+      value: I can't wait for what's coming next.
+      objectReference: {fileID: 0}
     - target: {fileID: 9107779676844667329, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_Name
       value: Baby

@@ -199,6 +199,46 @@ PrefabInstance:
       propertyPath: 'dialogues.Array.data[2]'
       value: This shows that the system works.
       objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: negDialoguesList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: posDialoguesList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[0]'
+      value: This is your only home. The only place you're safe.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[1]'
+      value: I sacrificed so much to get you here. But you still aren't ready.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[2]'
+      value: You aren't listening to me, are you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[3]'
+      value: If you leave, you'll never hear me again.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[0]'
+      value: You're finally ready.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[1]'
+      value: Your body has had to change so much...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[2]'
+      value: But it knows exactly what to do.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[3]'
+      value: You're in control.
+      objectReference: {fileID: 0}
     - target: {fileID: 9107779676844667329, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_Name
       value: Baby

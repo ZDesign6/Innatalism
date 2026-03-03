@@ -1174,6 +1174,30 @@ PrefabInstance:
       propertyPath: 'dialogues.Array.data[2]'
       value: I hear you, too.
       objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: negDialoguesList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: posDialoguesList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'negDialoguesList.Array.data[0]'
+      value: YOU SHUOLD NEVER SEE THIS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[0]'
+      value: I'm still not sure what you eat.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[1]'
+      value: I know that you're listening to me.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'posDialoguesList.Array.data[2]'
+      value: I hear you, too.
+      objectReference: {fileID: 0}
     - target: {fileID: 7800444358652911008, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_SortingOrder
       value: 3

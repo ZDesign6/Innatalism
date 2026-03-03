@@ -78,14 +78,19 @@ public class BedBehavior : MonoBehaviour
             /*finally, if the responseAccuracy exceeded the accuracyThreshold, then move extremism UP*/
             if (responseAccuracy > correctnessPrecentageThreshold)
             {
-
+                //inc extremism
                 gameManager.babyExtremism = gameManager.babyExtremism + 1;
+                //and set posChange to true
+                gameManager.posChange = true;
                 Debug.Log("That exceeds the threshold of " + correctnessPrecentageThreshold + ", making the new Extremism " + gameManager.babyExtremism);
             }
             /*else, move extremism DOWN*/
             else
             {
+                //dec extremism
                 gameManager.babyExtremism = gameManager.babyExtremism - 1;
+                //and set posChange to false
+                gameManager.posChange = false;
                 Debug.Log("That does NOT exceed the threshold of " + correctnessPrecentageThreshold + ", making the new Extremism " + gameManager.babyExtremism);
             }
 

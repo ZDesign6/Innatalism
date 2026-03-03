@@ -41,6 +41,8 @@ public class GameManagerBehavior : MonoBehaviour
     public int babyExtremism = 0;
     //tracks if we have gone through the initial room text. reset by bed behavior before transitioning to a new day
     public bool roomDialogueCompleted = false;
+    //tracks what kind of change happened at the end of last day. true if there was pos change, false if neg change.
+    public bool posChange = true;
 
 
     //-- RESPONSE PARSING -- (this should only be relevant once every day, during Listening sections. These variables start empty and are emptied again at the end of a Day during BedBehavior.)

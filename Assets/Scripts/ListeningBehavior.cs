@@ -120,7 +120,7 @@ public class ListeningBehavior : MonoBehaviour
         //stop playing the fetal doppler sound
         this.gameObject.GetComponent<AudioSource>().Stop();
         //if we are not done typing
-        if(typingScript.dialoguesIndex != typingScript.dialogues.Count)
+        if(typingScript.dialoguesIndex != typingScript.activeDialoguesList.Count)
         {
             //load the next line
             typingScript.LoadLine();
@@ -131,13 +131,13 @@ public class ListeningBehavior : MonoBehaviour
             gameManager.listeningComplete = true;
 
              //if we are a tub baby, transition to the sceneToTransitionTo        
-                    if (isTubBaby == true)
-                    {
-                        //transition out of scene with an animation. 
-                        transitionAnimator.Play("TransitionOutOfScene");
-                        //kickstart timer to actually move to the next scene 
-                        waitingToTransition = true;               
-                    }
+            if (isTubBaby == true)
+            {
+                //transition out of scene with an animation. 
+                transitionAnimator.Play("TransitionOutOfScene");
+                //kickstart timer to actually move to the next scene 
+                waitingToTransition = true;               
+            }
         }
        
     }
