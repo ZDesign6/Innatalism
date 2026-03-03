@@ -221,29 +221,35 @@ public class VoicesBehavior : MonoBehaviour
             //play the phoneme from the appropriate Soundbank
             case -8:
                 audioSource.PlayOneShot(babyNeg8PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism -8");
                 break;
             case -7:
                 audioSource.PlayOneShot(babyNeg7PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism -7");
                 break;
             case -6:
                 audioSource.PlayOneShot(babyNeg6PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism -6");
                 break;
             case -5:
                 audioSource.PlayOneShot(babyNeg5PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism -5");
                 break;
             case -4:
                 audioSource.PlayOneShot(babyNeg4PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism -4");
                 break;
             case -3:
                 audioSource.PlayOneShot(babyNeg3PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism -3");
                 break;
             case -2:
                 audioSource.PlayOneShot(babyNeg2PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism -2");
                 break;
             case -1:
                 audioSource.PlayOneShot(babyNeg1PosNoises[phonemeIndex]);
                 Debug.Log("Played a Positive Baby Sound for extremism -1");
-
                 break;
             case 0:
                 audioSource.PlayOneShot(baby0PosNoises[phonemeIndex]);
@@ -252,28 +258,34 @@ public class VoicesBehavior : MonoBehaviour
             case 1:
                 audioSource.PlayOneShot(baby1PosNoises[phonemeIndex]);
                 Debug.Log("Played a Positive Baby Sound for extremism 1");
-
                 break;
             case 2:
                 audioSource.PlayOneShot(baby2PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism 2");
                 break;
             case 3:
                 audioSource.PlayOneShot(baby3PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism 3");
                 break;
             case 4:
                 audioSource.PlayOneShot(baby4PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism 4");
                 break;
             case 5:
                 audioSource.PlayOneShot(baby5PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism 5");
                 break;
             case 6:
                 audioSource.PlayOneShot(baby6PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism 6");
                 break;
             case 7:
                 audioSource.PlayOneShot(baby7PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism 7");
                 break;
             case 8:
                 audioSource.PlayOneShot(baby8PosNoises[phonemeIndex]);
+                Debug.Log("Played a Positive Baby Sound for extremism 8");
                 break;
         }
     }
@@ -291,29 +303,35 @@ public class VoicesBehavior : MonoBehaviour
             //play the phoneme from the appropriate Soundbank
             case -8:
                 audioSource.PlayOneShot(babyNeg8NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism -8");
                 break;
             case -7:
                 audioSource.PlayOneShot(babyNeg7NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism -7");
                 break;
             case -6:
                 audioSource.PlayOneShot(babyNeg6NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism -6");
                 break;
             case -5:
                 audioSource.PlayOneShot(babyNeg5NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism -5");
                 break;
             case -4:
                 audioSource.PlayOneShot(babyNeg4NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism -4");
                 break;
             case -3:
                 audioSource.PlayOneShot(babyNeg3NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism -3");
                 break;
             case -2:
                 audioSource.PlayOneShot(babyNeg2NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism -2");
                 break;
             case -1:
                 audioSource.PlayOneShot(babyNeg1NegNoises[phonemeIndex]);
                 Debug.Log("Played a Negative Baby Sound for extremism -1");
-
                 break;
             case 0:
                 audioSource.PlayOneShot(baby0NegNoises[phonemeIndex]);
@@ -326,24 +344,31 @@ public class VoicesBehavior : MonoBehaviour
                 break;
             case 2:
                 audioSource.PlayOneShot(baby2NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism 2");
                 break;
             case 3:
                 audioSource.PlayOneShot(baby3NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism 3");
                 break;
             case 4:
                 audioSource.PlayOneShot(baby4NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism 4");
                 break;
             case 5:
                 audioSource.PlayOneShot(baby5NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism 5");
                 break;
             case 6:
                 audioSource.PlayOneShot(baby6NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism 6");
                 break;
             case 7:
                 audioSource.PlayOneShot(baby7NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism 7");
                 break;
             case 8:
                 audioSource.PlayOneShot(baby8NegNoises[phonemeIndex]);
+                Debug.Log("Played a Negative Baby Sound for extremism 8");
                 break;
         }
     }

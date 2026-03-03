@@ -45,7 +45,7 @@ public class MirrorTransitionBehavior : MonoBehaviour
     private void OnMouseDown()
     {
         //If we are currently interactible, start transitioning
-        if (this.gameManager.GetComponent<InteractibilityManager>().isInteractible == true)
+        if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true)
         {
             //transition out of scene with an animation. 
             transitionAnimator.Play("TransitionOutOfScene");

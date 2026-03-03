@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -40,25 +39,47 @@ public class MouseCursorBehavior : MonoBehaviour
             // The mouse cursor plays the speaking animation
             mouseAnimator.Play("Speak Animation");
         }
-        //else, if we are NOT listening and NOT typing, if we ARE hovering over an interactible object...
+        //else, if we are NOT listening and NOT typing, and we ARE hovering over an interactible object...
         else if (objectHitList.Count > 0 && objectHitList[0].GetComponent<InteractibilityManager>() != null)
         {
-            Debug.Log("Mouse cursor's ray collided with " + objectHitList[0].name);
+            //Debug.Log("Mouse cursor's ray collided with " + objectHitList[0].name);
             //if the object is interactible
             if (objectHitList[0].GetComponent<InteractibilityManager>().isInteractible == true)
             {
-                //meow
-                var hoverManager = objectHitList[0].GetComponent<HoverManager>();
-                hoverManager.AnimateHover(true);
-                
+                //fucking stupid caitlin code unsafe fucking chungus dumb code
+                //I fix it so it does not throw disgusting errors everywhere
+                try
+                {
+                    var hoverManager = objectHitList[0].GetComponent<HoverManager>();
+                    hoverManager.AnimateHover(true);
+                }
+                catch (System.NullReferenceException)
+                {
+                    throw new System.Exception("No hoverManager detected, CAITLIN")
+                    {
+
+                    };
+                }
                 // The mouse cursor plays the interacting animation
                 mouseAnimator.Play("Interact Animation");
             }
             //if the object is not interactible
             else
             {
-                var hoverManager = objectHitList[0].GetComponent<HoverManager>();
-                hoverManager.AnimateHover(false);
+                //fucking stupid caitlin code unsafe fucking chungus gross code
+                //I fix it so it does not throw disgusting errors everywhere
+                try
+                {
+                    var hoverManager = objectHitList[0].GetComponent<HoverManager>();
+                    hoverManager.AnimateHover(false);
+                }
+                catch (System.NullReferenceException)
+                {
+                    throw new System.Exception("No hoverManager detected, CAITLIN")
+                    {
+
+                    };
+                }
                 //mouse cursor plays the not interactible animation
                 mouseAnimator.Play("No Interact Animation");
             }

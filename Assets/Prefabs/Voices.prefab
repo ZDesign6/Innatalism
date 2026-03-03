@@ -173,10 +173,22 @@ MonoBehaviour:
   babyNeg5NegNoises: []
   babyNeg4PosNoises: []
   babyNeg4NegNoises: []
-  babyNeg3PosNoises: []
-  babyNeg3NegNoises: []
-  babyNeg2PosNoises: []
-  babyNeg2NegNoises: []
+  babyNeg3PosNoises:
+  - {fileID: 8300000, guid: 083fd73cf2357c945af9048b0572096d, type: 3}
+  - {fileID: 8300000, guid: bea9f77d7e8bf1b488a902e05572b952, type: 3}
+  - {fileID: 8300000, guid: a668eecb0d3a1324db015de2d0f92dda, type: 3}
+  babyNeg3NegNoises:
+  - {fileID: 8300000, guid: c9bf171016b51a748ad1a4d3034a7b5d, type: 3}
+  - {fileID: 8300000, guid: 6b879db0d8650ad4ba6fb148901239a4, type: 3}
+  - {fileID: 8300000, guid: 92b1a51164d2e6f46afe45299d093191, type: 3}
+  babyNeg2PosNoises:
+  - {fileID: 8300000, guid: b2e7c26dc586e5841a658406bac89c3d, type: 3}
+  - {fileID: 8300000, guid: 027d7eb5888ec3c4b9641f65e89b64de, type: 3}
+  - {fileID: 8300000, guid: 4d94a34b4727b1a459ca78e05ad08bf6, type: 3}
+  babyNeg2NegNoises:
+  - {fileID: 8300000, guid: 50fc9de8412eba94280977d35cf74d25, type: 3}
+  - {fileID: 8300000, guid: 0b6a29554f392284f9392eed2659d160, type: 3}
+  - {fileID: 8300000, guid: f8f4e26102be7374286e8c05957d79cc, type: 3}
   babyNeg1PosNoises:
   - {fileID: 8300000, guid: 947948f7a0b2d284492e333c336fa3cd, type: 3}
   - {fileID: 8300000, guid: 95ac8156816da7648bddf6705d0f3547, type: 3}
@@ -201,10 +213,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b2358d6eb1f99cc48a8cf2c0c8d6f908, type: 3}
   - {fileID: 8300000, guid: 60dc12babb5455a479d0cf85f4a2a9b0, type: 3}
   - {fileID: 8300000, guid: 875b5364acf11fe4088946282bdab993, type: 3}
-  baby2PosNoises: []
-  baby2NegNoises: []
-  baby3PosNoises: []
-  baby3NegNoises: []
+  baby2PosNoises:
+  - {fileID: 8300000, guid: 8fed160326b66d74e987fed11923d679, type: 3}
+  - {fileID: 8300000, guid: b48019fcf2ba64a41be9e827592b9857, type: 3}
+  - {fileID: 8300000, guid: 6ac27c8395d165a46b409ed9d16ba932, type: 3}
+  baby2NegNoises:
+  - {fileID: 8300000, guid: 3a4f6f998215f4543bd22036bbdf662f, type: 3}
+  - {fileID: 8300000, guid: 761fe774632955b448f5927cbcf06f77, type: 3}
+  - {fileID: 8300000, guid: d5d6cf1416c5da041b2af14d2cf7e64e, type: 3}
+  baby3PosNoises:
+  - {fileID: 8300000, guid: 3bc8f7250f102e54485fc69ceb201c9a, type: 3}
+  - {fileID: 8300000, guid: 2a05a76c62e774442a77f72be1f243eb, type: 3}
+  - {fileID: 8300000, guid: b1ffbbf86a3fdb04da70ef0ce0c44379, type: 3}
+  baby3NegNoises:
+  - {fileID: 8300000, guid: 79b3aa0bb311d4b498310a33f7c213a2, type: 3}
+  - {fileID: 8300000, guid: 8c1ff58919f8e704c9acc6b00123830a, type: 3}
+  - {fileID: 8300000, guid: 62366cc82ea3e9541b3f0ab9788e9fae, type: 3}
   baby4PosNoises: []
   baby4NegNoises: []
   baby5PosNoises: []
