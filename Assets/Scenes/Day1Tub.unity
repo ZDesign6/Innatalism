@@ -1162,6 +1162,18 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1541120737}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'dialogues.Array.data[0]'
+      value: "I\u2019m still not sure what you eat. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'dialogues.Array.data[1]'
+      value: "I know that you\u2019re listening to me."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: 'dialogues.Array.data[2]'
+      value: I hear you, too.
+      objectReference: {fileID: 0}
     - target: {fileID: 7800444358652911008, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_SortingOrder
       value: 3

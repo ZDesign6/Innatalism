@@ -128,9 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8d481e0572e484390e95f64b4d37c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Interactable: Hover
-  notInteractable: 
-  notHovering: 
   hoverAnimator: {fileID: 4670474749588401220}
 --- !u!1 &8201995936894506145
 GameObject:
@@ -213,7 +210,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9115933baf590d346930fedeed1b5b37, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.44313726, g: 0.44313726, b: 0.44313726, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
