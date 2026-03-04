@@ -68,6 +68,7 @@ public class ListeningBehavior : MonoBehaviour
             //and currentDelay is 0
             if (currentDelay <= 0)
             {
+                print("ATTEMPTING TO PARSE PLAYER RESPONSE & ACCURACY AT " + parsingIndex);
                 //parse the char at parsingIndex
                 char currentChar = gameManager.playerResponse[parsingIndex];
                 //then parse the bool at parsingIndex to determine if the currentChar was correct or not
@@ -83,6 +84,7 @@ public class ListeningBehavior : MonoBehaviour
                     voiceScript.PlayNegativeBabySound(currentChar);
                 }
                 //finally, increase the parsingIndex to prepare for the next loop
+                print("INCREASING PARSING INDEX TO" + parsingIndex);
                 parsingIndex = parsingIndex + 1;
                 //then, if the index is not equal to the COUNT of playerResponse (we still have chars left to parse)
                 if (parsingIndex != gameManager.playerResponse.Length) 
