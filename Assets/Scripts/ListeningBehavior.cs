@@ -11,6 +11,9 @@ public class ListeningBehavior : MonoBehaviour
     VoicesBehavior voiceScript;
     //ref to the typing behavior script in the Scene. Assigned during Start()
     BabyTypingBehavior typingScript; 
+    //ref to the sprite changer script in the Scene. Assigned during Start()
+    BabySpriteChanger spriteChanger; 
+    
     //string which holds the scene name for the scene which will be transitioned to after Listening IF the baby is a tub baby
     public string sceneToTransitionTo;
 
@@ -51,12 +54,13 @@ public class ListeningBehavior : MonoBehaviour
         transitionAnimator = GameObject.Find("TransitionImage").GetComponent<Animator>();
         //assign ref to the VoiceBehavior Script in the scene
         typingScript = GameObject.Find("Baby").GetComponent<BabyTypingBehavior>();
+        //assign ref to the sprite changer Script in the scene
+        spriteChanger = GameObject.Find("Baby").GetComponent<BabySpriteChanger>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
         //if currently listening
         if (gameManager.currentlyListening == true)
         {
@@ -117,6 +121,8 @@ public class ListeningBehavior : MonoBehaviour
     {
         //mark currentlyListening in the gameManager as false
         gameManager.currentlyListening = false;
+        spriteChanger.StopBabyAnimation();
+        
         //stop playing the fetal doppler sound
         this.gameObject.GetComponent<AudioSource>().Stop();
         //if we are not done typing

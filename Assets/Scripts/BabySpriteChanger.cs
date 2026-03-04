@@ -41,17 +41,43 @@ public class BabySpriteChanger : MonoBehaviour
         //and then recalculate the PolygonCollider's points to match any new Sprite shapes
         this.gameObject.GetComponent<PolygonCollider2D>().CreateFromSprite(this.gameObject.GetComponent<SpriteRenderer>().sprite);
         
+        //THIS DOES NOT WORK SHOW ZACH AND THEN KILL
+        // //material shit
+        // for (int i=0; i<babyMats.Length; i++)
+        // {
+        //     //if there is a sprite
+        //     if (babySprites[i])
+        //     {
+        //         babyMats[i] = new Material(wobbleShader);
+        //         babyMats[i].mainTexture = babySprites[spriteIndex].texture;
+        //     }
+        //
+        // }
     }
-    
+
     private void OnMouseEnter()
+    {
+        AnimateBaby();
+    }
+
+    private void OnMouseExit()
+    {
+        StopBabyAnimation();
+    }
+
+    public void AnimateBaby()
     {
         //assign the wobble shader to the current sprite
         this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[spriteIndex];
     }
 
-    private void OnMouseExit()
+    public void StopBabyAnimation()
     {
-        //assign the wobble shader to not wiggle
-        this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[0];
+        //if not currently listening
+        if (!gameManager.currentlyListening)
+        {
+            //assign the wobble shader to not wiggle
+            this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[0];
+        }
     }
 }

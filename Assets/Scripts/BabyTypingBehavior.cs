@@ -11,6 +11,8 @@ public class BabyTypingBehavior : MonoBehaviour
     VoicesBehavior voiceScript;
     //ref to the singleton. Assigned during Start
     GameManagerBehavior gameManager;
+    //ref to the baby sprite changer. Assigned during Start
+    BabySpriteChanger spriteChanger;
 
     //---UI STUFFS---//
     
@@ -59,7 +61,8 @@ public class BabyTypingBehavior : MonoBehaviour
         voiceScript.babyTypingScript = this;
         //assign ref to singleton
         gameManager = GameManagerBehavior.singleton;
-        
+        //assign ref to the sprite changer Script in the scene
+        spriteChanger = GameObject.Find("Baby").GetComponent<BabySpriteChanger>();
         // -- SET ACTIVE DIALOGUE --
 
         //if last day's change was pos (or this is the first day, which defaults to pos)
@@ -150,6 +153,7 @@ public class BabyTypingBehavior : MonoBehaviour
         CloseDialogueBox();
         //flip currentlyListening to start Listening
         gameManager.currentlyListening = true;
+        spriteChanger.AnimateBaby();
         //start playing the fetal doppler
         this.gameObject.GetComponent<AudioSource>().Play();
     }

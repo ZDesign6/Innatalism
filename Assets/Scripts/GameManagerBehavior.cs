@@ -87,5 +87,6 @@ public class GameManagerBehavior : MonoBehaviour
         mouseInWorldSpace = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         //every frame, update frameCounter
         frameCounter = frameCounter + 1;
+        
     }
 }
