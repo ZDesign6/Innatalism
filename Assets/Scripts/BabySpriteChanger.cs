@@ -40,24 +40,14 @@ public class BabySpriteChanger : MonoBehaviour
         this.gameObject.GetComponent<Transform>().localScale = GameObject.Find("Background").GetComponent<Transform>().localScale;
         //and then recalculate the PolygonCollider's points to match any new Sprite shapes
         this.gameObject.GetComponent<PolygonCollider2D>().CreateFromSprite(this.gameObject.GetComponent<SpriteRenderer>().sprite);
-        
-        //THIS DOES NOT WORK SHOW ZACH AND THEN KILL
-        // //material shit
-        // for (int i=0; i<babyMats.Length; i++)
-        // {
-        //     //if there is a sprite
-        //     if (babySprites[i])
-        //     {
-        //         babyMats[i] = new Material(wobbleShader);
-        //         babyMats[i].mainTexture = babySprites[spriteIndex].texture;
-        //     }
-        //
-        // }
     }
 
     private void OnMouseEnter()
     {
-        AnimateBaby();
+        if (!gameManager.talkedToBaby)
+        {
+            AnimateBaby(); 
+        }
     }
 
     private void OnMouseExit()
