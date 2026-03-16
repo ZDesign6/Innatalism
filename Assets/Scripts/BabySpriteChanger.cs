@@ -1,7 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System;
-using UnityEditor.ShaderGraph.Internal;
 
 public class BabySpriteChanger : MonoBehaviour
 {
@@ -44,7 +41,8 @@ public class BabySpriteChanger : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (!gameManager.talkedToBaby)
+        //once mouse enters the collider, check if the baby is interactible. If it is, animate.
+        if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true)
         {
             AnimateBaby(); 
         }

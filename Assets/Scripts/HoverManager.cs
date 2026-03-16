@@ -15,13 +15,14 @@ public class HoverManager : MonoBehaviour
     
     }
 
-    public void AnimateHover(bool isInteractable)
+    public void AnimateHover()
     {
-        //if obj is interactable
-        if (isInteractable)
+        //if obj is interactable, play according animation
+        if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true)
         {
             hoverAnimator.Play(Interactable);
         }
+        //else, play according animation
         else
         {
             hoverAnimator.Play(notInteractable);

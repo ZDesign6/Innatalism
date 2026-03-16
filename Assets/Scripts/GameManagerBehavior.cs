@@ -49,6 +49,8 @@ public class GameManagerBehavior : MonoBehaviour
 
     //an empty string, filled with chars as the player types them. Used by Voices object to determine what phonemes to play.
     public string playerResponse;
+    //DEBUG VAR that tracks how many chars playerResponse currently holds.
+    public int playerResponseCount = 0;
     //a List of bools, correlating one-to-one with the chars in the playerResponse. Each bool represents whether the corresponding char was a match to the prompt or not. populated as the player types.
     public List<bool> playerResponseAccuracy = new List<bool>();
 
@@ -87,6 +89,8 @@ public class GameManagerBehavior : MonoBehaviour
         mouseInWorldSpace = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         //every frame, update frameCounter
         frameCounter = frameCounter + 1;
+        //every frame, update playerResponseCounter
+        playerResponseCount = playerResponse.Length;
         
     }
 }

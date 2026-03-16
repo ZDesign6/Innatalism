@@ -42,46 +42,23 @@ public class MouseCursorBehavior : MonoBehaviour
         //else, if we are NOT listening and NOT typing, and we ARE hovering over an interactible object...
         else if (objectHitList.Count > 0 && objectHitList[0].GetComponent<InteractibilityManager>() != null)
         {
-            //Debug.Log("Mouse cursor's ray collided with " + objectHitList[0].name);
+            //If the object in question has a hover manager, play its hover animation
+            if (objectHitList[0].GetComponent<HoverManager>() != null)
+            {
+                var hoverManager = objectHitList[0].GetComponent<HoverManager>();
+                hoverManager.AnimateHover();
+            }
             //if the object is interactible
             if (objectHitList[0].GetComponent<InteractibilityManager>().isInteractible == true)
             {
-                //fucking stupid caitlin code unsafe fucking chungus dumb code
-                //I fix it so it does not throw disgusting errors everywhere
-                try
-                {
-                    var hoverManager = objectHitList[0].GetComponent<HoverManager>();
-                    hoverManager.AnimateHover(true);
-                }
-                catch (System.NullReferenceException)
-                {
-                    throw new System.Exception("No hoverManager detected, CAITLIN")
-                    {
-
-                    };
-                }
                 // The mouse cursor plays the interacting animation
                 mouseAnimator.Play("Interact Animation");
             }
             //if the object is not interactible
             else
             {
-                //fucking stupid caitlin code unsafe fucking chungus gross code
-                //I fix it so it does not throw disgusting errors everywhere
-                try
-                {
-                    var hoverManager = objectHitList[0].GetComponent<HoverManager>();
-                    hoverManager.AnimateHover(false);
-                }
-                catch (System.NullReferenceException)
-                {
-                    throw new System.Exception("No hoverManager detected, CAITLIN")
-                    {
-
-                    };
-                }
                 //mouse cursor plays the not interactible animation
-                mouseAnimator.Play("No Interact Animation");
+                mouseAnimator.Play("No Interact Animation");          
             }
         }
         //else, we are NOT listening, NOT typing, and NOT hovering. So play Neutral animation.
