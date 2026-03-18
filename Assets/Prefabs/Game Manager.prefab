@@ -45,8 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad5fb27d7b8df94a9a19327ea614995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManagerBehavior
+  cloneColorHex: '#F79449'
+  blobColorHex: '#D64995'
+  untypedColorHex: '#9E9E9E'
+  cloneColorRGB: {r: 0.96862745, g: 0.5803922, b: 0.28627452, a: 1}
+  blobColorRGB: {r: 0.8392157, g: 0.28627452, b: 0.58431375, a: 1}
+  untypedColorRGB: {r: 0.61960787, g: 0.61960787, b: 0.61960787, a: 1}
   mouseInWorldSpace: {x: 0, y: 0}
-  holdingLMouse: 0
   frameCounter: 0
   currentlyListening: 0
   listeningComplete: 0
@@ -55,7 +60,9 @@ MonoBehaviour:
   currentDay: 1
   babyExtremism: 0
   roomDialogueCompleted: 0
+  posChange: 1
   playerResponse: 
+  playerResponseCount: 0
   playerResponseAccuracy: 
 --- !u!82 &7664515633837937802
 AudioSource:
@@ -72,7 +79,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
