@@ -87,8 +87,6 @@ public class MantraTypingBehavior : MonoBehaviour
                 //if this character is one accepted by the system
                 if (recognizedCharacters.Contains(keyPressed) && keyPressed.Length == 1)
                 {
-                    //write it into the playerResponse string, to be parsed later during Listening
-                    gameManager.playerResponse = gameManager.playerResponse + keyPressed;
                     //if this character is the correct character 
                     if (untypedLine.IndexOf(keyPressed) == 0)
                     {
