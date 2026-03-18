@@ -80,8 +80,8 @@ public class BedBehavior : MonoBehaviour
             {
                 //inc extremism
                 gameManager.babyExtremism = gameManager.babyExtremism + 1;
-                //and set posChange to true
-                gameManager.posChange = true;
+                //and set positiveChange to true
+                gameManager.positiveChange = true;
                 Debug.Log("That exceeds the threshold of " + correctnessPrecentageThreshold + ", making the new Extremism " + gameManager.babyExtremism);
             }
             /*else, move extremism DOWN*/
@@ -89,8 +89,8 @@ public class BedBehavior : MonoBehaviour
             {
                 //dec extremism
                 gameManager.babyExtremism = gameManager.babyExtremism - 1;
-                //and set posChange to false
-                gameManager.posChange = false;
+                //and set positiveChange to false
+                gameManager.positiveChange = false;
                 Debug.Log("That does NOT exceed the threshold of " + correctnessPrecentageThreshold + ", making the new Extremism " + gameManager.babyExtremism);
             }
 

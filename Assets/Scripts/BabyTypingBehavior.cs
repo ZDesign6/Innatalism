@@ -29,7 +29,7 @@ public class BabyTypingBehavior : MonoBehaviour
     public List<String> posDialoguesList;
     //List of Strings to be displayed, containing negative dialogue
     public List<String> negDialoguesList;
-    //an abstraction of the dialogues to actually use. Chosen during Start() according to posChange in game manager.
+    //an abstraction of the dialogues to actually use. Chosen during Start() according to positiveChange in game manager.
     public List<String> activeDialoguesList;
     //Index used to access the dialogues List. 
     public int dialoguesIndex = 0;
@@ -66,7 +66,7 @@ public class BabyTypingBehavior : MonoBehaviour
         // -- SET ACTIVE DIALOGUE --
 
         //if last day's change was pos (or this is the first day, which defaults to pos)
-        if (gameManager.posChange == true)
+        if (gameManager.positiveChange == true)
         {
             //then load the posDialogues into the activeDialogues List
             activeDialoguesList = posDialoguesList;
