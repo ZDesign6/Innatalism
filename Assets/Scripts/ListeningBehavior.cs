@@ -12,8 +12,10 @@ public class ListeningBehavior : MonoBehaviour
     //ref to the typing behavior script in the Scene. Assigned during Start()
     BabyTypingBehavior typingScript; 
     //ref to the sprite changer script in the Scene. Assigned during Start()
-    BabySpriteChanger spriteChanger; 
-    
+    BabySpriteChanger spriteChanger;
+    //ref to the letter manager
+    FloatingLetterManager letterManager;
+
     //string which holds the scene name for the scene which will be transitioned to after Listening IF the baby is a tub baby
     public string sceneToTransitionTo;
 
@@ -56,6 +58,8 @@ public class ListeningBehavior : MonoBehaviour
         typingScript = GameObject.Find("Baby").GetComponent<BabyTypingBehavior>();
         //assign ref to the sprite changer Script in the scene
         spriteChanger = GameObject.Find("Baby").GetComponent<BabySpriteChanger>();
+        //assign ref to letterManager
+        letterManager = GameObject.Find("Baby").GetComponent<FloatingLetterManager>();
     }
 
     // Update is called once per frame
@@ -76,12 +80,18 @@ public class ListeningBehavior : MonoBehaviour
                 //if correct, pass the parsed char through to VoicesBehavior PlayPositiveBabySound
                 if (charCorrect == true)
                 {
+                    //play a pos baby sound
                     voiceScript.PlayPositiveBabySound(currentChar);
+                    //instantiate a Floating Letter (passing in that it was accurate)
+                    letterManager.MakeLetter(parsingIndex, currentChar, true);
                 }
                 //else pass the parsed char through to VoicesBehavior PlayNegativeBabySound
                 else
                 {
+                    //play a neg baby sound
                     voiceScript.PlayNegativeBabySound(currentChar);
+                    //instantiate a Floating Letter (passing in that it was accurate)
+                    letterManager.MakeLetter(parsingIndex, currentChar, false);
                 }
                 //finally, increase the parsingIndex to prepare for the next loop
                 print("INCREASING PARSING INDEX TO" + parsingIndex);

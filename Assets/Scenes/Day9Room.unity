@@ -239,6 +239,38 @@ PrefabInstance:
       propertyPath: 'posDialoguesList.Array.data[3]'
       value: You're in control.
       objectReference: {fileID: 0}
+    - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: negDialogue1FloatingLetterPos.Array.size
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: negDialogue2FloatingLetterPos.Array.size
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: negDialogue3FloatingLetterPos.Array.size
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: negDialogue4FloatingLetterPos.Array.size
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: posDialogue1FloatingLetterPos.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: posDialogue2FloatingLetterPos.Array.size
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: posDialogue3FloatingLetterPos.Array.size
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: posDialogue4FloatingLetterPos.Array.size
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 9107779676844667329, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_Name
       value: Baby
