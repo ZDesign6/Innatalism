@@ -83,7 +83,7 @@ public class ListeningBehavior : MonoBehaviour
                     //play a pos baby sound
                     voiceScript.PlayPositiveBabySound(currentChar);
                     //instantiate a Floating Letter (passing in that it was accurate)
-                    letterManager.MakeLetter(parsingIndex, currentChar, true);
+                    letterManager.MakeLetter(currentChar, true);
                 }
                 //else pass the parsed char through to VoicesBehavior PlayNegativeBabySound
                 else
@@ -91,7 +91,7 @@ public class ListeningBehavior : MonoBehaviour
                     //play a neg baby sound
                     voiceScript.PlayNegativeBabySound(currentChar);
                     //instantiate a Floating Letter (passing in that it was accurate)
-                    letterManager.MakeLetter(parsingIndex, currentChar, false);
+                    letterManager.MakeLetter(currentChar, false);
                 }
                 //finally, increase the parsingIndex to prepare for the next loop
                 print("INCREASING PARSING INDEX TO" + parsingIndex);
@@ -134,7 +134,8 @@ public class ListeningBehavior : MonoBehaviour
         //mark currentlyListening in the gameManager as false
         gameManager.currentlyListening = false;
         spriteChanger.StopBabyAnimation();
-        
+        //rest the letterIndex in the FloatingLetterManager to 0, so that it can read the next list accurately (it does not align with parsingIndex)
+        this.gameObject.GetComponent<FloatingLetterManager>().letterIndex = 0;
         //stop playing the fetal doppler sound
         this.gameObject.GetComponent<AudioSource>().Stop();
         //if we are not done typing

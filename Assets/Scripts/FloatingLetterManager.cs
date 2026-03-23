@@ -5,6 +5,13 @@ using UnityEngine;
 public class FloatingLetterManager : MonoBehaviour
 {
     public float letterZPos = 0;
+
+    // -- PARSING --
+
+    /*this is the index by which we access the dialogue arrays.
+    Because of the way text parsing is done in base scripts (the index is continuous and never reset), this index is NOT the same as the parsing index and must be reset to 0 by ListeningBehavior during Cleanup().*/
+    public int letterIndex = 0;
+
     // -- REFS --
 
     //ref to singleton
@@ -41,7 +48,7 @@ public class FloatingLetterManager : MonoBehaviour
     /*this fct creates an instance of a FloatingLetter prefab, using the pos at the correletaing index in the LetterPos List
      * Replaces the default char in the Prefab with the given char
      * Called during Listening when each character is parsed. */
-    public void MakeLetter(int letterIndex, char charToInsert, bool isAccurate)
+    public void MakeLetter(char charToInsert, bool isAccurate)
     {
         //instantiate the Letter and store a ref. Its pos does not matter as it will be overwritten immediately.
         GameObject newLetter = Instantiate(floatingLetterPrefab, this.gameObject.GetComponent<Transform>().position, Quaternion.identity);
@@ -120,6 +127,7 @@ public class FloatingLetterManager : MonoBehaviour
         {
             newLetter.GetComponent<FloatingLetterBehavior>().isAccurate = false;
         }
-
+        //finally, increase the letterIndex to prepare to parse the next char
+        letterIndex = letterIndex + 1;
     }
 }
