@@ -9,6 +9,8 @@ public class FloatingLetterBehavior : MonoBehaviour
     public bool isAccurate = true;
     //how long Floating Characters last befoer deleting themselves
     public int lifeInFrames = 600;
+    //where this letter's destination is
+    public Vector3 destinationPos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
