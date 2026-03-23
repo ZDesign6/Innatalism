@@ -56,6 +56,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day8Room.unity
     guid: 25b614de8499d18418d7b3be8d69d9e5
+  - enabled: 1
+    path: Assets/Scenes/EndingSandbox.unity
+    guid: c974af281720aef4b833c9f4656b3f36
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: e042d46ad8d25b248bb488a583fc184e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
