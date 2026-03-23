@@ -1692,7 +1692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[9].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[10].x
@@ -1704,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[10].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[11].x
@@ -1716,7 +1716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[11].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[12].x
@@ -1728,7 +1728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[12].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[13].x
@@ -1740,7 +1740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[13].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[14].x
@@ -1752,7 +1752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[14].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[15].x
@@ -1764,7 +1764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[15].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[16].x
@@ -1776,7 +1776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[16].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[17].x
@@ -1788,7 +1788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[17].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[18].x
@@ -1800,7 +1800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[18].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[19].x
@@ -1812,7 +1812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[19].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[20].x
@@ -1824,7 +1824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[20].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[21].x
@@ -1836,7 +1836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[21].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[22].x
@@ -1848,7 +1848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[22].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[23].x
@@ -1860,7 +1860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[23].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[24].x
@@ -1872,7 +1872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[24].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[25].x
@@ -1884,7 +1884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[25].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[26].x
@@ -1896,7 +1896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[26].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[27].x
@@ -1908,7 +1908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[27].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[28].x
@@ -1920,7 +1920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[28].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[29].x
@@ -1932,7 +1932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[29].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[30].x
@@ -1944,7 +1944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[30].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[31].x
@@ -1956,7 +1956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7287673576525165276, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: posDialogue1FloatingLetterPos.Array.data[31].z
-      value: -12.705952
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7800444358652911008, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_SortingOrder
