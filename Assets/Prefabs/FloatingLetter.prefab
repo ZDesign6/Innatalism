@@ -84,7 +84,7 @@ MeshRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7745683191237799419
 MonoBehaviour:
@@ -192,3 +192,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ee4b08578273549837501c2ff5564d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingLetterBehavior
+  isAccurate: 1
+  lifeInFrames: 600
