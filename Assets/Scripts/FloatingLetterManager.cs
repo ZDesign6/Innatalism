@@ -60,12 +60,18 @@ public class FloatingLetterManager : MonoBehaviour
             if (gameManager.positiveChange == true)
             {
                 //assign the newLetter's destination pos equal to the pos from the corresponding list
-                newLetter.GetComponent<FloatingLetterBehavior>().destinationPos = posDialogue1FloatingLetterPos[letterIndex];
+                newLetter.GetComponent<FloatingLetterBehavior>().homePos = posDialogue1FloatingLetterPos[letterIndex];
+                //then assign the newLetter's pos equal to the pos form the corresponding list
+                newLetter.GetComponent<RectTransform>().position = posDialogue1FloatingLetterPos[letterIndex];
+
             }
             else
             {
                 //assign the newLetter's destination pos equal to the pos from the corresponding list
-                newLetter.GetComponent<FloatingLetterBehavior>().destinationPos = negDialogue1FloatingLetterPos[letterIndex];
+                newLetter.GetComponent<FloatingLetterBehavior>().homePos = negDialogue1FloatingLetterPos[letterIndex];
+                //then assign the newLetter's pos equal to the pos form the corresponding list
+                newLetter.GetComponent<RectTransform>().position = negDialogue1FloatingLetterPos[letterIndex];
+
             }
         }
         else if (babyTypingScript.dialoguesIndex == 2)
@@ -74,12 +80,18 @@ public class FloatingLetterManager : MonoBehaviour
             if (gameManager.positiveChange == true)
             {
                 //assign the newLetter's destination pos equal to the pos from the corresponding list
-                newLetter.GetComponent<FloatingLetterBehavior>().destinationPos = posDialogue2FloatingLetterPos[letterIndex];
+                newLetter.GetComponent<FloatingLetterBehavior>().homePos = posDialogue2FloatingLetterPos[letterIndex];
+                //then assign the newLetter's pos equal to the pos form the corresponding list
+                newLetter.GetComponent<RectTransform>().position = posDialogue2FloatingLetterPos[letterIndex];
+
             }
             else
             {
                 //assign the newLetter's destination pos equal to the pos from the corresponding list
-                newLetter.GetComponent<FloatingLetterBehavior>().destinationPos = negDialogue2FloatingLetterPos[letterIndex];
+                newLetter.GetComponent<FloatingLetterBehavior>().homePos = negDialogue2FloatingLetterPos[letterIndex];
+                //then assign the newLetter's pos equal to the pos form the corresponding list
+                newLetter.GetComponent<RectTransform>().position = negDialogue2FloatingLetterPos[letterIndex];
+
             }
         }
         else if (babyTypingScript.dialoguesIndex == 3)
@@ -88,12 +100,18 @@ public class FloatingLetterManager : MonoBehaviour
             if (gameManager.positiveChange == true)
             {
                 //assign the newLetter's destination pos equal to the pos from the corresponding list
-                newLetter.GetComponent<FloatingLetterBehavior>().destinationPos = posDialogue3FloatingLetterPos[letterIndex];
+                newLetter.GetComponent<FloatingLetterBehavior>().homePos = posDialogue3FloatingLetterPos[letterIndex];
+                //then assign the newLetter's pos equal to the pos form the corresponding list
+                newLetter.GetComponent<RectTransform>().position = posDialogue3FloatingLetterPos[letterIndex];
+
             }
             else
             {
                 //assign the newLetter's destination pos equal to the pos from the corresponding list
-                newLetter.GetComponent<FloatingLetterBehavior>().destinationPos = negDialogue3FloatingLetterPos[letterIndex];
+                newLetter.GetComponent<FloatingLetterBehavior>().homePos = negDialogue3FloatingLetterPos[letterIndex];
+                //then assign the newLetter's pos equal to the pos form the corresponding list
+                newLetter.GetComponent<RectTransform>().position = negDialogue3FloatingLetterPos[letterIndex];
+
             }
         }
         else if (babyTypingScript.dialoguesIndex == 4)
@@ -102,12 +120,18 @@ public class FloatingLetterManager : MonoBehaviour
             if (gameManager.positiveChange == true)
             {
                 //assign the newLetter's destination pos equal to the pos from the corresponding list
-                newLetter.GetComponent<FloatingLetterBehavior>().destinationPos = posDialogue4FloatingLetterPos[letterIndex];
+                newLetter.GetComponent<FloatingLetterBehavior>().homePos = posDialogue4FloatingLetterPos[letterIndex];
+                //then assign the newLetter's pos equal to the pos form the corresponding list
+                newLetter.GetComponent<RectTransform>().position = posDialogue4FloatingLetterPos[letterIndex];
+
             }
             else
             {
                 //assign the newLetter's destination pos equal to the pos from the corresponding list
-                newLetter.GetComponent<FloatingLetterBehavior>().destinationPos = negDialogue4FloatingLetterPos[letterIndex];
+                newLetter.GetComponent<FloatingLetterBehavior>().homePos = negDialogue4FloatingLetterPos[letterIndex];
+                //then assign the newLetter's pos equal to the pos form the corresponding list
+                newLetter.GetComponent<RectTransform>().position = negDialogue4FloatingLetterPos[letterIndex];
+
             }
 
         }
