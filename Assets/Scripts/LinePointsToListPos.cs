@@ -16,15 +16,20 @@ public class LinePointsToListPos : MonoBehaviour
     List<LineRenderer> lineRendererComponents = new List<LineRenderer>();
     //shortcut to this object's FloatingLetterManager
     FloatingLetterManager letterManager;
+    //ref to singleton
+    GameManagerBehavior gameManager;
+
 
     // -- INFO --
 
     //the arbitrary z at which to instantiate floating letters
-    int zPos = 5;
+    int startingZPos = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //assign ref to singleton
+        gameManager = GameManagerBehavior.singleton;
         //abstract the FloatingLetterPoints 
         GameObject parentObj = GameObject.Find("FloatingLetterPoints");
         //iterate over the child objects...
@@ -38,13 +43,16 @@ public class LinePointsToListPos : MonoBehaviour
         //for each line renderer...
         for (int componentIndex = 0;  componentIndex < lineRendererComponents.Count; componentIndex = componentIndex + 1)
         {
+            int currentZpos = startingZPos;
             //iterate over all of its points (if there are no points this will short circuit and not attempt an assignment)
             for (int pointIndex = 0; pointIndex < lineRendererComponents[componentIndex].positionCount;  pointIndex = pointIndex + 1) 
+
             {
+
                 //abstract the current point of the current linerenderer for easy ref
                 Vector3 currentPoint = lineRendererComponents[componentIndex].GetPosition(pointIndex);
                 //overwrite using our arbitray zPos
-                currentPoint = new Vector3(currentPoint.x, currentPoint.y, zPos);
+                currentPoint = new Vector3(currentPoint.x, currentPoint.y, currentZpos);
 
                 //if we are looking at first LineRenderer...
                 if (componentIndex == 0)
@@ -98,6 +106,16 @@ public class LinePointsToListPos : MonoBehaviour
                     letterManager.negDialogue4FloatingLetterPos[pointIndex] = currentPoint;
 
                 }
+                //finally, change the currentZPos depending on whether the day's previous change was pos or neg
+                if (gameManager.positiveChange == true)
+                {
+                    currentZpos = currentZpos + 1;
+                }
+                else
+                {
+                    currentZpos = currentZpos - 1;
+                }
+
             }
         }
     }
