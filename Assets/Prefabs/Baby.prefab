@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7262624554130513513}
   - component: {fileID: 7941556037448659635}
   - component: {fileID: 7251148057463581622}
+  - component: {fileID: 1304319714389927926}
   - component: {fileID: 4476885669570328701}
   - component: {fileID: 7287673576525165276}
   - component: {fileID: 4863823953117540944}
@@ -923,6 +924,18 @@ MonoBehaviour:
   maxPercentVariation: 0.25
   isTubBaby: 0
   enableSkipping: 1
+--- !u!114 &1304319714389927926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9107779676844667329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2497d54331a1ede4085849a1d1d57150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LinePointsToListPos
 --- !u!114 &4476885669570328701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,7 +961,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0816e8f50252664ba50d778dd8338e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingLetterManager
-  letterPositions: []
+  letterZPos: 0
+  letterIndex: 0
+  posDialogue1FloatingLetterPos: []
+  posDialogue2FloatingLetterPos: []
+  posDialogue3FloatingLetterPos: []
+  posDialogue4FloatingLetterPos: []
+  negDialogue1FloatingLetterPos: []
+  negDialogue2FloatingLetterPos: []
+  negDialogue3FloatingLetterPos: []
+  negDialogue4FloatingLetterPos: []
   floatingLetterPrefab: {fileID: 6086483003090886412, guid: 31c7fa0e75eef224fa0352516678cc15, type: 3}
 --- !u!82 &4863823953117540944
 AudioSource:
