@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1153784996375067492}
   - component: {fileID: 7745683191237799419}
   - component: {fileID: 4293718394306440935}
+  - component: {fileID: 2945275194530285367}
   m_Layer: 0
   m_Name: FloatingLetter
   m_TagString: Untagged
@@ -194,6 +195,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FloatingLetterBehavior
   isAccurate: 1
   lifeInFrames: 600
-  destinationPos: {x: 0, y: 0, z: 0}
-  reachedDestinationPos: 0
-  maxPosDeviation: 0.1
+  homePos: {x: 0, y: 0, z: 0}
+  animator: {fileID: 2945275194530285367}
+--- !u!95 &2945275194530285367
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086483003090886412}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af86963a76dceac46aa47bfa19bc799e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

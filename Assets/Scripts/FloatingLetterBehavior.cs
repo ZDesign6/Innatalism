@@ -13,6 +13,7 @@ public class FloatingLetterBehavior : MonoBehaviour
     public Vector3 homePos;
 
     // -- "ANIMATION" --
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,7 +39,11 @@ public class FloatingLetterBehavior : MonoBehaviour
         //if life in frames ever goes below one, delete self
         if (lifeInFrames <= 0)
         {
-            Destroy(this.gameObject);
+            animator.Play("FloatingExit");
+            if (lifeInFrames <= -50)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }
