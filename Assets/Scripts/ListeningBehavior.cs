@@ -93,11 +93,12 @@ public class ListeningBehavior : MonoBehaviour
                     //instantiate a Floating Letter (passing in that it was accurate)
                     letterManager.MakeLetter(currentChar, false);
                 }
+                //then play a pulse animation according to whether the char was correct or not
+                PlayPulseAnimation(charCorrect);
                 //finally, increase the parsingIndex to prepare for the next loop
-                print("INCREASING PARSING INDEX TO" + parsingIndex);
                 parsingIndex = parsingIndex + 1;
                 //then, if the index is not equal to the COUNT of playerResponse (we still have chars left to parse)
-                if (parsingIndex != gameManager.playerResponse.Length) 
+                if (parsingIndex != gameManager.playerResponse.Length)
                 {
                     //set currentDelay to a variation of basePLaybackDelay
                     currentDelay = (int)Mathf.Round(basePlaybackDelay * Random.Range(maxPercentVariation, (maxPercentVariation + 1)));
@@ -159,6 +160,11 @@ public class ListeningBehavior : MonoBehaviour
             }
         }
        
+    }
+    //This fct plays a pulsing animation each time the baby speaks a phoneme. Plays a different clip depending on whether the phoneme was true or false (charCorrect).
+    void PlayPulseAnimation(bool charCorrect)
+    {
+        //
     }
     private void OnMouseDown()
     {
