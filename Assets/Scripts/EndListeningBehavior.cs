@@ -9,12 +9,8 @@ public class EndListeningBehavior : MonoBehaviour
     GameManagerBehavior gameManager;
     //ref to the VoicesBehavior script in the Scene. Assigned during Start()
     VoicesBehavior voiceScript;
-    //ref to the typing behavior script in the Scene. Assigned during Start()
-    BabyTypingBehavior typingScript; 
-    //ref to the sprite changer script in the Scene. Assigned during Start()
-    BabySpriteChanger spriteChanger;
     //ref to the letter manager
-    FloatingLetterManager letterManager;
+    EndFloatingLetterManager letterManager;
 
     //string which holds the scene name for the scene which will be transitioned to after Listening IF the baby is a tub baby
     public string sceneToTransitionTo;
@@ -22,7 +18,7 @@ public class EndListeningBehavior : MonoBehaviour
     // -- PARSING-RELATED --
 
     //this tracks what index we are parsing when going through playerResponses during a Listening segment.
-    int parsingIndex = 0;
+    public int parsingIndex = 0;
     //the base delay in frames between audio playback.
     public int basePlaybackDelay = 30;
     //the max percentage variation in playback delay
@@ -32,10 +28,9 @@ public class EndListeningBehavior : MonoBehaviour
 
     // -- STATE INFO --
 
-    //represents if this is a tub interior baby. Used to determine if we should do a scene transition after Listening.
-    public bool isTubBaby = false;
-    //enables skipping the listening segment by clicking on the baby during Listening.
-    public bool enableSkipping = true;
+    //tracks if this is the Cloney Ending or Blobbey Ending
+    public bool isCloney = true;
+
     
     // -- TRANSITION ANIMATION --
     //timer to transition
@@ -54,12 +49,8 @@ public class EndListeningBehavior : MonoBehaviour
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
         //find and assign transition animator
         transitionAnimator = GameObject.Find("TransitionImage").GetComponent<Animator>();
-        //assign ref to the VoiceBehavior Script in the scene
-        typingScript = GameObject.Find("Baby").GetComponent<BabyTypingBehavior>();
-        //assign ref to the sprite changer Script in the scene
-        spriteChanger = GameObject.Find("Baby").GetComponent<BabySpriteChanger>();
         //assign ref to letterManager
-        letterManager = GameObject.Find("Baby").GetComponent<FloatingLetterManager>();
+        letterManager = this.gameObject.GetComponent<EndFloatingLetterManager>();
     }
 
     // Update is called once per frame
@@ -75,10 +66,8 @@ public class EndListeningBehavior : MonoBehaviour
                 print("ATTEMPTING TO PARSE PLAYER RESPONSE & ACCURACY AT " + parsingIndex);
                 //parse the char at parsingIndex
                 char currentChar = gameManager.playerResponse[parsingIndex];
-                //then parse the bool at parsingIndex to determine if the currentChar was correct or not
-                bool charCorrect = gameManager.playerResponseAccuracy[parsingIndex];
-                //if correct, pass the parsed char through to VoicesBehavior PlayPositiveBabySound
-                if (charCorrect == true)
+                //if this is the Cloney Ending, pass the parsed char through to VoicesBehavior PlayPositiveBabySound
+                if (isCloney == true)
                 {
                     //play a pos baby sound
                     voiceScript.PlayPositiveBabySound(currentChar);
@@ -94,7 +83,7 @@ public class EndListeningBehavior : MonoBehaviour
                     letterManager.MakeLetter(currentChar, false);
                 }
                 //then play a pulse animation according to whether the char was correct or not
-                PlayPulseAnimation(charCorrect);
+                PlayPulseAnimation(isCloney);
                 //finally, increase the parsingIndex to prepare for the next loop
                 parsingIndex = parsingIndex + 1;
                 //then, if the index is not equal to the COUNT of playerResponse (we still have chars left to parse)
@@ -134,52 +123,21 @@ public class EndListeningBehavior : MonoBehaviour
     {
         //mark currentlyListening in the gameManager as false
         gameManager.currentlyListening = false;
-        spriteChanger.StopBabyAnimation();
         //rest the letterIndex in the FloatingLetterManager to 0, so that it can read the next list accurately (it does not align with parsingIndex)
         this.gameObject.GetComponent<FloatingLetterManager>().letterIndex = 0;
         //stop playing the fetal doppler sound
         this.gameObject.GetComponent<AudioSource>().Stop();
-        //if we are not done typing
-        if(typingScript.dialoguesIndex != typingScript.activeDialoguesList.Count)
-        {
-            //load the next line
-            typingScript.LoadLine();
-        } 
-        else 
-        {
-            //if we are done, mark listeningComplete in the gameManager as true
-            gameManager.listeningComplete = true;
-
-             //if we are a tub baby, transition to the sceneToTransitionTo        
-            if (isTubBaby == true)
-            {
-                //transition out of scene with an animation. 
-                transitionAnimator.Play("TransitionOutOfScene");
-                //kickstart timer to actually move to the next scene 
-                waitingToTransition = true;               
-            }
-        }
+        //if we are done, mark listeningComplete in the gameManager as true
+        gameManager.listeningComplete = true;
+        //transition out of scene with an animation. 
+        transitionAnimator.Play("TransitionOutOfScene");
+        //kickstart timer to actually move to the next scene 
+        waitingToTransition = true;               
        
     }
     //This fct plays a pulsing animation each time the baby speaks a phoneme. Plays a different clip depending on whether the phoneme was true or false (charCorrect).
     void PlayPulseAnimation(bool charCorrect)
     {
         //
-    }
-    private void OnMouseDown()
-    {
-        //DEBUG: On click, set parsingIndex equal to the last index to end listening early
-
-        //as long as we are currently listening
-        if (gameManager.currentlyListening == true)
-        {
-            //and as long as skipping is enabled
-            if(enableSkipping == true)
-            {
-                //set the parsing index equal to the last index to end counting next frame
-                parsingIndex = gameManager.playerResponse.Count() - 1;
-            }
-        }
-        
     }
 }
