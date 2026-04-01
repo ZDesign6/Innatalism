@@ -14,6 +14,9 @@ public class BabySpriteChanger : MonoBehaviour
     public Shader wobbleShader;
     //current day index of sprite
     private int spriteIndex;
+
+    public SpriteRenderer[] babyOutlineSprites;
+    public SpriteRenderer babySprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,15 +31,24 @@ public class BabySpriteChanger : MonoBehaviour
         //add the two together into a single day/extremism index to check
         spriteIndex = baseIndex + offsetIndex;
         //assign the Sprite equal to the Sprite at the spriteIndex
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = babySprites[spriteIndex];
+        babySprite.sprite = babySprites[spriteIndex];
         //assign the sprite material to default
-        this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[0];
+        babySprite.material = babyMats[0];
+        //outline sprite!
+        for(int i = 0; i < 8; i ++)
+        {
+            babyOutlineSprites[i].sprite = babySprites[spriteIndex];
+        }
         //and set this baby's pos equal to the pos of the background, so the two objects are centered on one another
+        // babyOutlineSprite.gameObject.transform.localPosition = GameObject.Find("Background").GetComponent<Transform>().position;
+        // //and set this baby's scale equal to the scale of the Background object
+        // babyOutlineSprite.gameObject.transform.localScale  = GameObject.Find("Background").GetComponent<Transform>().localScale;
+        // //and set this baby's pos equal to the pos of the background, so the two objects are centered on one another
         this.gameObject.GetComponent<Transform>().position = GameObject.Find("Background").GetComponent<Transform>().position;
         //and set this baby's scale equal to the scale of the Background object
         this.gameObject.GetComponent<Transform>().localScale = GameObject.Find("Background").GetComponent<Transform>().localScale;
         //and then recalculate the PolygonCollider's points to match any new Sprite shapes
-        this.gameObject.GetComponent<PolygonCollider2D>().CreateFromSprite(this.gameObject.GetComponent<SpriteRenderer>().sprite);
+        this.gameObject.GetComponent<PolygonCollider2D>().CreateFromSprite(babySprite.sprite);
     }
 
     private void OnMouseEnter()
@@ -57,7 +69,8 @@ public class BabySpriteChanger : MonoBehaviour
     {
         //assign the wobble shader to the current sprite
         //TEMPORARILY REMOVED
-        // this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[spriteIndex];
+        babySprite.gameObject.GetComponent<SpriteRenderer>().material = babyMats[spriteIndex];
+        
     }
 
     public void StopBabyAnimation()
@@ -66,7 +79,7 @@ public class BabySpriteChanger : MonoBehaviour
         if (!gameManager.currentlyListening)
         {
             //assign the wobble shader to not wiggle
-            this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[0];
+            babySprite.gameObject.GetComponent<SpriteRenderer>().material = babyMats[0];
         }
     }
 }
