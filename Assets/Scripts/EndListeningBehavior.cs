@@ -51,6 +51,7 @@ public class EndListeningBehavior : MonoBehaviour
         transitionAnimator = GameObject.Find("TransitionImage").GetComponent<Animator>();
         //assign ref to letterManager
         letterManager = this.gameObject.GetComponent<EndFloatingLetterManager>();
+        //we assign player response 
     }
 
     // Update is called once per frame
@@ -86,6 +87,7 @@ public class EndListeningBehavior : MonoBehaviour
                 PlayPulseAnimation(isCloney);
                 //finally, increase the parsingIndex to prepare for the next loop
                 parsingIndex = parsingIndex + 1;
+                Debug.Log("Increased parsing index to " + parsingIndex);
                 //then, if the index is not equal to the COUNT of playerResponse (we still have chars left to parse)
                 if (parsingIndex != gameManager.playerResponse.Length)
                 {
@@ -123,10 +125,6 @@ public class EndListeningBehavior : MonoBehaviour
     {
         //mark currentlyListening in the gameManager as false
         gameManager.currentlyListening = false;
-        //rest the letterIndex in the FloatingLetterManager to 0, so that it can read the next list accurately (it does not align with parsingIndex)
-        this.gameObject.GetComponent<FloatingLetterManager>().letterIndex = 0;
-        //stop playing the fetal doppler sound
-        this.gameObject.GetComponent<AudioSource>().Stop();
         //if we are done, mark listeningComplete in the gameManager as true
         gameManager.listeningComplete = true;
         //transition out of scene with an animation. 
