@@ -49,7 +49,6 @@ public class EndFloatingLetterManager : MonoBehaviour
         //instantiate the Letter and store a ref. Its pos does not matter as it will be overwritten immediately.
         GameObject newLetter = Instantiate(floatingLetterPrefab, this.gameObject.GetComponent<Transform>().position, Quaternion.identity);
 
-
         //assign the newLetter's destination pos equal to the pos from the corresponding list
         newLetter.GetComponent<FloatingLetterBehavior>().homePos = posDialogue1FloatingLetterPos[endListeningScript.parsingIndex];
         //then assign the newLetter's pos equal to the pos form the corresponding list
@@ -67,6 +66,6 @@ public class EndFloatingLetterManager : MonoBehaviour
             newLetter.GetComponent<FloatingLetterBehavior>().isAccurate = false;
         }
         //finally, increase the endListeningScript.parsingIndex to prepare to parse the next char
-        endListeningScript.parsingIndex = endListeningScript.parsingIndex + 1;
+        //endListeningScript.parsingIndex = endListeningScript.parsingIndex + 1;
     }
 }
