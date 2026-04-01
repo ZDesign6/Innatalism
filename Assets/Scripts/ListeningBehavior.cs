@@ -39,15 +39,11 @@ public class ListeningBehavior : MonoBehaviour
     
     // -- TRANSITION ANIMATION --
     //timer to transition
-    float waitTime = 0.5f;
-    bool waitingToTransition;
+    private float waitTime = 0.5f;
+    private bool waitingToTransition;
+    
     //animator on the canvas which plays the transition anim
     Animator transitionAnimator;
-    
-    // -- BABY ANIMATION : )--
-    Animator babyAnimator;
-    
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,9 +60,6 @@ public class ListeningBehavior : MonoBehaviour
         spriteChanger = GameObject.Find("Baby").GetComponent<BabySpriteChanger>();
         //assign ref to letterManager
         letterManager = GameObject.Find("Baby").GetComponent<FloatingLetterManager>();
-        //assign ref to babyAnimator
-        babyAnimator = GameObject.Find("Baby").GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
@@ -87,16 +80,24 @@ public class ListeningBehavior : MonoBehaviour
                 //if correct, pass the parsed char through to VoicesBehavior PlayPositiveBabySound
                 if (charCorrect == true)
                 {
-                    //play a pos baby sound
-                    voiceScript.PlayPositiveBabySound(currentChar);
+                    //if the char was not a space, play a sound
+                    if (currentChar != ' ')
+                    {
+                        //play a pos baby sound
+                        voiceScript.PlayPositiveBabySound(currentChar);
+                    }
                     //instantiate a Floating Letter (passing in that it was accurate)
                     letterManager.MakeLetter(currentChar, true);
                 }
                 //else pass the parsed char through to VoicesBehavior PlayNegativeBabySound
                 else
                 {
-                    //play a neg baby sound
-                    voiceScript.PlayNegativeBabySound(currentChar);
+                    //if the char was not a space, play a negative sound
+                    if (currentChar != ' ')
+                    {
+                        //play a neg baby sound
+                        voiceScript.PlayNegativeBabySound(currentChar);
+                    }
                     //instantiate a Floating Letter (passing in that it was accurate)
                     letterManager.MakeLetter(currentChar, false);
                 }
@@ -171,17 +172,7 @@ public class ListeningBehavior : MonoBehaviour
     //This fct plays a pulsing animation each time the baby speaks a phoneme. Plays a different clip depending on whether the phoneme was true or false (charCorrect).
     void PlayPulseAnimation(bool charCorrect)
     {
-        //if the baby speaks a "correct" character
-        if (charCorrect)
-        {
-            //play the pulse anim with an orange glow
-            babyAnimator.Play("TalkCloney");
-        }
-        else
-        {
-            //if its wrong play the pulse anim with a purple glow
-            babyAnimator.Play("TalkBlobby");
-        }
+        //
     }
     private void OnMouseDown()
     {
