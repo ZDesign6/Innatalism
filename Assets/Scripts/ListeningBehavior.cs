@@ -39,11 +39,15 @@ public class ListeningBehavior : MonoBehaviour
     
     // -- TRANSITION ANIMATION --
     //timer to transition
-    private float waitTime = 0.5f;
-    private bool waitingToTransition;
-    
+    float waitTime = 0.5f;
+    bool waitingToTransition;
     //animator on the canvas which plays the transition anim
     Animator transitionAnimator;
+    
+    // -- BABY ANIMATION : )--
+    Animator babyAnimator;
+    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,6 +64,9 @@ public class ListeningBehavior : MonoBehaviour
         spriteChanger = GameObject.Find("Baby").GetComponent<BabySpriteChanger>();
         //assign ref to letterManager
         letterManager = GameObject.Find("Baby").GetComponent<FloatingLetterManager>();
+        //assign ref to babyAnimator
+        babyAnimator = GameObject.Find("Baby").GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -164,7 +171,17 @@ public class ListeningBehavior : MonoBehaviour
     //This fct plays a pulsing animation each time the baby speaks a phoneme. Plays a different clip depending on whether the phoneme was true or false (charCorrect).
     void PlayPulseAnimation(bool charCorrect)
     {
-        //
+        //if the baby speaks a "correct" character
+        if (charCorrect)
+        {
+            //play the pulse anim with an orange glow
+            babyAnimator.Play("TalkCloney");
+        }
+        else
+        {
+            //if its wrong play the pulse anim with a purple glow
+            babyAnimator.Play("TalkBlobby");
+        }
     }
     private void OnMouseDown()
     {

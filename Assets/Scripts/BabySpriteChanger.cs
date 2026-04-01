@@ -56,7 +56,8 @@ public class BabySpriteChanger : MonoBehaviour
     public void AnimateBaby()
     {
         //assign the wobble shader to the current sprite
-        this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[spriteIndex];
+        //TEMPORARILY REMOVED
+        // this.gameObject.GetComponent<SpriteRenderer>().material = babyMats[spriteIndex];
     }
 
     public void StopBabyAnimation()
