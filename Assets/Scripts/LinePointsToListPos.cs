@@ -48,7 +48,7 @@ public class LinePointsToListPos : MonoBehaviour
             for (int pointIndex = 0; pointIndex < lineRendererComponents[componentIndex].positionCount;  pointIndex = pointIndex + 1) 
 
             {
-
+                Debug.Log("Accessing Index " + pointIndex + " of Line Renderer ");
                 //abstract the current point of the current linerenderer for easy ref
                 Vector3 currentPoint = lineRendererComponents[componentIndex].GetPosition(pointIndex);
                 //overwrite using our arbitray zPos
@@ -57,53 +57,77 @@ public class LinePointsToListPos : MonoBehaviour
                 //if we are looking at first LineRenderer...
                 if (componentIndex == 0)
                 {
-                    //assign the current point to the corresponding index of posDialogue1FloatingLetterPos
-                    letterManager.posDialogue1FloatingLetterPos[pointIndex] = currentPoint;
+                    //as long as the pointIndex is within the bounds of the array...
+                    if (pointIndex < letterManager.posDialogue1FloatingLetterPos.Count)
+                    {
+                        //assign the current point to the corresponding index of posDialogue1FloatingLetterPos
+                        letterManager.posDialogue1FloatingLetterPos[pointIndex] = currentPoint;
+                    }
                 }
                 //if we are looking at second LineRenderer...
                 else if (componentIndex == 1)
                 {
-                    //assign the current point to the corresponding index of posDialogue2FloatingLetterPos
-                    letterManager.posDialogue2FloatingLetterPos[pointIndex] = currentPoint;
+                    if (pointIndex < letterManager.posDialogue2FloatingLetterPos.Count)
+                    {
+                        //assign the current point to the corresponding index of posDialogue2FloatingLetterPos
+                        letterManager.posDialogue2FloatingLetterPos[pointIndex] = currentPoint;
+                    }
                 }
                 //if we are looking at third LineRenderer...
                 else if (componentIndex == 2)
                 {
-                    //assign the current point to the corresponding index of posDialogue3FloatingLetterPos
-                    letterManager.posDialogue3FloatingLetterPos[pointIndex] = currentPoint;
+                    if (pointIndex < letterManager.posDialogue3FloatingLetterPos.Count)
+                    {
+                        //assign the current point to the corresponding index of posDialogue3FloatingLetterPos
+                        letterManager.posDialogue3FloatingLetterPos[pointIndex] = currentPoint;
+                    }
                 }
                 //if we are looking at fourth LineRenderer...
                 else if (componentIndex == 3)
                 {
-                    //assign the current point to the corresponding index of posDialogue4FloatingLetterPos
-                    letterManager.posDialogue4FloatingLetterPos[pointIndex] = currentPoint;
-
+                    if (pointIndex < letterManager.posDialogue4FloatingLetterPos.Count)
+                    {
+                        //assign the current point to the corresponding index of posDialogue4FloatingLetterPos
+                        letterManager.posDialogue4FloatingLetterPos[pointIndex] = currentPoint;
+                    }
                 }
                 //if we are looking at fifth LineRenderer...
                 else if (componentIndex == 4)
                 {
-                    //assign the current point to the corresponding index of negDialogue1FloatingLetterPos
-                    letterManager.negDialogue1FloatingLetterPos[pointIndex] = currentPoint;
+                    if (pointIndex < letterManager.negDialogue1FloatingLetterPos.Count)
+                    {
+                        //assign the current point to the corresponding index of negDialogue1FloatingLetterPos
+                        letterManager.negDialogue1FloatingLetterPos[pointIndex] = currentPoint;
+                    }
                 }
                 //if we are looking at sixth LineRenderer...
                 else if (componentIndex == 5)
                 {
-                    //assign the current point to the corresponding index of negDialogue2FloatingLetterPos
-                    letterManager.negDialogue2FloatingLetterPos[pointIndex] = currentPoint;
+                    if (pointIndex < letterManager.negDialogue2FloatingLetterPos.Count)
+                    {
+                        //assign the current point to the corresponding index of negDialogue2FloatingLetterPos
+                        letterManager.negDialogue2FloatingLetterPos[pointIndex] = currentPoint;
+                    }
 
                 }
                 //if we are looking at seventh LineRenderer...
                 else if (componentIndex == 6)
                 {
-                    //assign the current point to the corresponding index of negDialogue3FloatingLetterPos
-                    letterManager.negDialogue3FloatingLetterPos[pointIndex] = currentPoint;
+                    if (pointIndex < letterManager.negDialogue3FloatingLetterPos.Count)
+                    {
+                        //assign the current point to the corresponding index of negDialogue3FloatingLetterPos
+                        letterManager.negDialogue3FloatingLetterPos[pointIndex] = currentPoint;
+                    }
 
                 }
                 //if we are looking at eigth LineRenderer...
                 else if (componentIndex == 7)
                 {
-                    //assign the current point to the corresponding index of negDialogue4FloatingLetterPos
-                    letterManager.negDialogue4FloatingLetterPos[pointIndex] = currentPoint;
+                    if (pointIndex < letterManager.negDialogue4FloatingLetterPos.Count)
+                    {
+                        //assign the current point to the corresponding index of negDialogue4FloatingLetterPos
+                        letterManager.negDialogue4FloatingLetterPos[pointIndex] = currentPoint;
+                    }
 
                 }
                 //finally, change the currentZPos depending on whether the day's previous change was pos or neg
