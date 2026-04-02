@@ -30,8 +30,14 @@ public class EndListeningBehavior : MonoBehaviour
 
     //tracks if this is the Cloney Ending or Blobbey Ending
     public bool isCloney = true;
+    //tracks if we are waiting to cleaniup
+    public bool waitingToCleanup = false;
+    //wait time, in frames
+    int baseCleanupTime = 75;
+    //current waiting timer. Decreases every frame, triggers cleanup when done.
+    int cleanupTimer = 0;
 
-    
+
     // -- TRANSITION ANIMATION --
     //timer to transition
     private float waitTime = 0.5f;
@@ -58,13 +64,13 @@ public class EndListeningBehavior : MonoBehaviour
     void FixedUpdate()
     {
         //if currently listening
-        if (gameManager.currentlyListening == true)
+        if (gameManager.currentlyListening == true && waitingToCleanup == false)
         {
             Debug.Log("Listening delay is currently " + currentDelay);
             //and currentDelay is 0
             if (currentDelay <= 0)
             {
-                print("ATTEMPTING TO PARSE PLAYER RESPONSE & ACCURACY AT " + parsingIndex);
+                Debug.Log("ATTEMPTING TO PARSE PLAYER RESPONSE & ACCURACY AT " + parsingIndex);
                 //parse the char at parsingIndex
                 char currentChar = gameManager.playerResponse[parsingIndex];
                 //if this is the Cloney Ending, pass the parsed char through to VoicesBehavior PlayPositiveBabySound
@@ -97,14 +103,33 @@ public class EndListeningBehavior : MonoBehaviour
                 //else (we have parsed the last char)
                 else
                 {
-                    //carry out cleanup
-                    Cleanup();
+                    //assign the waitTimer to the baseWaitTIme
+                    cleanupTimer = baseCleanupTime;
+                    //and flip waitingToCleanup to true
+                    waitingToCleanup = true;
+
                 }
             }
             //finally, as long as we are meant to be listening, subtract a frame from currentDelay to move us towards the next playback event
             currentDelay = currentDelay - 1;
         }
-        
+        //if we are waiting to trigger cleanup...
+        if (waitingToCleanup == true)
+        {
+            //if cleanupTimer is 0, then trigger cleanup and set waitingToCleanup to false
+            if (cleanupTimer == 0)
+            {
+                waitingToCleanup = false;
+                Cleanup();
+            }
+            //If cleanupTimer has not elapsed, decrease it by 1
+            else
+            {
+                //decrease cleanupTimer by 1
+                cleanupTimer = cleanupTimer - 1;
+            }
+        }
+
         if (waitingToTransition)
         {
             if (waitTime <= 0)
