@@ -924,11 +924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0800c69094937a643b269f0bedcf2e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BabyTypingBehavior
---- !u!60 &1380388725 stripped
-PolygonCollider2D:
-  m_CorrespondingSourceObject: {fileID: 7759987784241487809, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
-  m_PrefabInstance: {fileID: 2005810789}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1541120735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,10 +1187,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5333014444435493554, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5942087711568478026, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: colliderToCheck
       value: 
-      objectReference: {fileID: 1380388725}
+      objectReference: {fileID: 0}
     - target: {fileID: 5942087711568478026, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: babyTypingScript
       value: 
