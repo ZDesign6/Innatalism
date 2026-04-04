@@ -197,7 +197,16 @@ public class ListeningBehavior : MonoBehaviour
     //This fct plays a pulsing animation each time the baby speaks a phoneme. Plays a different clip depending on whether the phoneme was true or false (charCorrect).
     void PlayPulseAnimation(bool charCorrect)
     {
-        //
+     
+        if (charCorrect)
+        {
+            spriteChanger.babyOutlineAnimator.Play("CloneyOutline");
+        }
+        else
+        {
+            spriteChanger.babyOutlineAnimator.Play("BlobbyOutline");
+        }
+       
     }
     private void OnMouseDown()
     {

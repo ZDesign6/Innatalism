@@ -15,8 +15,10 @@ public class BabySpriteChanger : MonoBehaviour
     //current day index of sprite
     private int spriteIndex;
 
-    public SpriteRenderer[] babyOutlineSprites;
+    public SpriteMask[] babyOutlineMask;
     public SpriteRenderer babySprite;
+    public Animator babyOutlineAnimator;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,13 +39,9 @@ public class BabySpriteChanger : MonoBehaviour
         //outline sprite!
         for(int i = 0; i < 8; i ++)
         {
-            babyOutlineSprites[i].sprite = babySprites[spriteIndex];
+            babyOutlineMask[i].sprite = babySprites[spriteIndex];
         }
         //and set this baby's pos equal to the pos of the background, so the two objects are centered on one another
-        // babyOutlineSprite.gameObject.transform.localPosition = GameObject.Find("Background").GetComponent<Transform>().position;
-        // //and set this baby's scale equal to the scale of the Background object
-        // babyOutlineSprite.gameObject.transform.localScale  = GameObject.Find("Background").GetComponent<Transform>().localScale;
-        // //and set this baby's pos equal to the pos of the background, so the two objects are centered on one another
         this.gameObject.GetComponent<Transform>().position = GameObject.Find("Background").GetComponent<Transform>().position;
         //and set this baby's scale equal to the scale of the Background object
         this.gameObject.GetComponent<Transform>().localScale = GameObject.Find("Background").GetComponent<Transform>().localScale;
