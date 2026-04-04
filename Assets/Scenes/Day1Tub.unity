@@ -2557,10 +2557,6 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2916917292070108320, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 3932300492547019570, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13695337
@@ -2667,14 +2663,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6413547683249775820, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464246868353714892, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
-      propertyPath: m_Name
-      value: BabyOutline 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6464246868353714892, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7251148057463581622, guid: 4f29074d647289340a7e726ad9583d54, type: 3}

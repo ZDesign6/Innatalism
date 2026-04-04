@@ -22,12 +22,13 @@ public class FloatingLetterBehavior : MonoBehaviour
         if (isAccurate == true)
         {
             this.gameObject.GetComponent<TextMeshPro>().color = new Color(.969f, .580f, .286f, 1);
+            animator.Play("FloatingIdle");
         }
         //else set its vertex color to blob color
         else
         {
             this.gameObject.GetComponent<TextMeshPro>().color = new Color(.839f, .286f, .584f, 1);
-
+            animator.Play("FloatingTurn");
         }
     }
 
