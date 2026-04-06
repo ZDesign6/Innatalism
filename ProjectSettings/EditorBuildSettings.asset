@@ -62,6 +62,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: e042d46ad8d25b248bb488a583fc184e
+  - enabled: 1
+    path: Assets/Scenes/BlobbeyEnding.unity
+    guid: bff0cb3753a173b47b87bfc2ea75baa3
+  - enabled: 1
+    path: Assets/Scenes/CloneyEnding.unity
+    guid: a67d623be378c3d4eae410ee0c1bd600
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
