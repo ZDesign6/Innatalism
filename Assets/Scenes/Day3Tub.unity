@@ -3731,6 +3731,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7251148057463581622, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: enableSkipping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251148057463581622, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: basePlaybackDelay
       value: 20
       objectReference: {fileID: 0}
