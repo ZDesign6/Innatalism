@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c50b7103b3e69043b723165901208fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  sceneName: Day2Room
+  sceneName: Day6Room
 --- !u!1001 &534100202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -530,6 +530,14 @@ PrefabInstance:
     - target: {fileID: 3274933775277653547, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
       propertyPath: orthographic size
       value: 4.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141922611271697187, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141922611271697187, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5175349923986737761, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
       propertyPath: m_LocalPosition.x
