@@ -168,12 +168,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7251148057463581622, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
+      propertyPath: enableSkipping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7251148057463581622, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: basePlaybackDelay
-      value: 18
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 7251148057463581622, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: maxPercentVariation
-      value: 0.23
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 7262624554130513513, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: dialogueBox
@@ -684,6 +688,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4141922611271697187, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141922611271697187, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 5175349923986737761, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.23216
