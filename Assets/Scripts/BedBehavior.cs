@@ -15,7 +15,7 @@ public class BedBehavior : MonoBehaviour
 
     // -- MUTATION SYSTEM --
     //percentage threshold that must be met for the playerResponse to be considered overall "correct".
-    [SerializeField][Range(.1f, .9f)] private float correctnessPrecentageThreshold;
+    [SerializeField][Range(.1f, .9f)] private float minimumCorrectnessPercentage;
     
     // -- TRANSITION ANIMATION --
     //timer to transition
@@ -76,13 +76,13 @@ public class BedBehavior : MonoBehaviour
             float responseAccuracy = (float)correctChars / (float)gameManager.playerResponseAccuracy.Count;
             Debug.Log("Player had " + correctChars + " out of " + gameManager.playerResponseAccuracy.Count + ", making accuracy " +  responseAccuracy);
             /*finally, if the responseAccuracy exceeded the accuracyThreshold, then move extremism UP*/
-            if (responseAccuracy > correctnessPrecentageThreshold)
+            if (responseAccuracy > minimumCorrectnessPercentage)
             {
                 //inc extremism
                 gameManager.babyExtremism = gameManager.babyExtremism + 1;
                 //and set positiveChange to true
                 gameManager.positiveChange = true;
-                Debug.Log("That exceeds the threshold of " + correctnessPrecentageThreshold + ", making the new Extremism " + gameManager.babyExtremism);
+                Debug.Log("That exceeds the threshold of " + minimumCorrectnessPercentage + ", making the new Extremism " + gameManager.babyExtremism);
             }
             /*else, move extremism DOWN*/
             else
@@ -91,7 +91,7 @@ public class BedBehavior : MonoBehaviour
                 gameManager.babyExtremism = gameManager.babyExtremism - 1;
                 //and set positiveChange to false
                 gameManager.positiveChange = false;
-                Debug.Log("That does NOT exceed the threshold of " + correctnessPrecentageThreshold + ", making the new Extremism " + gameManager.babyExtremism);
+                Debug.Log("That does NOT exceed the threshold of " + minimumCorrectnessPercentage + ", making the new Extremism " + gameManager.babyExtremism);
             }
 
             // -- CLEANUP --

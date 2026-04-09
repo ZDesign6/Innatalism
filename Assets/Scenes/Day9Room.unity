@@ -418,6 +418,10 @@ PrefabInstance:
       value: Day1Room
       objectReference: {fileID: 0}
     - target: {fileID: 3510776751652400690, guid: b7083330e1bfd244886ab1cba26ef675, type: 3}
+      propertyPath: minimumCorrectnessPercentage
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510776751652400690, guid: b7083330e1bfd244886ab1cba26ef675, type: 3}
       propertyPath: correctnessPrecentageThreshold
       value: 0.7
       objectReference: {fileID: 0}
@@ -530,7 +534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4141922611271697187, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5175349923986737761, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
       propertyPath: m_LocalPosition.x
