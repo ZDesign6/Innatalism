@@ -60,7 +60,7 @@ MonoBehaviour:
   currentDay: 1
   babyExtremism: 0
   roomDialogueCompleted: 0
-  posChange: 1
+  positiveChange: 1
   playerResponse: 
   playerResponseCount: 0
   playerResponseAccuracy: 
@@ -75,7 +75,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 190812a10cbd521459dba4150039e453, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1e89939dcdc307141ad4defee4110a77, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

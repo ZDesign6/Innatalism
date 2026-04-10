@@ -32,7 +32,7 @@ public class BabyClickToStartTyping : MonoBehaviour
     private void OnMouseDown()
     {
         //If we are interactible, then kickstart dialogue
-        if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true)
+        if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true && gameManager.currentlyTyping == false && gameManager.currentlyListening == false)
         {
             Debug.Log("you clicked the baby! Attempting to start dialogue!");
             //then kickstart the baby Speaking process
