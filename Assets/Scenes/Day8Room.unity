@@ -415,7 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3510776751652400690, guid: b7083330e1bfd244886ab1cba26ef675, type: 3}
       propertyPath: nextDaySceneName
-      value: Day9Room
+      value: Interstitial8
       objectReference: {fileID: 0}
     - target: {fileID: 3510776751652400690, guid: b7083330e1bfd244886ab1cba26ef675, type: 3}
       propertyPath: minimumCorrectnessPercentage
