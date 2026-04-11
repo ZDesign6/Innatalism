@@ -189,7 +189,7 @@ public class InterstitialTypingBehavior : MonoBehaviour
         //set currentlyTyping to true so we cannot activate SceneTransitioners. set to false during cleanup.
         gameManager.currentlyTyping = true;
         //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-        currentDialogueText.text = "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">" + untypedLine;
+        currentDialogueText.text = "<color=" + typedColorHex + ">" + typedLine + "<color=" + untypedColorHex + ">" + untypedLine;
         //set current dialogue boxes and text meshes
         if (dialoguesIndex == 0)
         {
