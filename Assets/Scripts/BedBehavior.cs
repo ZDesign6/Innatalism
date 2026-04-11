@@ -44,6 +44,7 @@ public class BedBehavior : MonoBehaviour
         {
             if (waitTime <= 0)
             {
+                waitingToTransition = false;
                 SceneManager.LoadScene(nextDaySceneName);
             }
             else
@@ -98,12 +99,6 @@ public class BedBehavior : MonoBehaviour
 
             Cleanup();
 
-            //load the next day
-            
-            //transition out of scene with an animation. 
-            transitionAnimator.Play("TransitionOutOfScene");
-            //kickstart timer to actually move to the next scene 
-            waitingToTransition = true;
            
         }
         else
@@ -129,5 +124,9 @@ public class BedBehavior : MonoBehaviour
         gameManager.roomDialogueCompleted = false;
         //reset talkedToBaby to prep for next day
         gameManager.talkedToBaby = false;
+        //transition out of scene with an animation. 
+        transitionAnimator.Play("TransitionOutOfScene");
+        //flip waitintToTransition on so that the timer can start
+        waitingToTransition = true;
     }
 }
