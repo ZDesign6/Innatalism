@@ -23,7 +23,7 @@ public class LinePointsToListPos : MonoBehaviour
     // -- INFO --
 
     //the arbitrary z at which to instantiate floating letters
-    int startingZPos = 30;
+    int startingZPos = 40;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
