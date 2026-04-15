@@ -21,6 +21,12 @@ public class BedBehavior : MonoBehaviour
     //timer to transition
     private float waitTime = 0.5f;
     private bool waitingToTransition;
+
+    // -- EDNING THRESHOLDS --
+    //the threshold which must be met or exceeded to load Cloney Ending on Day 9
+    int cloneyThreshold = 6;
+    //the threshold which must be met or less than to load Bobbey Ending on Day 9
+    int bobbeyThreshold = -6;
     
     //animator on the canvas which plays the transition anim
     Animator transitionAnimator;
@@ -128,5 +134,13 @@ public class BedBehavior : MonoBehaviour
         transitionAnimator.Play("TransitionOutOfScene");
         //flip waitintToTransition on so that the timer can start
         waitingToTransition = true;
+    }
+    /*handles loading the next scene. Generally this means loading the scene named in nextDayScene.
+     * On Day 9, this will conditionally load an Ending if the current extremism exceeds thresholds */
+    void LoadNextScene()
+    {
+        //if greater than cloney threshold
+        //else if less than blobbey threshold
+        //else load neutral ending
     }
 }

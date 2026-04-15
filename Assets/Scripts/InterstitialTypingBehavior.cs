@@ -136,8 +136,8 @@ public class InterstitialTypingBehavior : MonoBehaviour
                         //if there is no more lines left to parse...
                         else
                         {
-                            //clean up and terminate
-                            Cleanup();
+                            //call fade out animation, which leads to cleanup and termination
+                            FadeOutTitleAndSubtitle();
                         }
 
                     }
@@ -193,11 +193,13 @@ public class InterstitialTypingBehavior : MonoBehaviour
         //set current dialogue boxes and text meshes
         if (dialoguesIndex == 0)
         {
+            FadeInTitle();
             currentDialogueBox = titleDialogueBox;
             currentDialogueText = titleDialogueText;
         }
         else if (dialoguesIndex == 1)
         {
+            FadeInSubtitle();
             currentDialogueBox = subtitleDialogueBox;
             currentDialogueText = subtitleDialogueText;
         }
@@ -237,9 +239,21 @@ public class InterstitialTypingBehavior : MonoBehaviour
         //flip waitintToTransition on so that the timer can start
         waitingToTransition = true;
     }
-    //EXIT ANIMATION HOOK POINT
-    void PlayExitSequence()
+    //HOOK POINT FOR FADING IN TITLE TEXT
+    void FadeInTitle()
     {
-        //caitlin do your bullshit here do not disappoint me
+
     }
+    //HOK POINT FOR FADING IN SUBTITLE TEXT
+    void FadeInSubtitle()
+    {
+
+    }
+    //HOOK POINT FOR FADING OUT TITLE AND SUBTITLE TEXT
+    void FadeOutTitleAndSubtitle()
+    {
+        //call cleanup to finalize any outstanding data before terminating the script
+        Cleanup();
+    }
+
 }
