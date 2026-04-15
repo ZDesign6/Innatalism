@@ -457,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EndListeningBehavior
   sceneToTransitionTo: Credits
   parsingIndex: 0
-  basePlaybackDelay: 30
+  basePlaybackDelay: 15
   isCloney: 1
   waitingToCleanup: 0
 --- !u!4 &778254395
