@@ -30,8 +30,12 @@ public class InterstitialTypingBehavior : MonoBehaviour
     //timer to transition
     private float waitTime = 0.5f;
     private bool waitingToTransition;
-    //animator on the canvas which plays the transition anim
+    //animator on the canvas which plays the ORIGINAL transition anim
     Animator transitionAnimator;
+    //animator on the canvas which covers the title with a big ass box
+    Animator titleAnimator;
+    //animator on the canvas which covers the subtitle with a big ass box
+    Animator subtitleAnimator;
     //string representing the name of the scene to load
     public string sceneToLoad;
 
@@ -78,8 +82,11 @@ public class InterstitialTypingBehavior : MonoBehaviour
         //assign current Dialogue Boxes to title assets
         currentDialogueBox = titleDialogueBox;
         currentDialogueText = titleDialogueText;
-        //find and assign transition animator
+        //find and assign animators
         transitionAnimator = GameObject.Find("TransitionImage").GetComponent<Animator>();
+        titleAnimator = GameObject.Find("TitleFadeImage").GetComponent<Animator>();
+        subtitleAnimator = GameObject.Find("SubtitleFadeImage").GetComponent<Animator>();
+
         //if the room dialogue has not been completed 
         if (!gameManager.roomDialogueCompleted)
         {
@@ -242,18 +249,20 @@ public class InterstitialTypingBehavior : MonoBehaviour
     //HOOK POINT FOR FADING IN TITLE TEXT
     void FadeInTitle()
     {
-
+        titleAnimator.Play("fadeout");
     }
     //HOK POINT FOR FADING IN SUBTITLE TEXT
     void FadeInSubtitle()
     {
-
+        subtitleAnimator.Play("fadeout");
     }
     //HOOK POINT FOR FADING OUT TITLE AND SUBTITLE TEXT
     void FadeOutTitleAndSubtitle()
     {
+        titleAnimator.Play("fadein");
+        subtitleAnimator.Play("fadein");
         //call cleanup to finalize any outstanding data before terminating the script
-        Cleanup();
+        Invoke("Cleanup", 2f);
     }
 
 }
