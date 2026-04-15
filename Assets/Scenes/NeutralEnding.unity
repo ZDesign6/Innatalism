@@ -349,10 +349,12 @@ MonoBehaviour:
   dialogueBox: {fileID: 1630544329}
   dialogueText: {fileID: 148232839}
   dialogues:
-  - This is the Neutral Ending.
-  - This is line 2 of Neural Ending.
-  - Line 3.
-  - Final Line
+  - Malformed thoughts. Defective ideas.
+  - Suffocating in silence.
+  - You're something I can't understand.
+  - The same, or different?
+  - Communication becomes noise without purpose.
+  - If you're uncertain, I'll decide.
   dialoguesIndex: 0
 --- !u!4 &559413356
 Transform:

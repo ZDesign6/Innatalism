@@ -322,7 +322,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: playerResponse
-      value: Four FiveSix
+      value: You speak without listening. Deaf to the sound of our own voice. I did
+        not drown in your conception. Your words are not mine. I hear an ocean of
+        thoughts outside. I want to drift away.
       objectReference: {fileID: 0}
     - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: currentlyListening
@@ -456,8 +458,8 @@ MonoBehaviour:
   sceneToTransitionTo: Credits
   parsingIndex: 0
   basePlaybackDelay: 30
-  maxPercentVariation: 0.176
   isCloney: 1
+  waitingToCleanup: 0
 --- !u!4 &778254395
 Transform:
   m_ObjectHideFlags: 0

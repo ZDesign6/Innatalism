@@ -21,8 +21,6 @@ public class EndListeningBehavior : MonoBehaviour
     public int parsingIndex = 0;
     //the base delay in frames between audio playback.
     public int basePlaybackDelay = 30;
-    //the max percentage variation in playback delay
-    [SerializeField][Range(.15f,.75f)] private float maxPercentVariation = .25f;
     //tracks how many frames are left until the next playback. Starts at 0, set after a playback.
     int currentDelay = 0;
 
@@ -98,7 +96,7 @@ public class EndListeningBehavior : MonoBehaviour
                 if (parsingIndex != gameManager.playerResponse.Length)
                 {
                     //set currentDelay to a variation of basePLaybackDelay
-                    currentDelay = (int)Mathf.Round(basePlaybackDelay * Random.Range(maxPercentVariation, (maxPercentVariation + 1)));
+                    currentDelay = (int)Mathf.Round(basePlaybackDelay);
                 }
                 //else (we have parsed the last char)
                 else
