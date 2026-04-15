@@ -26,7 +26,7 @@ public class BedBehavior : MonoBehaviour
     //the threshold which must be met or exceeded to load Cloney Ending on Day 9
     int cloneyThreshold = 6;
     //the threshold which must be met or less than to load Bobbey Ending on Day 9
-    int bobbeyThreshold = -6;
+    int blobbeyThreshold = -6;
     
     //animator on the canvas which plays the transition anim
     Animator transitionAnimator;
@@ -50,8 +50,10 @@ public class BedBehavior : MonoBehaviour
         {
             if (waitTime <= 0)
             {
+
                 waitingToTransition = false;
-                SceneManager.LoadScene(nextDaySceneName);
+                LoadNextScene();
+
             }
             else
             {
@@ -65,47 +67,49 @@ public class BedBehavior : MonoBehaviour
         //If we are currently interactible
         if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true)
         {
-            //-- MUTATION --
-            /* first, check how many correct chars were recorded */
+            //only compute extremism changes if day is not 9
+            if (gameManager.currentDay != 9)
+            {
+                //-- MUTATION --
+                /* first, check how many correct chars were recorded */
 
-            //local var to track how many true (correct) bools were stored
-            int correctChars = 0;
-            //iterate over the responseAccuracy to determine how many correct answers there were
-            for (int accuracyIndex = 0; accuracyIndex < gameManager.playerResponseAccuracy.Count; accuracyIndex = accuracyIndex + 1)
-            {
-                //If a true bool is encountered, tally it
-                if (gameManager.playerResponseAccuracy[accuracyIndex] == true)
+                //local var to track how many true (correct) bools were stored
+                int correctChars = 0;
+                //iterate over the responseAccuracy to determine how many correct answers there were
+                for (int accuracyIndex = 0; accuracyIndex < gameManager.playerResponseAccuracy.Count; accuracyIndex = accuracyIndex + 1)
                 {
-                    correctChars = correctChars + 1;
+                    //If a true bool is encountered, tally it
+                    if (gameManager.playerResponseAccuracy[accuracyIndex] == true)
+                    {
+                        correctChars = correctChars + 1;
+                    }
                 }
-            }
-            /*next, calculate the overall accuracy percentage by dividing the correctChars by the total number of Chars recorded*/
-            float responseAccuracy = (float)correctChars / (float)gameManager.playerResponseAccuracy.Count;
-            Debug.Log("Player had " + correctChars + " out of " + gameManager.playerResponseAccuracy.Count + ", making accuracy " +  responseAccuracy);
-            /*finally, if the responseAccuracy exceeded the accuracyThreshold, then move extremism UP*/
-            if (responseAccuracy > minimumCorrectnessPercentage)
-            {
-                //inc extremism
-                gameManager.babyExtremism = gameManager.babyExtremism + 1;
-                //and set positiveChange to true
-                gameManager.positiveChange = true;
-                Debug.Log("That exceeds the threshold of " + minimumCorrectnessPercentage + ", making the new Extremism " + gameManager.babyExtremism);
-            }
-            /*else, move extremism DOWN*/
-            else
-            {
-                //dec extremism
-                gameManager.babyExtremism = gameManager.babyExtremism - 1;
-                //and set positiveChange to false
-                gameManager.positiveChange = false;
-                Debug.Log("That does NOT exceed the threshold of " + minimumCorrectnessPercentage + ", making the new Extremism " + gameManager.babyExtremism);
+                /*next, calculate the overall accuracy percentage by dividing the correctChars by the total number of Chars recorded*/
+                float responseAccuracy = (float)correctChars / (float)gameManager.playerResponseAccuracy.Count;
+                Debug.Log("Player had " + correctChars + " out of " + gameManager.playerResponseAccuracy.Count + ", making accuracy " + responseAccuracy);
+                /*finally, if the responseAccuracy exceeded the accuracyThreshold, then move extremism UP*/
+                if (responseAccuracy > minimumCorrectnessPercentage)
+                {
+                    //inc extremism
+                    gameManager.babyExtremism = gameManager.babyExtremism + 1;
+                    //and set positiveChange to true
+                    gameManager.positiveChange = true;
+                    Debug.Log("That exceeds the threshold of " + minimumCorrectnessPercentage + ", making the new Extremism " + gameManager.babyExtremism);
+                }
+                /*else, move extremism DOWN*/
+                else
+                {
+                    //dec extremism
+                    gameManager.babyExtremism = gameManager.babyExtremism - 1;
+                    //and set positiveChange to false
+                    gameManager.positiveChange = false;
+                    Debug.Log("That does NOT exceed the threshold of " + minimumCorrectnessPercentage + ", making the new Extremism " + gameManager.babyExtremism);
+                }
             }
 
             // -- CLEANUP --
 
             Cleanup();
-
-           
         }
         else
         {
@@ -124,8 +128,11 @@ public class BedBehavior : MonoBehaviour
         gameManager.playerResponseAccuracy.Clear();
         //and flip listeningComplete to false
         gameManager.listeningComplete = false;
-        //increase currentDay to ensure the baby's sprite changes accurately
-        gameManager.currentDay = gameManager.currentDay + 1;
+        if (gameManager.currentDay != 9)
+        {
+            //increase currentDay to ensure the baby's sprite changes accurately
+            gameManager.currentDay = gameManager.currentDay + 1;
+        }
         //reset room dialogue completed to prep for next day!!!
         gameManager.roomDialogueCompleted = false;
         //reset talkedToBaby to prep for next day
@@ -139,8 +146,30 @@ public class BedBehavior : MonoBehaviour
      * On Day 9, this will conditionally load an Ending if the current extremism exceeds thresholds */
     void LoadNextScene()
     {
-        //if greater than cloney threshold
-        //else if less than blobbey threshold
-        //else load neutral ending
+        Debug.Log("gameManger.currentDay is currently " + gameManager.currentDay);
+        //if during day 9
+        if (gameManager.currentDay == 9)
+        {
+            //if greater than cloney threshold
+            if (gameManager.babyExtremism >= cloneyThreshold)
+            {
+                SceneManager.LoadScene("CloneyEnding");
+            }
+            //else if less than blobbey threshold
+            else if (gameManager.babyExtremism <= blobbeyThreshold)
+            {
+                SceneManager.LoadScene("BlobbeyEnding");
+            }
+            //else load neutral ending
+            else
+            {
+                SceneManager.LoadScene("NeutralEnding");
+            }
+        }
+        //else load nextDayScene
+        else
+        {
+            SceneManager.LoadScene(nextDaySceneName);
+        }
     }
 }

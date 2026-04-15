@@ -74,11 +74,11 @@ public class ListeningBehavior : MonoBehaviour
         //if currently listening
         if (gameManager.currentlyListening == true && waitingToCleanup == false)
         {
-            Debug.Log("Listening delay is currently " + currentDelay);
+           // Debug.Log("Listening delay is currently " + currentDelay);
             //and currentDelay is 0
             if (currentDelay <= 0)
             {
-                print("ATTEMPTING TO PARSE PLAYER RESPONSE & ACCURACY AT " + parsingIndex);
+                //print("ATTEMPTING TO PARSE PLAYER RESPONSE & ACCURACY AT " + parsingIndex);
                 //parse the char at parsingIndex
                 char currentChar = gameManager.playerResponse[parsingIndex];
                 //then parse the bool at parsingIndex to determine if the currentChar was correct or not
