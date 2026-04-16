@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 public class InterstitialTypingBehavior : MonoBehaviour
 {
     // -- REFS --
+
     //ref to the AudioSource component on this game object. Assigned during Start()
     AudioSource typingFXSource;
+    //refs to the interstitial typing sounds. Chosen from randomly during PlayTypingSFX()
+    public List<AudioClip> typingAudioClips = new List<AudioClip>();
     //ref to the singleton. Assigned during Start
     GameManagerBehavior gameManager;
     SceneTransitionBehavior sceneTransitionBehavior;
+    
 
     //---UI STUFFS---//
 
@@ -227,8 +231,10 @@ public class InterstitialTypingBehavior : MonoBehaviour
     //TYPING FX HOOK POINT
     void PlayTypingFX()
     {
+        //make random index for the clip
+        int randomIndex = UnityEngine.Random.Range(0, typingAudioClips.Count);
         //Insert any code necessary to play sfx. Probably something like:
-        //typingFXSource.PlayOneShot();
+        typingFXSource.PlayOneShot(typingAudioClips[randomIndex]);
         //feel free to make yourself a List of AudioClips under the REFS header up top if you want to play that way.
     }
     //this fct handles any operations that must be done ONCE before termination of the script. 
