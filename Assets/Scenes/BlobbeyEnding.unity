@@ -548,6 +548,7 @@ MonoBehaviour:
   sceneToTransitionTo: Credits
   parsingIndex: 0
   basePlaybackDelay: 15
+  hookIndicesList: 05000000
   isCloney: 1
   waitingToCleanup: 0
 --- !u!4 &778254395

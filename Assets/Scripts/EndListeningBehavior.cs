@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +23,8 @@ public class EndListeningBehavior : MonoBehaviour
     public int basePlaybackDelay = 30;
     //tracks how many frames are left until the next playback. Starts at 0, set after a playback.
     int currentDelay = 0;
+    //list of indices at which to Hook in.
+    public List<int> hookIndicesList = new List<int>();
 
     // -- STATE INFO --
 
@@ -89,6 +91,15 @@ public class EndListeningBehavior : MonoBehaviour
                 }
                 //then play a pulse animation according to whether the char was correct or not
                 PlayPulseAnimation(isCloney);
+                //CHECK FOR ANY HOOKS
+                for (int listIndex = 0; listIndex < hookIndicesList.Count; listIndex = listIndex + 1)
+                {
+                    //if the current index is the same as any hook index, trigger the UniversalHook fct
+                    if (parsingIndex == hookIndicesList[listIndex])
+                    {
+                        UniversalHook();
+                    }
+                }
                 //finally, increase the parsingIndex to prepare for the next loop
                 parsingIndex = parsingIndex + 1;
                 Debug.Log("Increased parsing index to " + parsingIndex);
@@ -101,6 +112,8 @@ public class EndListeningBehavior : MonoBehaviour
                 //else (we have parsed the last char)
                 else
                 {
+                    //call hook fct
+                    AfterLastChar();
                     //assign the waitTimer to the baseWaitTIme
                     cleanupTimer = baseCleanupTime;
                     //and flip waitingToCleanup to true
@@ -160,5 +173,20 @@ public class EndListeningBehavior : MonoBehaviour
     void PlayPulseAnimation(bool charCorrect)
     {
         //
+    }
+    //this fct acts as a hook point for any desired behavior. Triggered after parsing the last char, but before Cleanup()
+    void AfterLastChar()
+    {
+
+    }
+    //this fct acts as a universal hook point for any desired hooks. It is called immediately parsing an index, and before incrementing the Parsing Index
+    void UniversalHook()
+    {
+        //SAMPLE: a hook point for after parsing character 5
+        if (parsingIndex == 5)
+        {
+            //desired behavior
+            Debug.Log("parsed character 5");
+        }
     }
 }
