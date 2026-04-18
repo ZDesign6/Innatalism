@@ -36,8 +36,11 @@ public class EndListeningBehavior : MonoBehaviour
     int baseCleanupTime = 75;
     //current waiting timer. Decreases every frame, triggers cleanup when done.
     int cleanupTimer = 0;
-
-
+    //if i freakin paused it
+    bool isPaused = false;
+    public float pauseDuration = 2f;
+    private float pauseTimer = 2f;
+    
     // -- TRANSITION ANIMATION --
     //timer to transition
     private float waitTime = 0.5f;
@@ -46,6 +49,9 @@ public class EndListeningBehavior : MonoBehaviour
     //animator on the canvas which plays the transition anim
     Animator transitionAnimator;
 
+    //anim
+    Animator babyAnim;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,13 +64,14 @@ public class EndListeningBehavior : MonoBehaviour
         //assign ref to letterManager
         letterManager = this.gameObject.GetComponent<EndFloatingLetterManager>();
         //we assign player response 
+        babyAnim = GameObject.Find("BABYANIM").GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         //if currently listening
-        if (gameManager.currentlyListening == true && waitingToCleanup == false)
+        if (gameManager.currentlyListening == true && waitingToCleanup == false && !isPaused)
         {
             Debug.Log("Listening delay is currently " + currentDelay);
             //and currentDelay is 0
@@ -141,6 +148,20 @@ public class EndListeningBehavior : MonoBehaviour
             }
         }
 
+        if (isPaused)
+        {
+            if (pauseTimer <= 0)
+            {
+                isPaused = false;
+                pauseTimer = pauseDuration;
+            }
+            else
+            {
+                pauseTimer -= Time.deltaTime;
+            }
+        }
+        
+        //transition out of scene timer
         if (waitingToTransition)
         {
             if (waitTime <= 0)
@@ -177,16 +198,22 @@ public class EndListeningBehavior : MonoBehaviour
     //this fct acts as a hook point for any desired behavior. Triggered after parsing the last char, but before Cleanup()
     void AfterLastChar()
     {
-
+        if (!isCloney)
+        {
+            babyAnim.Play("BLOBBYANIM");
+        }
+        
     }
     //this fct acts as a universal hook point for any desired hooks. It is called immediately parsing an index, and before incrementing the Parsing Index
     void UniversalHook()
     {
-        //SAMPLE: a hook point for after parsing character 5
-        if (parsingIndex == 5)
+        //if this is the blobby ending
+        if (!isCloney)
         {
-            //desired behavior
-            Debug.Log("parsed character 5");
+            //kickstart the timer
+            isPaused = true;
+        
         }
+
     }
 }

@@ -417,6 +417,10 @@ PrefabInstance:
         thoughts outside. I want to drift away.
       objectReference: {fileID: 0}
     - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
+      propertyPath: positiveChange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: currentlyListening
       value: 1
       objectReference: {fileID: 0}
@@ -548,9 +552,10 @@ MonoBehaviour:
   sceneToTransitionTo: Credits
   parsingIndex: 0
   basePlaybackDelay: 15
-  hookIndicesList: 05000000
-  isCloney: 1
+  hookIndicesList: 1d00000041000000650000007e000000a3000000b8000000
+  isCloney: 0
   waitingToCleanup: 0
+  pauseDuration: 2
 --- !u!4 &778254395
 Transform:
   m_ObjectHideFlags: 0
@@ -1066,7 +1071,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1012167615
