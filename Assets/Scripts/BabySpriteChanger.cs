@@ -51,11 +51,21 @@ public class BabySpriteChanger : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        //once mouse enters the collider, check if the baby is interactible. If it is, animate.
-        if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true)
+        
+        try
         {
-            AnimateBaby(); 
+            //once mouse enters the collider, check if the baby is interactible. If it is, animate.
+            if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true)
+            {
+                AnimateBaby();
+            }
         }
+        //handling for edge cases where the sprite changer is being used without the baby being interactible:
+        catch (System.NullReferenceException)
+        {
+
+        }
+
     }
 
     private void OnMouseExit()

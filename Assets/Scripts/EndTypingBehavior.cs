@@ -11,6 +11,8 @@ public class EndTypingBehavior : MonoBehaviour
     public int dialogue2WaitTime = 100;
     public int dialogue3WaitTime = 100;
     public int dialogue4WaitTime = 100;
+    public int dialogue5WaitTime = 100;
+    public int dialogue6WaitTime = 100;
     //tracks how many frames we need to wait
     int remainingWaitTime = 0;
     //tracks if we are currently in waiting state. turned on after finishing a dialogue line. Turned off after waiting ends.
@@ -22,6 +24,8 @@ public class EndTypingBehavior : MonoBehaviour
     //ref to the singleton. Assigned during Start
     GameManagerBehavior gameManager;
     SceneTransitionBehavior sceneTransitionBehavior;
+    //ref to the AUdio Source component on this GameObject
+    AudioSource splatSource;
 
     //---UI STUFFS---//
     
@@ -79,6 +83,8 @@ public class EndTypingBehavior : MonoBehaviour
         Debug.Log("current extremism proportion is " +  extremismProportion);
         //compute currentMantraTextColor
         currentMantraTextColor = Color.Lerp(gameManager.blobColorRGB, gameManager.cloneColorRGB, extremismProportion);
+        //assign ref to splat source
+        splatSource = this.gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -147,6 +153,16 @@ public class EndTypingBehavior : MonoBehaviour
                         {
                             remainingWaitTime = dialogue4WaitTime;
                             AfterDialogueFour();
+                        }
+                        else if (dialoguesIndex == 5)
+                        {
+                            remainingWaitTime = dialogue5WaitTime;
+                            AfterDialogueFive();
+                        }
+                        else if (dialoguesIndex == 6)
+                        {
+                            remainingWaitTime = dialogue6WaitTime;
+                            AfterDialogueSix();
                         }
                         //should never reach here
                         else
@@ -248,23 +264,37 @@ public class EndTypingBehavior : MonoBehaviour
     void AfterDialogueOne()
     {
         //TEMP TEST
-        GameObject.Find("SampleBG").GetComponent<SpriteRenderer>().color = Color.red;
+        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.red;
     }
     //this fct is called after finishing dialogue line 2. Acts as a hook for any desired behavior.
     void AfterDialogueTwo()
     {
         //TEMP TEST
-        GameObject.Find("SampleBG").GetComponent<SpriteRenderer>().color = Color.black;
+        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.black;
     }
     //this fct is called after finishing dialogue line 3. Acts as a hook for any desired behavior.
     void AfterDialogueThree()
     {
         //TEMP TEST
-        GameObject.Find("SampleBG").GetComponent<SpriteRenderer>().color = Color.blue;
+        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.blue;
     }
     //this fct is called after finishing dialogue line 4. Acts as a hook for any desired behavior.
     void AfterDialogueFour()
     {
-        GameObject.Find("SampleBG").GetComponent<SpriteRenderer>().color = Color.green;
+        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.green;
+    }
+    //this fct is called after finishing dialogue line 5. Acts as a hook for any desired behavior.
+    void AfterDialogueFive()
+    {
+        //TEMP TEST
+        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.brown;
+    }
+    //this fct is called after finishing dialogue line 6. Acts as a hook for any desired behavior.
+    void AfterDialogueSix()
+    {
+        //TEMP TEST
+        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.orange;
+        //play the splat sound
+        splatSource.Play();
     }
 }
