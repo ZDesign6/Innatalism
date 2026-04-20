@@ -12,6 +12,7 @@ public class EndListeningBehavior : MonoBehaviour
     //ref to the letter manager
     EndFloatingLetterManager letterManager;
 
+
     //string which holds the scene name for the scene which will be transitioned to after Listening IF the baby is a tub baby
     public string sceneToTransitionTo;
 
@@ -25,6 +26,8 @@ public class EndListeningBehavior : MonoBehaviour
     int currentDelay = 0;
     //list of indices at which to Hook in.
     public List<int> hookIndicesList = new List<int>();
+    //the max percentage variation in playback delay
+    [SerializeField][Range(.15f, .75f)] private float maxPercentVariation = .25f;
 
     // -- STATE INFO --
 
@@ -114,7 +117,7 @@ public class EndListeningBehavior : MonoBehaviour
                 if (parsingIndex != gameManager.playerResponse.Length)
                 {
                     //set currentDelay to a variation of basePLaybackDelay
-                    currentDelay = (int)Mathf.Round(basePlaybackDelay);
+                    currentDelay = (int)Mathf.Round(basePlaybackDelay * Random.Range(maxPercentVariation, (maxPercentVariation + 1)));
                 }
                 //else (we have parsed the last char)
                 else

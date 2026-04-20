@@ -1268,8 +1268,11 @@ MonoBehaviour:
   sceneToTransitionTo: Credits
   parsingIndex: 0
   basePlaybackDelay: 15
+  hookIndicesList: 
+  maxPercentVariation: 0.15
   isCloney: 1
   waitingToCleanup: 0
+  pauseDuration: 2
 --- !u!4 &959095356
 Transform:
   m_ObjectHideFlags: 0
