@@ -36,7 +36,7 @@ public class EndListeningBehavior : MonoBehaviour
     //tracks if we are waiting to cleaniup
     public bool waitingToCleanup = false;
     //wait time, in frames
-    int baseCleanupTime = 75;
+    int baseCleanupTime = 300;
     //current waiting timer. Decreases every frame, triggers cleanup when done.
     int cleanupTimer = 0;
     //if i freakin paused it
@@ -205,6 +205,10 @@ public class EndListeningBehavior : MonoBehaviour
         {
             babyAnim.Play("BLOBBYANIM");
         }
+        else
+        {
+            babyAnim.Play("CLONEYANIM");
+        }
         
     }
     //this fct acts as a universal hook point for any desired hooks. It is called immediately parsing an index, and before incrementing the Parsing Index
@@ -215,7 +219,33 @@ public class EndListeningBehavior : MonoBehaviour
         {
             //kickstart the timer
             isPaused = true;
-        
+        }
+        else
+        {
+            isPaused = true;
+            
+            if (parsingIndex == 27)
+            {
+                babyAnim.Play("CLONEY2");
+            } else if (parsingIndex == 55)
+            {
+                babyAnim.Play("CLONEY3");
+
+            }
+            else if (parsingIndex == 96)
+            {
+                babyAnim.Play("CLONEY4");
+            }
+            else if (parsingIndex == 122)
+            {
+                babyAnim.Play("CLONEY5");
+
+            }
+            else if (parsingIndex == 163)
+            {
+                babyAnim.Play("CLONEY6");
+            }
+            
         }
 
     }

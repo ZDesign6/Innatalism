@@ -771,7 +771,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: dc20d5d4e0896df41bb4fc0b743cc741, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 860f1e56faf5bf64db21a8c9775007b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   sceneToTransitionTo: Credits
   parsingIndex: 0
   basePlaybackDelay: 15
-  hookIndicesList: 
+  hookIndicesList: 1b00000037000000600000007a000000a3000000
   maxPercentVariation: 0.15
   isCloney: 1
   waitingToCleanup: 0
