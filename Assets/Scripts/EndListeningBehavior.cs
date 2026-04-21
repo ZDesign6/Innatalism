@@ -224,24 +224,24 @@ public class EndListeningBehavior : MonoBehaviour
         {
             isPaused = true;
             
-            if (parsingIndex == 27)
+            if (parsingIndex == 26)
             {
                 babyAnim.Play("CLONEY2");
-            } else if (parsingIndex == 55)
+            } else if (parsingIndex == 54)
             {
                 babyAnim.Play("CLONEY3");
 
             }
-            else if (parsingIndex == 96)
+            else if (parsingIndex == 95)
             {
                 babyAnim.Play("CLONEY4");
             }
-            else if (parsingIndex == 122)
+            else if (parsingIndex == 121)
             {
                 babyAnim.Play("CLONEY5");
 
             }
-            else if (parsingIndex == 163)
+            else if (parsingIndex == 162)
             {
                 babyAnim.Play("CLONEY6");
             }
