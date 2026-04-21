@@ -556,7 +556,7 @@ MonoBehaviour:
   sceneToTransitionTo: Credits
   parsingIndex: 0
   basePlaybackDelay: 15
-  hookIndicesList: 1d00000041000000650000007e000000a3000000b8000000
+  hookIndicesList: 1c00000040000000640000007d000000a2000000b7000000
   maxPercentVariation: 0.15
   isCloney: 0
   waitingToCleanup: 0

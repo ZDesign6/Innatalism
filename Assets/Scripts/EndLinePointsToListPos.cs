@@ -23,7 +23,7 @@ public class EndLinePointsToListPos : MonoBehaviour
     // -- INFO --
 
     //the arbitrary z at which to instantiate floating letters
-    int startingZPos = 1;
+    private int startingZPos = 50;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,7 +43,7 @@ public class EndLinePointsToListPos : MonoBehaviour
         //for each line renderer...
         for (int componentIndex = 0; componentIndex < lineRendererComponents.Count; componentIndex = componentIndex + 1)
         {
-            int currentZpos = startingZPos;
+            float currentZpos = startingZPos;
             //iterate over all of its points (if there are no points this will short circuit and not attempt an assignment)
             for (int pointIndex = 0; pointIndex < lineRendererComponents[componentIndex].positionCount; pointIndex = pointIndex + 1)
 
@@ -109,11 +109,11 @@ public class EndLinePointsToListPos : MonoBehaviour
                 //finally, change the currentZPos depending on whether the day's previous change was pos or neg
                 if (gameManager.positiveChange == true)
                 {
-                    currentZpos = currentZpos + 1;
+                    currentZpos = currentZpos + 0.1f;
                 }
                 else
                 {
-                    currentZpos = currentZpos - 1;
+                    currentZpos = currentZpos - 0.1f;
                 }
 
             }
