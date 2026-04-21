@@ -137,7 +137,7 @@ public class LinePointsToListPos : MonoBehaviour
                 }
                 else
                 {
-                    currentZpos = currentZpos - 0.1fs;
+                    currentZpos = currentZpos - 0.1f;
                 }
 
             }
