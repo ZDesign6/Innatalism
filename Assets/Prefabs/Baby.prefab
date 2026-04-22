@@ -1154,23 +1154,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 21300000, guid: a1d077b570173f9468295d73ae3ad0e6, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
+  - {fileID: 21300000, guid: a879a06b7a7755a4caf05750f0c00723, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: cf5017132738e0b49857e75c461d180c, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 403f78363e3639642b3f47fa215a9639, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 5e1f3c63ee6e7ae44acf478a7a8b9a66, type: 3}
   - {fileID: 0}
   - {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
+  - {fileID: 21300000, guid: 217b3d54e5e57aa41aae5ed600e5a3ef, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
+  - {fileID: 21300000, guid: 1e40b40411d4aa247b5f040859b5880b, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
+  - {fileID: 21300000, guid: 6227ab47949966043b06b3357ac68183, type: 3}
   - {fileID: 0}
-  - {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
+  - {fileID: 21300000, guid: 264a0c75f17c52342b6a7078fb6531c7, type: 3}
   babyMats:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 0}
@@ -1337,6 +1337,7 @@ MonoBehaviour:
   - {fileID: 1743096136461659179}
   babySprite: {fileID: 2048869024334329913}
   babyOutlineAnimator: {fileID: 8038670519600244049}
+  handAnim: {fileID: 0}
 --- !u!114 &7251148057463581622
 MonoBehaviour:
   m_ObjectHideFlags: 0
