@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class EndTypingBehavior : MonoBehaviour
 {
     // -- ENDING SPECIFIC --
@@ -249,8 +251,7 @@ public class EndTypingBehavior : MonoBehaviour
         //flip currentlyTyping in gameManger to false so we can once again trigger SceneTransitioners
         gameManager.currentlyTyping = false;
         CloseDialogueBox();
-        //transition
-        sceneTransitionBehavior.TransitionTo();
+        SceneManager.LoadScene("Credits");
 
     }
     //this fct does nothing except decrement the waiting timer. If called while remainingWaitTime is 0, ends waiting.
@@ -262,8 +263,9 @@ public class EndTypingBehavior : MonoBehaviour
             //and if we are on the last line of dialogue
             if (dialoguesIndex == dialogues.Count)
             {
-                //then initiate cleanup
-                Cleanup();
+                //then close dialogue box
+                //im gonna call cleanup called it from after holding baby
+                CloseDialogueBox();
             }
             //else if we've got more lines to parse
             else
@@ -317,9 +319,10 @@ public class EndTypingBehavior : MonoBehaviour
     {
         //sudden cut to black 
         endingAnim.Play("HAND7");
+        gameManager.gameObject.GetComponent<AudioSource>().mute = true;
         handBehavior.HoldBaby();
         baby.SetActive(false);
-        Invoke("AfterHoldingBaby", 2f);
+        Invoke("AfterHoldingBaby", 5f);
         
     }
 
@@ -329,7 +332,8 @@ public class EndTypingBehavior : MonoBehaviour
         handBehavior.SquishBaby();
         //play the splat sound
         splatSource.Play();
-        Invoke("Cleanup", 3f);
+        Invoke("Cleanup", 0.35f);
     }
+    
     
 }
