@@ -35,7 +35,6 @@ public class EndTypingBehavior : MonoBehaviour
     //ref to the fucking uhh animator that controls the whole fuckin scene. placed on the camera
     public Animator endingAnim;
     public Animator endingAnimHand;
-    public Animator blinkAnim;
 
     
     //---UI STUFFS---//
@@ -282,7 +281,6 @@ public class EndTypingBehavior : MonoBehaviour
     //this fct is called after finishing dialogue line 1. Acts as a hook for any desired behavior.
     void AfterDialogueOne()
     {
-        blinkAnim.Play("Blink");
         endingAnim.Play("HAND2");
         endingAnimHand.Play("HAND02");
       
@@ -290,7 +288,6 @@ public class EndTypingBehavior : MonoBehaviour
     //this fct is called after finishing dialogue line 2. Acts as a hook for any desired behavior.
     void AfterDialogueTwo()
     {
-        blinkAnim.Play("Blink");
         endingAnim.Play("HAND3");
         endingAnimHand.Play("HAND03");
 
@@ -298,7 +295,6 @@ public class EndTypingBehavior : MonoBehaviour
     //this fct is called after finishing dialogue line 3. Acts as a hook for any desired behavior.
     void AfterDialogueThree()
     {
-        blinkAnim.Play("Blink");
         endingAnim.Play("HAND4");
         endingAnimHand.Play("HAND04");
 
@@ -306,14 +302,12 @@ public class EndTypingBehavior : MonoBehaviour
     //this fct is called after finishing dialogue line 4. Acts as a hook for any desired behavior.
     void AfterDialogueFour()
     {
-        blinkAnim.Play("Blink");
         endingAnim.Play("HAND5");
         endingAnimHand.Play("hand05");
     }
     //this fct is called after finishing dialogue line 5. Acts as a hook for any desired behavior.
     void AfterDialogueFive()
     {
-        blinkAnim.Play("Blink");
         endingAnim.Play("HAND6");
         endingAnimHand.Play("hand06");
       
@@ -321,7 +315,6 @@ public class EndTypingBehavior : MonoBehaviour
     //this fct is called after finishing dialogue line 6. Acts as a hook for any desired behavior.
     void AfterDialogueSix()
     {
-        
         //sudden cut to black 
         endingAnim.Play("HAND7");
         handBehavior.HoldBaby();
