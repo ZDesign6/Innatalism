@@ -519,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: babyExtremism
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626270210502047728, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: m_Name
@@ -889,14 +889,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7941556037448659635, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
-      propertyPath: 'babySprites.Array.data[144]'
-      value: 
-      objectReference: {fileID: 21300000, guid: d60e294bcc74ed54a9905d533deac5c7, type: 3}
-    - target: {fileID: 7941556037448659635, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
-      propertyPath: 'babySprites.Array.data[146]'
-      value: 
-      objectReference: {fileID: 21300000, guid: 217b3d54e5e57aa41aae5ed600e5a3ef, type: 3}
     - target: {fileID: 9107779676844667329, guid: 4f29074d647289340a7e726ad9583d54, type: 3}
       propertyPath: m_Name
       value: Baby
