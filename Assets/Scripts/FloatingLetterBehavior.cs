@@ -72,9 +72,18 @@ public class FloatingLetterBehavior : MonoBehaviour
         //if distance between mousePos and this letter is less than the max distance
         if (currentDifference <= maxDifference)
         {
-            Debug.Log("adding force");
-            //then add force to this letter, with that force being equivalent to a baseForce divided by (totalDifference / maxDifference)
-            this.gameObject.GetComponent<Rigidbody2D>().AddForce(mouseLetterDifference / (currentDifference / maxDifference));
+            //if this letter was accurate, attract to the mouse
+            if (isAccurate == true)
+            {
+                //then add force to this letter, with that force being equivalent to a baseForce divided by (totalDifference / maxDifference)
+                this.gameObject.GetComponent<Rigidbody2D>().AddForce((mouseLetterDifference / (currentDifference / maxDifference)) * -1);
+            }
+            //if this letter is inaccurate, repel from the mouse
+            else
+            {
+                //then add force to this letter, with that force being equivalent to a baseForce divided by (totalDifference / maxDifference)
+                this.gameObject.GetComponent<Rigidbody2D>().AddForce(mouseLetterDifference / (currentDifference / maxDifference));
+            }
         }
     }
 }
