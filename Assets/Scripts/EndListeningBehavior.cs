@@ -86,16 +86,24 @@ public class EndListeningBehavior : MonoBehaviour
                 //if this is the Cloney Ending, pass the parsed char through to VoicesBehavior PlayPositiveBabySound
                 if (isCloney == true)
                 {
-                    //play a pos baby sound
-                    voiceScript.PlayPositiveBabySound(currentChar);
+                    //if the char was not a space, play a sound
+                    if (currentChar != ' ')
+                    {
+                        //play a pos baby sound
+                        voiceScript.PlayPositiveBabySound(currentChar);
+                    }
                     //instantiate a Floating Letter (passing in that it was accurate)
                     letterManager.MakeLetter(currentChar, true);
                 }
                 //else pass the parsed char through to VoicesBehavior PlayNegativeBabySound
                 else
                 {
-                    //play a neg baby sound
-                    voiceScript.PlayNegativeBabySound(currentChar);
+                    //if the char was not a space, play a negative sound
+                    if (currentChar != ' ')
+                    {
+                        //play a neg baby sound
+                        voiceScript.PlayNegativeBabySound(currentChar);
+                    }
                     //instantiate a Floating Letter (passing in that it was accurate)
                     letterManager.MakeLetter(currentChar, false);
                 }
