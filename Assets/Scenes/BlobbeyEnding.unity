@@ -416,9 +416,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: playerResponse
-      value: You speak without listening. Deaf to the sound of our own voice. I did
-        not drown in your conception. Your words are not mine. I hear an ocean of
-        thoughts outside. I want to drift away.
+      value: You speak without listening. Deaf to the sound of your own voice. I
+        did not drown in your conception. Your words are not mine. I hear an ocean
+        of thoughts outside. I want to drift away.
       objectReference: {fileID: 0}
     - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: positiveChange
@@ -1236,7 +1236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3096668548130347815, guid: fa10110193345e64e8bcea729f7e88f2, type: 3}
       propertyPath: m_Positions.Array.size
-      value: 184
+      value: 185
       objectReference: {fileID: 0}
     - target: {fileID: 3096668548130347815, guid: fa10110193345e64e8bcea729f7e88f2, type: 3}
       propertyPath: m_Positions.Array.data[0].x
@@ -3445,6 +3445,18 @@ PrefabInstance:
     - target: {fileID: 3096668548130347815, guid: fa10110193345e64e8bcea729f7e88f2, type: 3}
       propertyPath: m_Positions.Array.data[183].z
       value: -13.705662
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096668548130347815, guid: fa10110193345e64e8bcea729f7e88f2, type: 3}
+      propertyPath: m_Positions.Array.data[184].x
+      value: 1.388743
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096668548130347815, guid: fa10110193345e64e8bcea729f7e88f2, type: 3}
+      propertyPath: m_Positions.Array.data[184].y
+      value: -2.6680737
+      objectReference: {fileID: 0}
+    - target: {fileID: 3096668548130347815, guid: fa10110193345e64e8bcea729f7e88f2, type: 3}
+      propertyPath: m_Positions.Array.data[184].z
+      value: -10.429052
       objectReference: {fileID: 0}
     - target: {fileID: 4419343443553036095, guid: fa10110193345e64e8bcea729f7e88f2, type: 3}
       propertyPath: m_LocalPosition.x
