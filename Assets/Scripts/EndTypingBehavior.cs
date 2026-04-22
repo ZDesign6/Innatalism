@@ -56,6 +56,11 @@ public class EndTypingBehavior : MonoBehaviour
     string keyPressed;
     //the color to draw Mantra text in. Computed during Start() by lerping between BlobColorRGB and CloneColorRGB according to how extreme we currently are
     Color currentMantraTextColor;
+
+    //the fucking uhh animator that controls the whole fuckin scene. placed on the camera
+    public Animator endingAnim;
+    public Animator endingAnimHand;
+    
     //List of characters to accept when parsing input
     List<string> recognizedCharacters = new List<string>()
     {
@@ -263,37 +268,47 @@ public class EndTypingBehavior : MonoBehaviour
     //this fct is called after finishing dialogue line 1. Acts as a hook for any desired behavior.
     void AfterDialogueOne()
     {
+        endingAnim.Play("HAND2");
+        endingAnimHand.Play("HAND02");
         //TEMP TEST
-        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.red;
+        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.red;
     }
     //this fct is called after finishing dialogue line 2. Acts as a hook for any desired behavior.
     void AfterDialogueTwo()
     {
+        endingAnim.Play("HAND3");
+        endingAnimHand.Play("HAND03");
         //TEMP TEST
-        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.black;
+        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.black;
     }
     //this fct is called after finishing dialogue line 3. Acts as a hook for any desired behavior.
     void AfterDialogueThree()
     {
+        endingAnim.Play("HAND4");
+        endingAnimHand.Play("HAND04");
         //TEMP TEST
-        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.blue;
+        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.blue;
     }
     //this fct is called after finishing dialogue line 4. Acts as a hook for any desired behavior.
     void AfterDialogueFour()
     {
-        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.green;
+        endingAnim.Play("HAND5");
+        endingAnimHand.Play("hand05");
+        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.green;
     }
     //this fct is called after finishing dialogue line 5. Acts as a hook for any desired behavior.
     void AfterDialogueFive()
     {
+        endingAnim.Play("HAND6");
+        endingAnimHand.Play("hand06");
         //TEMP TEST
-        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.brown;
+        //GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.brown;
     }
     //this fct is called after finishing dialogue line 6. Acts as a hook for any desired behavior.
     void AfterDialogueSix()
     {
         //TEMP TEST
-        GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.orange;
+        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.orange;
         //play the splat sound
         splatSource.Play();
     }

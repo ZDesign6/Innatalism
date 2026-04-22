@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BabySpriteChanger : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class BabySpriteChanger : MonoBehaviour
     public SpriteMask[] babyOutlineMask;
     public SpriteRenderer babySprite;
     public Animator babyOutlineAnimator;
+    public Animator handAnim;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,11 +44,19 @@ public class BabySpriteChanger : MonoBehaviour
             babyOutlineMask[i].sprite = babySprites[spriteIndex];
         }
         //and set this baby's pos equal to the pos of the background, so the two objects are centered on one another
-        this.gameObject.GetComponent<Transform>().position = GameObject.Find("Background").GetComponent<Transform>().position;
-        //and set this baby's scale equal to the scale of the Background object
-        this.gameObject.GetComponent<Transform>().localScale = GameObject.Find("Background").GetComponent<Transform>().localScale;
-        //and then recalculate the PolygonCollider's points to match any new Sprite shapes
-        this.gameObject.GetComponent<PolygonCollider2D>().CreateFromSprite(babySprite.sprite);
+        if (SceneManager.GetActiveScene().name == "NeutralEnding")
+        {
+            Debug.Log("DO NOT resize this baby!!!!");
+        }
+        else
+        {
+            this.gameObject.GetComponent<Transform>().position = GameObject.Find("Background").GetComponent<Transform>().position;
+            //and set this baby's scale equal to the scale of the Background object
+            this.gameObject.GetComponent<Transform>().localScale = GameObject.Find("Background").GetComponent<Transform>().localScale;
+            //and then recalculate the PolygonCollider's points to match any new Sprite shapes
+            this.gameObject.GetComponent<PolygonCollider2D>().CreateFromSprite(babySprite.sprite);
+        }
+
     }
 
     private void OnMouseEnter()
