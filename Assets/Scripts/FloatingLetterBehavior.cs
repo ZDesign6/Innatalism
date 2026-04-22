@@ -12,6 +12,13 @@ public class FloatingLetterBehavior : MonoBehaviour
     //where this letter's homePos is
     public Vector3 homePos;
 
+    // -- MOUSE REPULSION --
+
+    //reference to singleton
+    GameManagerBehavior gameManager;
+    //max distance at which repulsion can occur
+    int maxDifference= 2;
+
     // -- "ANIMATION" --
     public Animator animator;
 
@@ -30,6 +37,8 @@ public class FloatingLetterBehavior : MonoBehaviour
             this.gameObject.GetComponent<TextMeshPro>().color = new Color(.839f, .286f, .584f, 1);
             animator.Play("FloatingTurn");
         }
+        //asssign ref to singleton
+        gameManager = GameManagerBehavior.singleton;
     }
 
     // Update is called once per frame
@@ -38,13 +47,33 @@ public class FloatingLetterBehavior : MonoBehaviour
         //every frame, subtract one from lifeInFrames
         lifeInFrames = lifeInFrames - 1;
         //if life in frames ever goes below one, delete self
-        if (lifeInFrames <= 0)
+        if (lifeInFrames <= 50)
         {
             animator.Play("FloatingExit");
-            if (lifeInFrames <= -50)
+            if (lifeInFrames <= 0)
             {
                 Destroy(this.gameObject);
             }
+        }
+
+        // REPULSION
+        MouseRepulsion();
+
+    }
+    //this fct provides force to the Floating Letter when the mouse gets to close
+    void MouseRepulsion()
+    {
+        //Find the difference in x and y between the Letter and the Mouse Pos
+        Vector2 mouseLetterDifference = new Vector2(this.gameObject.GetComponent<Transform>().position.x, this.gameObject.GetComponent<Transform>().position.y) - gameManager.mouseInWorldSpace;
+        //then, abstract the total difference in position
+        float currentDifference = Mathf.Abs(mouseLetterDifference.x) + Mathf.Abs(mouseLetterDifference.y);
+        Debug.Log("current distance from mouse is " +  currentDifference);
+
+        //if distance between mousePos and this letter is less than the max distance
+        if (currentDifference <= maxDifference)
+        {
+            //then add force to the letter, with that force being equivalent to a baseForce divided by (totalDifference / maxDifference)
+
         }
     }
 }
