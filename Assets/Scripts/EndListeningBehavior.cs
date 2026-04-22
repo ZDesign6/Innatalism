@@ -11,6 +11,8 @@ public class EndListeningBehavior : MonoBehaviour
     VoicesBehavior voiceScript;
     //ref to the letter manager
     EndFloatingLetterManager letterManager;
+	//ref to ending walking soundeffect
+	AudioSource walkingSfx;
 
 
     //string which holds the scene name for the scene which will be transitioned to after Listening IF the baby is a tub baby
@@ -68,6 +70,8 @@ public class EndListeningBehavior : MonoBehaviour
         letterManager = this.gameObject.GetComponent<EndFloatingLetterManager>();
         //we assign player response 
         babyAnim = GameObject.Find("BABYANIM").GetComponent<Animator>();
+		//assign ref to walking audiosource
+		walkingSfx = this.gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -216,6 +220,7 @@ public class EndListeningBehavior : MonoBehaviour
         else
         {
             babyAnim.Play("CLONEYANIM");
+			walkingSfx.Play();
         }
         
     }
