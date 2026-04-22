@@ -256,7 +256,7 @@ public class EndListeningBehavior : MonoBehaviour
             else if (parsingIndex == 162)
             {
                 babyAnim.Play("CLONEY6");
-                Invoke("DestroyAllLetters", .7f);
+                Invoke("DestroyAllLetters", .25f);
             }
             
         }
