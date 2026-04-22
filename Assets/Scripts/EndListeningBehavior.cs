@@ -235,26 +235,48 @@ public class EndListeningBehavior : MonoBehaviour
             if (parsingIndex == 26)
             {
                 babyAnim.Play("CLONEY2");
+                Invoke("DestroyAllLetters", .7f);
+
             } else if (parsingIndex == 54)
             {
                 babyAnim.Play("CLONEY3");
-
+                Invoke("DestroyAllLetters", .7f);
             }
             else if (parsingIndex == 95)
             {
                 babyAnim.Play("CLONEY4");
+                Invoke("DestroyAllLetters", .7f);
             }
             else if (parsingIndex == 121)
             {
                 babyAnim.Play("CLONEY5");
+                Invoke("DestroyAllLetters", .7f);
 
             }
             else if (parsingIndex == 162)
             {
                 babyAnim.Play("CLONEY6");
+                Invoke("DestroyAllLetters", .7f);
             }
             
         }
 
+    }
+
+    //this fct destroys all currently existing Letter objects in the Scene
+    public void DestroyAllLetters()
+    {
+        //establish a list to hold all active objects to be sorted through
+        GameObject[] gameObjects;
+        //populate the list with all active objects
+        gameObjects = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        //iterate over all objects, destroying them if they are Floating Letter Clones
+        for (int currentObject = 0; currentObject < gameObjects.Length; currentObject = currentObject + 1)
+        {
+            if (gameObjects[currentObject].name == "FloatingLetter(Clone)")
+            {
+                Destroy(gameObjects[currentObject]);
+            }
+        }
     }
 }

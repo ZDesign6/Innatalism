@@ -67,4 +67,20 @@ public class EndFloatingLetterManager : MonoBehaviour
         //finally, increase the endListeningScript.parsingIndex to prepare to parse the next char
         //endListeningScript.parsingIndex = endListeningScript.parsingIndex + 1;
     }
+    //this fct destroys all currently existing Letter objects in the Scene
+    public void DestroyAllLetters()
+    {
+        //establish a list to hold all active objects to be sorted through
+        GameObject[] gameObjects;
+        //populate the list with all active objects
+        gameObjects = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
+        //iterate over all objects, destroying them if they are Floating Letter Clones
+        for (int currentObject = 0; currentObject < gameObjects.Length; currentObject = currentObject + 1) 
+        {
+            if (gameObjects[currentObject].name == "FloatingLetter(Clone)")
+            {
+                Destroy(gameObjects[currentObject]);
+            }
+        }
+    }
 }
