@@ -8,7 +8,7 @@ public class FloatingLetterBehavior : MonoBehaviour
     //tracks if this floatingLetter was accurate. set by FloatingLetterManager when it instantiates this Floating Letter.
     public bool isAccurate = true;
     //how long Floating Characters last befoer deleting themselves
-    public int lifeInFrames = 500;
+    public int lifeInFrames = 475;
     //where this letter's homePos is
     public Vector3 homePos;
 

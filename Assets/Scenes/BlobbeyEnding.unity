@@ -415,6 +415,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
+      propertyPath: babyExtremism
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: playerResponse
       value: You speak without listening. Deaf to the sound of your own voice. I
         did not drown in your conception. Your words are not mine. I hear an ocean
