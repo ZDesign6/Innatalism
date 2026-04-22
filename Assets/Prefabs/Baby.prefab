@@ -1308,23 +1308,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 2100000, guid: 17aa679fefa24744db911deb693586bb, type: 2}
   - {fileID: 0}
+  - {fileID: 2100000, guid: f16835473d9a2694a96069a9968dfc6a, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 31aad0a7f9f7db3429feb40248c23b4d, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 6ddbd90abf0adea4da3bba14c9f154a9, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 4f72046cd16103c4ba18d566ce4b1525, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 2100000, guid: 33ab18b4f8752f540b20fb8945cc1cf5, type: 2}
   - {fileID: 0}
+  - {fileID: 2100000, guid: 3890f669a8d27f54589e11dbca0cd60f, type: 2}
   - {fileID: 0}
+  - {fileID: 2100000, guid: 0fa1bf2750aa12a469c6e86be8a8205b, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 06017736ac4077f4eb45043712ec6109, type: 2}
   wobbleShader: {fileID: -6465566751694194690, guid: dfcd10ba510543e49b17fc5c3352e37d, type: 3}
   babyOutlineMask:
   - {fileID: 1689348663511181336}
