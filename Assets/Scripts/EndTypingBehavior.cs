@@ -26,7 +26,17 @@ public class EndTypingBehavior : MonoBehaviour
     SceneTransitionBehavior sceneTransitionBehavior;
     //ref to the AUdio Source component on this GameObject
     AudioSource splatSource;
+    
+    //ref to the HandBehavior script on the hand object in scene. assigned during start : )
+    HandBehavior handBehavior;
 
+    GameObject baby;
+
+    //ref to the fucking uhh animator that controls the whole fuckin scene. placed on the camera
+    public Animator endingAnim;
+    public Animator endingAnimHand;
+
+    
     //---UI STUFFS---//
     
     //The parent gameobject holding every piece of the dialogue box
@@ -57,10 +67,7 @@ public class EndTypingBehavior : MonoBehaviour
     //the color to draw Mantra text in. Computed during Start() by lerping between BlobColorRGB and CloneColorRGB according to how extreme we currently are
     Color currentMantraTextColor;
 
-    //the fucking uhh animator that controls the whole fuckin scene. placed on the camera
-    public Animator endingAnim;
-    public Animator endingAnimHand;
-    
+
     //List of characters to accept when parsing input
     List<string> recognizedCharacters = new List<string>()
     {
@@ -83,6 +90,8 @@ public class EndTypingBehavior : MonoBehaviour
         LoadLine();
         //assign ref to the VoiceBehavior Script in the scene
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
+        //assign ref to hand behavior in scene
+        handBehavior = GameObject.Find("Hand").GetComponent<HandBehavior>();
         //abstract how extreme we currently are by adding an offset to ensure all numbers are positive
         float extremismProportion = (float)gameManager.babyExtremism + 8f / 16f;
         Debug.Log("current extremism proportion is " +  extremismProportion);
@@ -90,6 +99,9 @@ public class EndTypingBehavior : MonoBehaviour
         currentMantraTextColor = Color.Lerp(gameManager.blobColorRGB, gameManager.cloneColorRGB, extremismProportion);
         //assign ref to splat source
         splatSource = this.gameObject.GetComponent<AudioSource>();
+        //assign ref to baby game object
+        baby = GameObject.Find("Baby");
+       
     }
 
     private void Update()
@@ -239,6 +251,7 @@ public class EndTypingBehavior : MonoBehaviour
         CloseDialogueBox();
         //transition
         sceneTransitionBehavior.TransitionTo();
+
     }
     //this fct does nothing except decrement the waiting timer. If called while remainingWaitTime is 0, ends waiting.
     void Wait()
@@ -270,46 +283,53 @@ public class EndTypingBehavior : MonoBehaviour
     {
         endingAnim.Play("HAND2");
         endingAnimHand.Play("HAND02");
-        //TEMP TEST
-        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.red;
+      
     }
     //this fct is called after finishing dialogue line 2. Acts as a hook for any desired behavior.
     void AfterDialogueTwo()
     {
         endingAnim.Play("HAND3");
         endingAnimHand.Play("HAND03");
-        //TEMP TEST
-        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.black;
+
     }
     //this fct is called after finishing dialogue line 3. Acts as a hook for any desired behavior.
     void AfterDialogueThree()
     {
         endingAnim.Play("HAND4");
         endingAnimHand.Play("HAND04");
-        //TEMP TEST
-        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.blue;
+
     }
     //this fct is called after finishing dialogue line 4. Acts as a hook for any desired behavior.
     void AfterDialogueFour()
     {
         endingAnim.Play("HAND5");
         endingAnimHand.Play("hand05");
-        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.green;
     }
     //this fct is called after finishing dialogue line 5. Acts as a hook for any desired behavior.
     void AfterDialogueFive()
     {
         endingAnim.Play("HAND6");
         endingAnimHand.Play("hand06");
-        //TEMP TEST
-        //GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.brown;
+      
     }
     //this fct is called after finishing dialogue line 6. Acts as a hook for any desired behavior.
     void AfterDialogueSix()
     {
-        //TEMP TEST
-        // GameObject.Find("Background").GetComponent<SpriteRenderer>().color = Color.orange;
+        //sudden cut to black 
+        endingAnim.Play("HAND7");
+        handBehavior.HoldBaby();
+        baby.SetActive(false);
+        Invoke("AfterHoldingBaby", 2f);
+        
+    }
+
+    void AfterHoldingBaby()
+    {
+        //switch hand to the squishing sprite
+        handBehavior.SquishBaby();
         //play the splat sound
         splatSource.Play();
+        Invoke("Cleanup", 3f);
     }
+    
 }
