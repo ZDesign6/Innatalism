@@ -134,7 +134,6 @@ public class InterstitialTypingBehavior : MonoBehaviour
                     {
                         //inc index meow
                         dialoguesIndex++;
-
                         //we are done typin.
                         Debug.Log("finished typing line!");
 
@@ -147,14 +146,12 @@ public class InterstitialTypingBehavior : MonoBehaviour
                         //if there is no more lines left to parse...
                         else
                         {
+
                             //call fade out animation, which leads to cleanup and termination
                             FadeOutTitleAndSubtitle();
                         }
 
                     }
-
-                    //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
-                    currentDialogueText.text = "<color=" + typedColorHex + ">" + typedLine + currentCursor + "<color=" + untypedColorHex + ">" + untypedLine;
                 }
 
             }
@@ -162,8 +159,8 @@ public class InterstitialTypingBehavior : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //if the frameCounter mod cursorBlinkTime is 0, flip cursorEmpty
-        if (gameManager.frameCounter % cursorBlinkTime == 0)
+        //if the frameCounter mod cursorBlinkTime is 0, flip cursorEmpty. Don't flip if line length is 0, so that the cursor stays empty after subtitles are finished.
+        if (gameManager.frameCounter % cursorBlinkTime == 0 && untypedLine.Length != 0)
         {
             cursorEmpty = !cursorEmpty;
         }
@@ -265,6 +262,8 @@ public class InterstitialTypingBehavior : MonoBehaviour
     //HOOK POINT FOR FADING OUT TITLE AND SUBTITLE TEXT
     void FadeOutTitleAndSubtitle()
     {
+        //set cursorEmpty to true so cursor no longer blinks
+        cursorEmpty = true;
         titleAnimator.Play("fadein");
         subtitleAnimator.Play("fadein");
         //call cleanup to finalize any outstanding data before terminating the script
