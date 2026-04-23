@@ -17,6 +17,8 @@ public class BabySpriteChanger : MonoBehaviour
     private int spriteIndex;
 
     public SpriteMask[] babyOutlineMask;
+    public SpriteMask babyMask;
+    public SpriteMask outlihebabyMask;
     public SpriteRenderer babySprite;
     public Animator babyOutlineAnimator;
     public Animator handAnim;
@@ -43,6 +45,8 @@ public class BabySpriteChanger : MonoBehaviour
         {
             babyOutlineMask[i].sprite = babySprites[spriteIndex];
         }
+
+        babyMask.sprite = babySprites[spriteIndex];
         //and set this baby's pos equal to the pos of the background, so the two objects are centered on one another
         if (SceneManager.GetActiveScene().name == "NeutralEnding")
         {
