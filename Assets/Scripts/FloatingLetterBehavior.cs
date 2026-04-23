@@ -17,7 +17,7 @@ public class FloatingLetterBehavior : MonoBehaviour
     //reference to singleton
     GameManagerBehavior gameManager;
     //max distance at which repulsion can occur
-    int maxDifference= 2;
+    float maxDifference= 2.25f;
 
     // -- "ANIMATION" --
     public Animator animator;
