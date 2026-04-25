@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4314775915314218835}
   - component: {fileID: 7560937358095506267}
+  - component: {fileID: 6542319963095282097}
   m_Layer: 0
   m_Name: TubWater
   m_TagString: Untagged
@@ -90,3 +91,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!114 &6542319963095282097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6661996444918126175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b598d1f4ec2f041b0145bd4cd52a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TubSpriteWater

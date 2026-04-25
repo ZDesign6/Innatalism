@@ -20,9 +20,7 @@ public class TubSpriteWater : MonoBehaviour
         float extremismProportion = (float)gameManager.babyExtremism + 8f / 16f;
         waterColor = Color.Lerp(gameManager.blobColorRGB, gameManager.cloneColorRGB, extremismProportion);
         waterColor.a = 0.5f;
-
         waterSprite.color = waterColor;
-
     }
 
     // Update is called once per frame
