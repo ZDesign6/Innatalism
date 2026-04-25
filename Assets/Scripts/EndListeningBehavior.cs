@@ -216,6 +216,7 @@ public class EndListeningBehavior : MonoBehaviour
         if (!isCloney)
         {
             babyAnim.Play("BLOBBYANIM");
+			walkingSfx.Play();
         }
         else
         {
