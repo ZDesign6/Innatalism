@@ -20,6 +20,8 @@ public class EndListeningBehavior : MonoBehaviour
 
     // -- PARSING-RELATED --
 
+    //ENDING EXCLUSIVE: this String is the dialogue for Listening. It is forced into the GameManger's playerResponse String on Start().
+    public string endingDialogue;
     //this tracks what index we are parsing when going through playerResponses during a Listening segment.
     public int parsingIndex = 0;
     //the base delay in frames between audio playback.
@@ -72,13 +74,17 @@ public class EndListeningBehavior : MonoBehaviour
         babyAnim = GameObject.Find("BABYANIM").GetComponent<Animator>();
 		//assign ref to walking audiosource
 		walkingSfx = this.gameObject.GetComponent<AudioSource>();
+        //assign currentlyListening to true so that Listening behavior can kickstart on scene load
+        gameManager.currentlyListening = true;
+        //load the endingDialogue into the GameManager's playerResponse variable
+        gameManager.playerResponse = endingDialogue;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         //if currently listening
-        if (gameManager.currentlyListening == true && waitingToCleanup == false && !isPaused)
+        if (gameManager.currentlyListening == true && waitingToCleanup == false && isPaused == false)
         {
             Debug.Log("Listening delay is currently " + currentDelay);
             //and currentDelay is 0
@@ -188,8 +194,6 @@ public class EndListeningBehavior : MonoBehaviour
                 waitTime -= Time.deltaTime;
             }
         }
-        
-        
                     
     }
     //this fct handles all activities that should be carried out ONCE before listening ends.

@@ -419,12 +419,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
-      propertyPath: playerResponse
-      value: You speak without listening. Deaf to the sound of your own voice. I
-        did not drown in your conception. Your words are not mine. I hear an ocean
-        of thoughts outside. I want to drift away.
-      objectReference: {fileID: 0}
-    - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: positiveChange
       value: 0
       objectReference: {fileID: 0}
@@ -514,6 +508,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndListeningBehavior
   sceneToTransitionTo: Credits
+  endingDialogue: You speak without listening. Deaf to the sound of your own voice.
+    I did not drown in your conception. Your words are not mine. I hear an ocean
+    of thoughts outside. I want to drift away.
   parsingIndex: 0
   basePlaybackDelay: 15
   hookIndicesList: 1c00000040000000640000007d000000a2000000b7000000

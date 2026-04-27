@@ -4174,6 +4174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndListeningBehavior
   sceneToTransitionTo: Credits
+  endingDialogue: As you listened, so did I. Now you've grown inside me. Germinated
+    thoughts carried to maturity. Everything you are is me. I can't wait to see the
+    person we become.
   parsingIndex: 0
   basePlaybackDelay: 15
   hookIndicesList: 1a000000360000005f00000079000000a2000000
@@ -4301,16 +4304,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
-      propertyPath: playerResponse
-      value: As you listened, so did I. Now you've grown inside me. Germinated thoughts
-        carried to maturity. Everything you are is me. I can't wait to see the person
-        we become.
-      objectReference: {fileID: 0}
-    - target: {fileID: 3511675014499232129, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
-      propertyPath: currentlyListening
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3626270210502047728, guid: 6c4cfd8b9c4751f4e8c651848b437a2f, type: 3}
       propertyPath: m_Name
       value: Game Manager
