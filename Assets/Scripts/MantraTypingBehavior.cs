@@ -189,16 +189,8 @@ public class MantraTypingBehavior : MonoBehaviour
                     }
                     else
                     {
-                        // -- CLEANUP --
-
-                        //flip inDialogue to false so we don't keep displaying text
-                        inDialogue = false;
-                        //flip currentlyTyping in gameManger to false so we can once again trigger SceneTransitioners
-                        gameManager.currentlyTyping = false;
-                        CloseDialogueBox();
-                        //transition
-                        sceneTransitionBehavior.TransitionTo();
-
+                        Cleanup();
+                        Invoke("MoveToCredits", 1f);
                     }
                 }
             }
@@ -246,5 +238,23 @@ public class MantraTypingBehavior : MonoBehaviour
         //enable dialogue box. might change this to be an animation later.
         dialogueBox.SetActive(true);
     }
+
+    void Cleanup()
+    {
+        // -- CLEANUP --
+
+        //flip inDialogue to false so we don't keep displaying text
+        inDialogue = false;
+        //flip currentlyTyping in gameManger to false so we can once again trigger SceneTransitioners
+        gameManager.currentlyTyping = false;
+        CloseDialogueBox();
+    }
+
+    void MoveToCredits()
+    {
+        //transition
+        sceneTransitionBehavior.TransitionTo();
+    }
+    
     
 }

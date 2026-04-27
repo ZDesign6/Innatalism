@@ -219,9 +219,8 @@ public class EndListeningBehavior : MonoBehaviour
     {
         if (isCloney)
         {
-            //babyAnim.Play("CLONEYANIM");
-            //walkingSfx.Play();
-            Cleanup();
+            
+            Invoke("Absorb", 1.5f);
         }
         else
         {
@@ -276,6 +275,14 @@ public class EndListeningBehavior : MonoBehaviour
 
     }
 
+    void Absorb()
+    {
+        babyAnim.Play("BLACK");
+        gameManager.GetComponent<AudioSource>().mute = true;
+        //walkingSfx.Play();
+        Invoke("Cleanup", 1.5f);
+    }
+    
     //this fct destroys all currently existing Letter objects in the Scene
     public void DestroyAllLetters()
     {

@@ -640,7 +640,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2116714492632868052, guid: 8af73213bca27f546b3f46c90b1dfc48, type: 3}
+  m_Sprite: {fileID: -4371842870900250294, guid: da0b815ebd7b0ca438dcd2a772f8667c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -725,10 +725,8 @@ MonoBehaviour:
   dialogueText: {fileID: 1541120737}
   dialogues:
   - I can't wait to see the person we become.
-  - I can't wait to see the person we become.
-  - I can't wait to see the person we become.
   dialoguesIndex: 0
-  baseTypeDelay: 15
+  baseTypeDelay: 23
   maxPercentVariation: 0.75
 --- !u!1001 &1796201704
 PrefabInstance:
