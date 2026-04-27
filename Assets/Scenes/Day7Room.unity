@@ -3766,6 +3766,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b552c0c7c9c969f4ba3b202231076df6, type: 3}
     - target: {fileID: 7560937358095506267, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560937358095506267, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 55758000be4dbaa4db77ca44390e3e27, type: 2}
