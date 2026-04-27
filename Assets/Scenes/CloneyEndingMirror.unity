@@ -724,9 +724,12 @@ MonoBehaviour:
   dialogueBox: {fileID: 1274764451}
   dialogueText: {fileID: 1541120737}
   dialogues:
-  - It is okay to not know.
-  - Everything this baby needs is already inside me.
+  - I can't wait to see the person we become.
+  - I can't wait to see the person we become.
+  - I can't wait to see the person we become.
   dialoguesIndex: 0
+  baseTypeDelay: 15
+  maxPercentVariation: 0.75
 --- !u!1001 &1796201704
 PrefabInstance:
   m_ObjectHideFlags: 0

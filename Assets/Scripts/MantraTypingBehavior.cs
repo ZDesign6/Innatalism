@@ -69,17 +69,18 @@ public class MantraTypingBehavior : MonoBehaviour
     {
         //assign ref to singleton
         gameManager = GameManagerBehavior.singleton;
-        //kick start dialogue
-        LoadLine();
         //assign ref to the VoiceBehavior Script in the scene
         voiceScript = GameObject.Find("Voices").GetComponent<VoicesBehavior>();
         //and assign self to the voiceScript's typingScript ref
         voiceScript.mantraTypingScript = this;
         //abstract how extreme we currently are by adding an offset to ensure all numbers are positive
         float extremismProportion = (float)gameManager.babyExtremism + 8f / 16f;
-        Debug.Log("current extremism proportion is " +  extremismProportion);
+        Debug.Log("current extremism proportion is " + extremismProportion);
         //compute currentMantraTextColor
         currentMantraTextColor = Color.Lerp(gameManager.blobColorRGB, gameManager.cloneColorRGB, extremismProportion);
+        //kick start dialogue
+        LoadLine();
+        
     }
 
     private void Update()
@@ -149,78 +150,61 @@ public class MantraTypingBehavior : MonoBehaviour
                 
             }
         }
+        
+    }
+    private void FixedUpdate()
+    {
         // FAKE TYPING
         //else, if we are inDialogue and the currentScene is the CLoney Ending Mirror, execute differently (fake typing)
-        else if (inDialogue == true && SceneManager.GetActiveScene().name == "CloneyEndingMirror")
+        if (inDialogue == true && SceneManager.GetActiveScene().name == "CloneyEndingMirror")
         {
-            Debug.Log("THIS IS THE CLONEY EN DING MIRROR");
             //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
             dialogueText.text = "<color=#" + ColorUtility.ToHtmlStringRGB(currentMantraTextColor) + ">" + typedLine + currentCursor + "<color=" + gameManager.untypedColorHex + ">" + untypedLine;
-            
+
             //if the timer has reached 0
             if (currentTypeDelay <= 0)
             {
-                //make a new delay
-
-                //store the keypress in a temp variable
-                keyPressed = Input.inputString;
-
-                //if this character is one accepted by the system
-                if (recognizedCharacters.Contains(keyPressed) && keyPressed.Length == 1)
+                //reset currentTypeDelay to a variation of baseTypeDelay
+                int newDelay = (int)Mathf.Round(baseTypeDelay * (UnityEngine.Random.Range(maxPercentVariation, maxPercentVariation + 1)));
+                Debug.Log("set delay to" + newDelay);
+                currentTypeDelay = newDelay;
+                //play a positive man sound from the Voices Script
+                voiceScript.PlayPositiveManSound(untypedLine[0]);
+                //add the key to the typed line regardless of accuracy
+                typedLine += untypedLine[0];
+                //remove the key that was intended to be typed from the untyped line
+                untypedLine = untypedLine.Remove(0, 1);
+                //if there is nothing left to be typed
+                if (untypedLine.Length == 0)
                 {
-                    //if this character is the correct character 
-                    if (untypedLine.IndexOf(keyPressed) == 0)
+                    //inc index meow
+                    dialoguesIndex++;
+
+                    //we are done typin.
+                    Debug.Log("finished typing line!");
+
+                    if (dialoguesIndex != dialogues.Count)
                     {
-                        //play a positive man sound from the Voices Script
-                        voiceScript.PlayPositiveManSound(keyPressed[0]);
+                        LoadLine();
                     }
-                    //if the character was incorrect
                     else
                     {
-                        //play a negative man sound from the Voices Script
-                        voiceScript.PlayNegativeManSound(keyPressed[0]);
-                    }
+                        // -- CLEANUP --
 
-                    //add the key to the typed line regardless of accuracy
-                    typedLine += keyPressed;
-                    //remove the key that was intended to be typed from the untyped line
-                    untypedLine = untypedLine.Remove(0, 1);
+                        //flip inDialogue to false so we don't keep displaying text
+                        inDialogue = false;
+                        //flip currentlyTyping in gameManger to false so we can once again trigger SceneTransitioners
+                        gameManager.currentlyTyping = false;
+                        CloseDialogueBox();
+                        //transition
+                        sceneTransitionBehavior.TransitionTo();
 
-                    //if there is nothing left to be typed
-                    if (untypedLine.Length == 0)
-                    {
-                        //inc index meow
-                        dialoguesIndex++;
-
-                        //we are done typin.
-                        Debug.Log("finished typing line!");
-
-                        if (dialoguesIndex != dialogues.Count)
-                        {
-                            LoadLine();
-                        }
-                        else
-                        {
-                            // -- CLEANUP --
-
-                            //flip inDialogue to false so we don't keep displaying text
-                            inDialogue = false;
-                            //flip currentlyTyping in gameManger to false so we can once again trigger SceneTransitioners
-                            gameManager.currentlyTyping = false;
-                            CloseDialogueBox();
-                            //transition
-                            sceneTransitionBehavior.TransitionTo();
-
-                        }
                     }
                 }
             }
             //finally, reduce the currentTypeDelay by one to decrease the timer
             currentTypeDelay = currentTypeDelay - 1;
         }
-    }
-    private void FixedUpdate()
-    {
         //if the frameCounter mod cursorBlinkTime is 0, flip cursorEmpty
         if (gameManager.frameCounter % cursorBlinkTime == 0)
         {
