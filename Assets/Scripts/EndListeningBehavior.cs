@@ -217,15 +217,18 @@ public class EndListeningBehavior : MonoBehaviour
     //this fct acts as a hook point for any desired behavior. Triggered after parsing the last char, but before Cleanup()
     void AfterLastChar()
     {
-        if (!isCloney)
+        if (isCloney)
         {
-            babyAnim.Play("BLOBBYANIM");
-			walkingSfx.Play();
+            //babyAnim.Play("CLONEYANIM");
+            //walkingSfx.Play();
+            Cleanup();
         }
         else
         {
-            babyAnim.Play("CLONEYANIM");
-			walkingSfx.Play();
+            babyAnim.Play("BLOBBYANIM");
+            walkingSfx.Play();
+            
+            
         }
         
     }
@@ -254,20 +257,20 @@ public class EndListeningBehavior : MonoBehaviour
             }
             else if (parsingIndex == 95)
             {
-                babyAnim.Play("CLONEY4");
+                babyAnim.Play("CLONEY5");
                 Invoke("DestroyAllLetters", .7f);
             }
             else if (parsingIndex == 121)
             {
-                babyAnim.Play("CLONEY5");
+                babyAnim.Play("CLONEY6");
                 Invoke("DestroyAllLetters", .7f);
 
             }
-            else if (parsingIndex == 162)
-            {
-                babyAnim.Play("CLONEY6");
-                Invoke("DestroyAllLetters", .25f);
-            }
+            // else if (parsingIndex == 162)
+            // {
+            //     
+            //     Invoke("DestroyAllLetters", .25f);
+            // }
             
         }
 

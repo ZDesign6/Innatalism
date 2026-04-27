@@ -176,6 +176,96 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2533c4841f5774543a0204705bf6b0da, type: 3}
+--- !u!1001 &192747653
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314775915314218835, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661996444918126175, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_Name
+      value: TubWater
+      objectReference: {fileID: 0}
+    - target: {fileID: 6661996444918126175, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560937358095506267, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a2fe870169c2f3c4a930e39aa7d0a2cb, type: 3}
+    - target: {fileID: 7560937358095506267, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_Color.b
+      value: 0.216981
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560937358095506267, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_Color.g
+      value: 0.826778
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560937358095506267, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560937358095506267, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560937358095506267, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560937358095506267, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 265bf48163839ef4ab4109b93951b527, type: 2}
+    m_RemovedComponents:
+    - {fileID: 6542319963095282097, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5dfa1102cac5ea429adec0dbb6a8706, type: 3}
 --- !u!1 &354728366
 GameObject:
   m_ObjectHideFlags: 0
@@ -4173,10 +4263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e4563d6486ea948a10edaf732e9647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndListeningBehavior
-  sceneToTransitionTo: Credits
+  sceneToTransitionTo: CloneyEndingMirror
   endingDialogue: As you listened, so did I. Now you've grown inside me. Germinated
-    thoughts carried to maturity. Everything you are is me. I can't wait to see the
-    person we become.
+    thoughts carried to maturity. Everything you are is me.
   parsingIndex: 0
   basePlaybackDelay: 15
   hookIndicesList: 1a000000360000005f00000079000000a2000000
@@ -4885,3 +4974,4 @@ SceneRoots:
   - {fileID: 1449716756}
   - {fileID: 571595831}
   - {fileID: 772039480}
+  - {fileID: 192747653}
