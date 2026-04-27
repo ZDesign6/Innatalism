@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class MantraTypingBehavior : MonoBehaviour
 {
     // -- REFS --
@@ -42,12 +44,22 @@ public class MantraTypingBehavior : MonoBehaviour
     Color currentMantraTextColor;
     //List of characters to accept when parsing input
     List<string> recognizedCharacters = new List<string>()
+
     {
         " ", ".", ",", "!", "?", "\"", "'", ";", ":", "&", "/","\\", "-", ")", "(",
         "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
         "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
     };
-    
+
+    // -- FAKE TYPING STUFF --
+
+    //this tracks the base delay, in frames, between letters being "typed"
+    public int baseTypeDelay;
+    //this sets the variability in actual delay between letters being "typed". Used to modify the base delay before applying it
+    [SerializeField][Range(.15f, .75f)] private float maxPercentVariation = .25f;
+    //used to track the currently remaining frames between "typing" letters. REduced every frame.
+    int currentTypeDelay = 0;
+
     void Awake()
     {
         sceneTransitionBehavior = GameObject.Find("SceneTransitioner").GetComponent<SceneTransitionBehavior>();
@@ -72,8 +84,8 @@ public class MantraTypingBehavior : MonoBehaviour
 
     private void Update()
     {
-        //if we are in dialogue we want to be listening for texttttt
-        if (inDialogue)
+        //if we are in dialogue and NOT in the Cloney Ending Mantra
+        if (inDialogue == true && SceneManager.GetActiveScene().name != "CloneyEndingMirror")
         {
             //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
             dialogueText.text = "<color=#" + ColorUtility.ToHtmlStringRGB(currentMantraTextColor) + ">" + typedLine + currentCursor + "<color=" + gameManager.untypedColorHex + ">"+ untypedLine;
@@ -137,10 +149,78 @@ public class MantraTypingBehavior : MonoBehaviour
                 
             }
         }
+        // FAKE TYPING
+        //else, if we are inDialogue and the currentScene is the CLoney Ending Mirror, execute differently (fake typing)
+        else if (inDialogue == true && SceneManager.GetActiveScene().name == "CloneyEndingMirror")
+        {
+            Debug.Log("THIS IS THE CLONEY EN DING MIRROR");
+            //display the typed line in the color we assigned, then the cursor character, then untyped line in the color we assigned
+            dialogueText.text = "<color=#" + ColorUtility.ToHtmlStringRGB(currentMantraTextColor) + ">" + typedLine + currentCursor + "<color=" + gameManager.untypedColorHex + ">" + untypedLine;
+            
+            //if the timer has reached 0
+            if (currentTypeDelay <= 0)
+            {
+                //make a new delay
+
+                //store the keypress in a temp variable
+                keyPressed = Input.inputString;
+
+                //if this character is one accepted by the system
+                if (recognizedCharacters.Contains(keyPressed) && keyPressed.Length == 1)
+                {
+                    //if this character is the correct character 
+                    if (untypedLine.IndexOf(keyPressed) == 0)
+                    {
+                        //play a positive man sound from the Voices Script
+                        voiceScript.PlayPositiveManSound(keyPressed[0]);
+                    }
+                    //if the character was incorrect
+                    else
+                    {
+                        //play a negative man sound from the Voices Script
+                        voiceScript.PlayNegativeManSound(keyPressed[0]);
+                    }
+
+                    //add the key to the typed line regardless of accuracy
+                    typedLine += keyPressed;
+                    //remove the key that was intended to be typed from the untyped line
+                    untypedLine = untypedLine.Remove(0, 1);
+
+                    //if there is nothing left to be typed
+                    if (untypedLine.Length == 0)
+                    {
+                        //inc index meow
+                        dialoguesIndex++;
+
+                        //we are done typin.
+                        Debug.Log("finished typing line!");
+
+                        if (dialoguesIndex != dialogues.Count)
+                        {
+                            LoadLine();
+                        }
+                        else
+                        {
+                            // -- CLEANUP --
+
+                            //flip inDialogue to false so we don't keep displaying text
+                            inDialogue = false;
+                            //flip currentlyTyping in gameManger to false so we can once again trigger SceneTransitioners
+                            gameManager.currentlyTyping = false;
+                            CloseDialogueBox();
+                            //transition
+                            sceneTransitionBehavior.TransitionTo();
+
+                        }
+                    }
+                }
+            }
+            //finally, reduce the currentTypeDelay by one to decrease the timer
+            currentTypeDelay = currentTypeDelay - 1;
+        }
     }
     private void FixedUpdate()
     {
-        Debug.Log("MAntra typing behvior currently has a game manager ref of " + gameManager.name);
         //if the frameCounter mod cursorBlinkTime is 0, flip cursorEmpty
         if (gameManager.frameCounter % cursorBlinkTime == 0)
         {
