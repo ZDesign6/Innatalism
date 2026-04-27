@@ -116,18 +116,13 @@ public class InterstitialTypingBehavior : MonoBehaviour
                 //if this character is one accepted by the system
                 if (recognizedCharacters.Contains(keyPressed) && keyPressed.Length == 1)
                 {
-                    //if this character is the correct character 
-                    if (untypedLine.IndexOf(keyPressed) == 0)
-                    {
-                        //play a typing sound
-                        PlayTypingFX();
-                        Debug.Log("Correct character! Adding " +  keyPressed + " to line.");
-                        //add the key to the typed line
-                        typedLine += keyPressed;
-                        Debug.Log("Successfully concatenated " +  typedLine);
-                        //remove the key that was intended to be typed from the untyped line
-                        untypedLine = untypedLine.Remove(0, 1);
-                    }
+                    //play a typing sound
+                    PlayTypingFX();
+                    //add the key to the typed line
+                    typedLine += untypedLine[0];
+                    Debug.Log("Successfully concatenated " +  typedLine);
+                    //remove the key that was intended to be typed from the untyped line
+                    untypedLine = untypedLine.Remove(0, 1);
 
                     //if there is nothing left to be typed
                     if (untypedLine.Length == 0)
