@@ -29,9 +29,12 @@ public class MouseCursorBehavior : MonoBehaviour
         // -- ANIMATION STATES --
 
         //If we are in the cloney ending AND the current sprite is for squishing, then short circuit and do not render anything
-        if (SceneManager.GetActiveScene().name == "NeutralEnding" && GameObject.Find("Hand").GetComponent<SpriteRenderer>().sprite.name == "E0g_0" || GameObject.Find("Hand").GetComponent<SpriteRenderer>().sprite.name == "E0s_0")
+        if (SceneManager.GetActiveScene().name == "NeutralEnding")
         {
-            this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            if (GameObject.Find("Hand").GetComponent<SpriteRenderer>().sprite.name == "E0g_0" || GameObject.Find("Hand").GetComponent<SpriteRenderer>().sprite.name == "E0s_0")
+            {
+                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
         else
         {
