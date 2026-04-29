@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MouseCursorBehavior : MonoBehaviour
 {
@@ -27,45 +28,53 @@ public class MouseCursorBehavior : MonoBehaviour
 
         // -- ANIMATION STATES --
 
-        //if we are currently listening, short circuit to Listening Animation
-        if (gameManager.currentlyListening == true)
+        //If we are in the cloney ending AND the current sprite is for squishing, then short circuit and do not render anything
+        if (SceneManager.GetActiveScene().name == "NeutralEnding" && GameObject.Find("Hand").GetComponent<SpriteRenderer>().sprite.name == "E0g_0" || GameObject.Find("Hand").GetComponent<SpriteRenderer>().sprite.name == "E0s_0")
         {
-            // The mouse cursor plays the listening animation
-            mouseAnimator.Play("Listen Animation");
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
-        //else if we are currently typing, short circuit to typing animation
-        else if (gameManager.currentlyTyping == true)
-        {
-            // The mouse cursor plays the speaking animation
-            mouseAnimator.Play("Speak Animation");
-        }
-        //else, if we are NOT listening and NOT typing, and we ARE hovering over an interactible object...
-        else if (objectHitList.Count > 0 && objectHitList[0].GetComponent<InteractibilityManager>() != null)
-        {
-            //If the object in question has a hover manager, play its hover animation
-            if (objectHitList[0].GetComponent<HoverManager>() != null)
-            {
-                var hoverManager = objectHitList[0].GetComponent<HoverManager>();
-                hoverManager.AnimateHover();
-            }
-            //if the object is interactible
-            if (objectHitList[0].GetComponent<InteractibilityManager>().isInteractible == true)
-            {
-                // The mouse cursor plays the interacting animation
-                mouseAnimator.Play("Interact Animation");
-            }
-            //if the object is not interactible
-            else
-            {
-                //mouse cursor plays the not interactible animation
-                mouseAnimator.Play("No Interact Animation");          
-            }
-        }
-        //else, we are NOT listening, NOT typing, and NOT hovering. So play Neutral animation.
         else
         {
-            // The mouse cursor plays the neutral animation
-            mouseAnimator.Play("Neutral Animation");
+            //if we are currently listening, short circuit to Listening Animation
+            if (gameManager.currentlyListening == true)
+            {
+                // The mouse cursor plays the listening animation
+                mouseAnimator.Play("Listen Animation");
+            }
+            //else if we are currently typing, short circuit to typing animation
+            else if (gameManager.currentlyTyping == true)
+            {
+                // The mouse cursor plays the speaking animation
+                mouseAnimator.Play("Speak Animation");
+            }
+            //else, if we are NOT listening and NOT typing, and we ARE hovering over an interactible object...
+            else if (objectHitList.Count > 0 && objectHitList[0].GetComponent<InteractibilityManager>() != null)
+            {
+                //If the object in question has a hover manager, play its hover animation
+                if (objectHitList[0].GetComponent<HoverManager>() != null)
+                {
+                    var hoverManager = objectHitList[0].GetComponent<HoverManager>();
+                    hoverManager.AnimateHover();
+                }
+                //if the object is interactible
+                if (objectHitList[0].GetComponent<InteractibilityManager>().isInteractible == true)
+                {
+                    // The mouse cursor plays the interacting animation
+                    mouseAnimator.Play("Interact Animation");
+                }
+                //if the object is not interactible
+                else
+                {
+                    //mouse cursor plays the not interactible animation
+                    mouseAnimator.Play("No Interact Animation");
+                }
+            }
+            //else, we are NOT listening, NOT typing, and NOT hovering. So play Neutral animation.
+            else
+            {
+                // The mouse cursor plays the neutral animation
+                mouseAnimator.Play("Neutral Animation");
+            }
         }
  
         // -- CLEANUP --
