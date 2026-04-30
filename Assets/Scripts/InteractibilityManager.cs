@@ -59,7 +59,7 @@ public class InteractibilityManager : MonoBehaviour
         //We should never reach here
         else
         {
-            throw new System.Exception("InteractibilityManger could not detect object type")
+            throw new System.Exception("Interactibility Manager could not detect object type")
            {
                //don't need any extra behavior, just want the error
            };

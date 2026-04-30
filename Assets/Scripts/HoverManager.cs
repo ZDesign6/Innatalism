@@ -9,18 +9,30 @@ public class HoverManager : MonoBehaviour
     String notHovering = "NotHovering";   
     public Animator hoverAnimator;
     
-    //called when cursor hovers over object
-    private void FixedUpdate()
-    {
+    //holds a ref to the singleton. Assigned during Start.
+    GameManagerBehavior gameManager;
     
+    //called when cursor hovers over object
+    private void Start()
+    {
+        //assign ref to singleton
+        gameManager = GameManagerBehavior.singleton;
     }
 
     public void AnimateHover()
     {
         //if obj is interactable, play according animation
-        if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true)
+        if (this.gameObject.GetComponent<InteractibilityManager>().isInteractible == true )
         {
-            hoverAnimator.Play(Interactable);
+            if (gameObject.name == "Mirror" && gameManager.mirrorInteracted)
+            {
+                hoverAnimator.Play(notInteractable);
+            }
+            else
+            {
+                hoverAnimator.Play(Interactable);
+            }
+            
         }
         //else, play according animation
         else
