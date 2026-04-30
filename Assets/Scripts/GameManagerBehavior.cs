@@ -43,6 +43,8 @@ public class GameManagerBehavior : MonoBehaviour
     public bool roomDialogueCompleted = false;
     //tracks what kind of change happened at the end of last day. true if there was pos change, false if neg change.
     public bool positiveChange = true;
+    //tracks if the mirror has been interacted with. This does not gate off any interaction; it only changes the animation. Flipped on when clicking on mirror, flipped off when sleeping.
+    public bool mirrorInteracted = false;
 
     //-- RESPONSE PARSING -- (this should only be relevant once every day, during Listening sections. These variables start empty and are emptied again at the end of a Day during BedBehavior.)
 

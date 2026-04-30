@@ -34,6 +34,8 @@ public class MirrorTransitionBehavior : MonoBehaviour
         {
             if (waitTime <= 0)
             {
+                //set the mirrorInteracted bool in gameManger to true, so that the Mirror's outline will change to white until next day
+                gameManager.mirrorInteracted = true;
                 SceneManager.LoadScene(sceneName);
             }
             else

@@ -141,6 +141,8 @@ public class BedBehavior : MonoBehaviour
         transitionAnimator.Play("TransitionOutOfScene");
         //flip waitintToTransition on so that the timer can start
         waitingToTransition = true;
+        //flip mirrorInteracted to false to prep for next day
+        gameManager.mirrorInteracted = false;
     }
     /*handles loading the next scene. Generally this means loading the scene named in nextDayScene.
      * On Day 9, this will conditionally load an Ending if the current extremism exceeds thresholds */
