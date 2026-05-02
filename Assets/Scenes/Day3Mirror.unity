@@ -229,7 +229,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -271,7 +271,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1453579259}
-  - {fileID: 841769425}
+  - {fileID: 1401970131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -501,7 +501,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &841769424
+--- !u!1001 &1401970130
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -523,7 +523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110579737718860240, guid: 4b5a9810877dd064eb3e806cdc7e0b14, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1110579737718860240, guid: 4b5a9810877dd064eb3e806cdc7e0b14, type: 3}
       propertyPath: m_AnchorMin.x
@@ -531,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110579737718860240, guid: 4b5a9810877dd064eb3e806cdc7e0b14, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1110579737718860240, guid: 4b5a9810877dd064eb3e806cdc7e0b14, type: 3}
       propertyPath: m_SizeDelta.x
@@ -571,11 +571,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110579737718860240, guid: 4b5a9810877dd064eb3e806cdc7e0b14, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.6325073
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1110579737718860240, guid: 4b5a9810877dd064eb3e806cdc7e0b14, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -228.8931
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1110579737718860240, guid: 4b5a9810877dd064eb3e806cdc7e0b14, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -598,10 +598,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b5a9810877dd064eb3e806cdc7e0b14, type: 3}
---- !u!224 &841769425 stripped
+--- !u!224 &1401970131 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1110579737718860240, guid: 4b5a9810877dd064eb3e806cdc7e0b14, type: 3}
-  m_PrefabInstance: {fileID: 841769424}
+  m_PrefabInstance: {fileID: 1401970130}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1453579258
 PrefabInstance:
@@ -858,6 +858,8 @@ MonoBehaviour:
   - I love spending time with my baby.
   - I love my baby unconditionally.
   dialoguesIndex: 0
+  baseTypeDelay: 0
+  maxPercentVariation: 0.25
 --- !u!1001 &1720325808
 PrefabInstance:
   m_ObjectHideFlags: 0
